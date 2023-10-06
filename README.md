@@ -1,21 +1,22 @@
 This repository contains example 3D scenes created with [Polygonjs](https://polygonjs.com), showcasing how using BVH, developed by [Garrett Johnson](https://github.com/gkjohnson), speeds up many operations.
 
-<div align="center">
-  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_lightning/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_fps_controls/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_multiple_rays/poster.png?raw=true" /></a>
+<div style="display:flex; gap: 0.25rem;">
+  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_lightning/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_fps_controls/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_multiple_rays/poster.png?raw=true" /></a>
 </div>
-<div align="center">
-  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_sdf/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_softbody/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_delete_inside_object/poster.png?raw=true" /></a>
+<div style="display:flex; gap: 0.25rem;">
+  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_sdf/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_softbody/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_delete_inside_object/poster.png?raw=true" /></a>
 </div>
 
 You can open every scene in the node-based editor (no coding required!):
 
-<div align="center">
-  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/images/editor.png?raw=true" /></a>
+<div>
+  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/images/editor.jpg?raw=true" /></a>
 </div>
+
 
 
 The scenes in this repository can also be accessed online:
@@ -28,7 +29,8 @@ The scenes in this repository can also be accessed online:
 - 6. Heightfield: https://polygonjs.com/gui/bvh_demo_heightfield/edit
 - 7. Softbody: https://polygonjs.com/gui/bvh_demo_softbody/edit
 - 8. Boolean: https://polygonjs.com/gui/bvh_demo_boolean/edit
-- 9. Raymarching SDF: https://polygonjs.com/gui/bvh_demo_sdf/edit
+- 9. Pathtracing: https://polygonjs.com/gui/bvh_demo_pathtracing/edit
+- 10. Raymarching SDF: https://polygonjs.com/gui/bvh_demo_sdf/edit
 
 
 # Open Polygonjs Editor
