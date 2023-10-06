@@ -11,6 +11,13 @@ This repository contains example 3D scenes created with [Polygonjs](https://poly
   <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width="256" src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_delete_inside_object/poster.png?raw=true" /></a>
 </div>
 
+You can open every scene in the node-based editor (no coding required!):
+
+<div align="center">
+  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/images/editor.png?raw=true" /></a>
+</div>
+
+
 The scenes in this repository can also be accessed online:
 
 - 1. Lightning: https://polygonjs.com/gui/bvh_demo_lightning/edit
