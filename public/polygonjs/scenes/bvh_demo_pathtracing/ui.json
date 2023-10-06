@@ -134,7 +134,6 @@
 		},
 		"geo1": {
 			"pos": [50, -350],
-			"selection": ["transform3"],
 			"nodes": {
 				"fileGLTF1": {
 					"pos": [-50, 1450]
