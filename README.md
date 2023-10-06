@@ -1,14 +1,14 @@
 This repository contains example 3D scenes created with [Polygonjs](https://polygonjs.com), showcasing how using BVH, developed by [Garrett Johnson](https://github.com/gkjohnson), speeds up many operations.
 
-<div style="display:flex; gap: 0.25rem;">
-  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_lightning/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_fps_controls/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_multiple_rays/poster.png?raw=true" /></a>
+<div align=center>
+  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img width='33%' src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_lightning/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width='33%' src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_fps_controls/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width='33%' src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_multiple_rays/poster.png?raw=true" /></a>
 </div>
-<div style="display:flex; gap: 0.25rem;">
-  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_sdf/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_softbody/poster.png?raw=true" /></a>
-  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_delete_inside_object/poster.png?raw=true" /></a>
+<div align=center>
+  <a href="https://github.com/polygonjs/plugin-mapbox" target="_blank"><img width='33%' src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_sdf/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width='33%' src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_softbody/poster.png?raw=true" /></a>
+  <a href="https://github.com/polygonjs/plugin-occlusion" target="_blank"><img width='33%' src="https://github.com/polygonjs/bvh_demos/blob/main/public/polygonjs/screenshots/scenes/bvh_demo_delete_inside_object/poster.png?raw=true" /></a>
 </div>
 
 You can open every scene in the node-based editor (no coding required!):
