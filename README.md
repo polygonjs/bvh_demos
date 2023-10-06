@@ -13,15 +13,15 @@ This repository contains example 3D scenes created with [Polygonjs](https://poly
 
 The scenes in this repository can also be accessed online:
 
-1- Lightning: https://polygonjs.com/gui/bvh_demo_lightning/edit
-2- Highlighling large objects: https://polygonjs.com/gui/bvh_demo_highlight_large_objects/edit
-3- Sending multiple rays: https://polygonjs.com/gui/bvh_demo_multiple_rays/edit
-4- First person controls: https://polygonjs.com/gui/bvh_demo_fps_controls/edit
-5- Create points inside an object: https://polygonjs.com/gui/bvh_demo_delete_inside_object/edit
-6- Heightfield: https://polygonjs.com/gui/bvh_demo_heightfield/edit
-7- Softbody: https://polygonjs.com/gui/bvh_demo_softbody/edit
-8- Boolean: https://polygonjs.com/gui/bvh_demo_boolean/edit
-9- Raymarching SDF: https://polygonjs.com/gui/bvh_demo_sdf/edit
+- 1. Lightning: https://polygonjs.com/gui/bvh_demo_lightning/edit
+- 2. Highlighling large objects: https://polygonjs.com/gui/bvh_demo_highlight_large_objects/edit
+- 3. Sending multiple rays: https://polygonjs.com/gui/bvh_demo_multiple_rays/edit
+- 4. First person controls: https://polygonjs.com/gui/bvh_demo_fps_controls/edit
+- 5. Create points inside an object: https://polygonjs.com/gui/bvh_demo_delete_inside_object/edit
+- 6. Heightfield: https://polygonjs.com/gui/bvh_demo_heightfield/edit
+- 7. Softbody: https://polygonjs.com/gui/bvh_demo_softbody/edit
+- 8. Boolean: https://polygonjs.com/gui/bvh_demo_boolean/edit
+- 9. Raymarching SDF: https://polygonjs.com/gui/bvh_demo_sdf/edit
 
 
 # Open Polygonjs Editor
