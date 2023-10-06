@@ -38,7 +38,7 @@
 		"fuse1": {
 			"type": "fuse",
 			"params": {
-				"dist": 0.163
+				"dist": 0.121
 			},
 			"inputs": ["transform3"]
 		},
@@ -51,6 +51,9 @@
 		},
 		"tetTriangulate1": {
 			"type": "tetTriangulate",
+			"params": {
+				"scale": 0.98
+			},
 			"inputs": ["tetrahedralize1"]
 		},
 		"transform3": {

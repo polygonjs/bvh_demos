@@ -101,8 +101,7 @@
 						"editable": false,
 						"computeOnDirty": true,
 						"dependentOnFoundParam": false
-					},
-					"overriden_options": {}
+					}
 				},
 				"blend": {
 					"type": "float",
@@ -112,8 +111,7 @@
 						"editable": false,
 						"computeOnDirty": true,
 						"dependentOnFoundParam": false
-					},
-					"overriden_options": {}
+					}
 				}
 			},
 			"inputs": [
@@ -252,7 +250,6 @@
 					"stencilFail": 7680,
 					"stencilZFail": 7680,
 					"stencilZPass": 7680,
-					"forceSinglePass": true,
 					"depthPacking": 3201
 				},
 				"onBeforeCompileDataJSONWithoutShaders": {

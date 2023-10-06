@@ -6,11 +6,11 @@ const manifest = {
     COP: "1696602550547",
     env: "1696602550547",
     "env/MAT": "1696602550547",
-    "env/MAT/meshStandardBuilder1": "1696602550547",
+    "env/MAT/meshStandardBuilder1": "1696628592248",
     cameras: "1696602550547",
-    "cameras/cameraControls1": "1696602550547",
+    "cameras/cameraControls1": "1696628592248",
     lights: "1696602550547",
-    geo1: "1696602626402",
+    geo1: "1696628592248",
     "geo1/tetSoftBodySolver1": "1696602550547",
     "geo1/actor_softBody1": "1696602550547",
     "geo1/MAT": "1696602550547",
@@ -28,7 +28,7 @@ const manifest = {
     },
   },
   jsFunctionBodies: {
-    "/geo1/tetSoftBodySolver1": "1696602626402",
+    "/geo1/tetSoftBodySolver1": "1696628592248",
     "/geo1/actor_softBody1": "1696602550547",
   },
 };
