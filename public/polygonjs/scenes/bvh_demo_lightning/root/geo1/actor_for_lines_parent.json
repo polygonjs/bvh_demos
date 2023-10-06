@@ -1,0 +1,325 @@
+{
+	"type": "actor",
+	"nodes": {
+		"rayFromCursor1": {
+			"type": "rayFromCursor"
+		},
+		"rayIntersectObject1": {
+			"type": "rayIntersectObject",
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Ray",
+					"node": "rayFromCursor1",
+					"output": "Ray"
+				},
+				{
+					"index": 1,
+					"inputName": "Object3D",
+					"node": "getObject1",
+					"output": "Object3D"
+				}
+			]
+		},
+		"getObject1": {
+			"type": "getObject",
+			"params": {
+				"getCurrentObject": false,
+				"mask": "*/rhino"
+			},
+			"maxInputsCount": 2
+		},
+		"getIntersectionProperty1": {
+			"type": "getIntersectionProperty",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Intersection",
+					"node": "rayIntersectObject1",
+					"output": "Intersection"
+				}
+			]
+		},
+		"setObjectAttribute1": {
+			"type": "setObjectAttribute",
+			"params": {
+				"type": 6,
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"lerp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.18
+				},
+				"val": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 5,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "triggerFilter1",
+					"output": "trigger"
+				},
+				null,
+				{
+					"index": 2,
+					"inputName": "attribName",
+					"node": "constant2",
+					"output": "val"
+				},
+				null,
+				{
+					"index": 4,
+					"inputName": "val",
+					"node": "getIntersectionProperty1",
+					"output": "point"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "lerp",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant2": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"string": "rayHit"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "string",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"onTick1": {
+			"type": "onTick"
+		},
+		"triggerFilter1": {
+			"type": "triggerFilter",
+			"params": {
+				"condition": {
+					"overriden_options": {}
+				}
+			},
+			"maxInputsCount": 2,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				},
+				{
+					"index": 1,
+					"inputName": "condition",
+					"node": "compare1",
+					"output": "val"
+				}
+			]
+		},
+		"length1": {
+			"type": "length",
+			"params": {
+				"v": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "v",
+					"node": "getIntersectionProperty1",
+					"output": "point"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "v",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"compare1": {
+			"type": "compare",
+			"params": {
+				"test": 2,
+				"value0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"value1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.02
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value0",
+					"node": "length1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "value1",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "boolean",
+						"isArray": false
+					}
+				]
+			}
+		}
+	},
+	"inputs": ["objectProperties4"],
+	"persisted_config": {
+		"variableNames": ["VAR__getIntersectionProperty1_", "VAR__length1_v", "VAR__setObjectAttribute1_val"],
+		"variables": [
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			}
+		],
+		"functionNames": [
+			"globalsRayFromCursor",
+			"getObject",
+			"rayIntersectObject3D",
+			"getIntersectionPropertyPoint",
+			"lengthVector",
+			"globalsTime",
+			"globalsTimeDelta",
+			"setObjectAttribute"
+		],
+		"serializedParamConfigs": [],
+		"eventDatas": [
+			{
+				"type": "pointermove",
+				"emitter": "canvas",
+				"jsType": "rayFromCursor"
+			},
+			{
+				"type": "touchmove",
+				"emitter": "canvas",
+				"jsType": "rayFromCursor"
+			}
+		]
+	}
+}

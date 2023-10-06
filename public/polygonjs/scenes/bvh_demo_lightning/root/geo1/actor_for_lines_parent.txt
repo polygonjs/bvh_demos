@@ -1,0 +1,69 @@
+// insert defines
+class CustomActorEvaluator extends ActorEvaluator {
+	// insert members
+
+	// /geo1/actor_for_lines_parent/rayFromCursor1
+	v_POLY_rayFromCursor1_Ray = computed(() => globalsRayFromCursor());
+
+	// /geo1/actor_for_lines_parent/getObject1
+	v_POLY_getObject1_Object3D = computed(() => getObject(this.object3D, false, "*/rhino"));
+
+	// /geo1/actor_for_lines_parent/rayIntersectObject1
+	v_POLY_rayIntersectObject1_Intersection = computed(() =>
+		rayIntersectObject3D(this.v_POLY_rayFromCursor1_Ray.value, this.v_POLY_getObject1_Object3D.value, false)
+	);
+
+	// /geo1/actor_for_lines_parent/getIntersectionProperty1
+	v_POLY_getIntersectionProperty1_point = computed(() =>
+		getIntersectionPropertyPoint(this.v_POLY_rayIntersectObject1_Intersection.value, VAR__getIntersectionProperty1_)
+	);
+
+	// /geo1/actor_for_lines_parent/length1
+	v_POLY_length1_val = computed(() =>
+		lengthVector(VAR__length1_v.copy(this.v_POLY_getIntersectionProperty1_point.value))
+	);
+
+	// /geo1/actor_for_lines_parent/compare1
+	v_POLY_compare1_val = computed(() => this.v_POLY_length1_val.value > 0.02);
+
+	// /geo1/actor_for_lines_parent/onTick1
+	v_POLY_onTick1_time = computed(() => globalsTime());
+	v_POLY_onTick1_delta = computed(() => globalsTimeDelta());
+
+	// /geo1/actor_for_lines_parent/constant2
+	v_POLY_constant2_val = { value: "rayHit" };
+
+	constructor(node, object3D) {
+		super(node, object3D);
+		// insert after constructor
+	}
+	// insert body
+
+	onTick() {
+		this.onTick1();
+	}
+	// /geo1/actor_for_lines_parent/onTick1
+	onTick1() {
+		this.triggerFilter1(0);
+	}
+
+	// /geo1/actor_for_lines_parent/triggerFilter1
+	triggerFilter1() {
+		if (this.v_POLY_compare1_val.value == false) {
+			return;
+		}
+		this.setObjectAttribute1(0);
+	}
+
+	// /geo1/actor_for_lines_parent/setObjectAttribute1
+	setObjectAttribute1() {
+		setObjectAttribute(
+			this.object3D,
+			this.v_POLY_constant2_val.value,
+			0.18,
+			VAR__setObjectAttribute1_val.copy(this.v_POLY_getIntersectionProperty1_point.value),
+			"Vector3"
+		);
+	}
+}
+return CustomActorEvaluator;

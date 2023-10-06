@@ -1,0 +1,18 @@
+{
+	"type": "cameraControls",
+	"nodes": {
+		"cameraOrbitControls1": {
+			"type": "cameraOrbitControls",
+			"params": {
+				"target": [0.06664668361262224, 0.6207376872757271, -0.06218401494000273]
+			}
+		}
+	},
+	"params": {
+		"node": "cameraOrbitControls1"
+	},
+	"inputs": ["perspectiveCamera1"],
+	"flags": {
+		"display": true
+	}
+}

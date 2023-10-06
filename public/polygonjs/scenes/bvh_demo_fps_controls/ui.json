@@ -1,0 +1,402 @@
+{
+	"nodes": {
+		"COP": {
+			"pos": [-200, 0],
+			"selection": ["image1"],
+			"nodes": {
+				"envMap": {
+					"pos": [50, 250]
+				},
+				"imageEnv": {
+					"pos": [50, 100]
+				},
+				"image1": {
+					"pos": [-200, 100]
+				}
+			}
+		},
+		"lights": {
+			"pos": [50, -200],
+			"selection": ["spotLight1"],
+			"nodes": {
+				"hemisphereLight1": {
+					"pos": [0, -100]
+				},
+				"spotLight1": {
+					"pos": [250, -100]
+				},
+				"polarTransform1": {
+					"pos": [250, 100]
+				},
+				"merge1": {
+					"pos": [50, 250]
+				}
+			}
+		},
+		"cameras": {
+			"pos": [50, -100],
+			"nodes": {
+				"perspectiveCamera1": {
+					"pos": [0, -50]
+				},
+				"perspectiveCamera_FPS": {
+					"pos": [300, -50]
+				},
+				"merge1": {
+					"pos": [150, 350]
+				},
+				"cameraControls1": {
+					"pos": [0, 150],
+					"selection": ["cameraOrbitControls1"],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [0, 0]
+						}
+					}
+				},
+				"cameraControls2": {
+					"pos": [300, 150],
+					"nodes": {
+						"firstPersonControls1": {
+							"pos": [-50, 50]
+						}
+					}
+				}
+			}
+		},
+		"level": {
+			"pos": [50, -300],
+			"nodes": {
+				"fileGLTF1": {
+					"pos": [-950, -200]
+				},
+				"hierarchy2": {
+					"pos": [-950, -50]
+				},
+				"material1": {
+					"pos": [-950, 100]
+				},
+				"objectProperties1": {
+					"pos": [-950, 250]
+				},
+				"fileGLTF2": {
+					"pos": [-350, -200]
+				},
+				"hierarchy3": {
+					"pos": [-350, -50]
+				},
+				"material2": {
+					"pos": [-350, 100]
+				},
+				"objectProperties2": {
+					"pos": [-350, 250]
+				},
+				"fileGLTF3": {
+					"pos": [-50, -200]
+				},
+				"hierarchy4": {
+					"pos": [-50, -50]
+				},
+				"material3": {
+					"pos": [-50, 100]
+				},
+				"objectProperties3": {
+					"pos": [-50, 250]
+				},
+				"fileGLTF4": {
+					"pos": [250, -300]
+				},
+				"hierarchy5": {
+					"pos": [250, -150]
+				},
+				"material4": {
+					"pos": [250, 0]
+				},
+				"objectProperties4": {
+					"pos": [250, 150]
+				},
+				"fileGLTF5": {
+					"pos": [550, -300]
+				},
+				"hierarchy6": {
+					"pos": [550, -150]
+				},
+				"material5": {
+					"pos": [550, 0]
+				},
+				"objectProperties5": {
+					"pos": [550, 150]
+				},
+				"merge2": {
+					"pos": [50, 700]
+				},
+				"WFCTileSideName1": {
+					"pos": [-950, 350]
+				},
+				"WFCTileSideName2": {
+					"pos": [-350, 350]
+				},
+				"WFCTileSideName3": {
+					"pos": [-50, 350]
+				},
+				"WFCTileSideName4": {
+					"pos": [250, 250]
+				},
+				"WFCTileSideName5": {
+					"pos": [250, 350]
+				},
+				"WFCTileSideName6": {
+					"pos": [550, 350]
+				},
+				"WFCTileSideName7": {
+					"pos": [550, 250]
+				},
+				"WFCTileSideName8": {
+					"pos": [-950, 450]
+				},
+				"WFCTileSideName9": {
+					"pos": [-50, 450]
+				},
+				"WFCTileSideName10": {
+					"pos": [250, 450]
+				},
+				"WFCTileSideName11": {
+					"pos": [550, 450]
+				},
+				"WFCTileSideName12": {
+					"pos": [-350, 450]
+				},
+				"fileGLTF6": {
+					"pos": [-650, -200]
+				},
+				"hierarchy7": {
+					"pos": [-650, -50]
+				},
+				"material6": {
+					"pos": [-650, 100]
+				},
+				"objectProperties6": {
+					"pos": [-650, 250]
+				},
+				"WFCTileSideName13": {
+					"pos": [-650, 350]
+				},
+				"WFCTileSideName14": {
+					"pos": [-650, 450]
+				},
+				"WFCTileProperties1": {
+					"pos": [50, 800]
+				},
+				"attribCreate2": {
+					"pos": [-900, 1750]
+				},
+				"attribCreate3": {
+					"pos": [-900, 1400]
+				},
+				"copy2": {
+					"pos": [-900, 1600]
+				},
+				"attribPromote1": {
+					"pos": [-900, 1900]
+				},
+				"merge4": {
+					"pos": [-900, 2050]
+				},
+				"hexagons1": {
+					"pos": [-700, 900]
+				},
+				"quadrangulate1": {
+					"pos": [-700, 1050]
+				},
+				"quadSmooth1": {
+					"pos": [-700, 1200]
+				},
+				"quadTriangulate1": {
+					"pos": [-1100, 2450]
+				},
+				"WFCSolver1": {
+					"pos": [-700, 2450]
+				},
+				"merge3": {
+					"pos": [-950, 3000]
+				},
+				"merge5": {
+					"pos": [-700, 2650]
+				},
+				"objectProperties7": {
+					"pos": [-700, 2750]
+				},
+				"quadPlane_10x10": {
+					"pos": [-850, 1100]
+				},
+				"quadPlane_2x2": {
+					"pos": [-1950, 1100]
+				},
+				"WFCRuleTileWeight1": {
+					"pos": [-450, 1900]
+				},
+				"WFCRuleConnectionFromSideName1": {
+					"pos": [50, 1150]
+				},
+				"WFCRuleConnectionToGridBorder1": {
+					"pos": [50, 1450]
+				},
+				"WFCTileUnresolvedObject1": {
+					"pos": [-450, 2250]
+				},
+				"WFCTileErrorObject1": {
+					"pos": [-450, 2100]
+				},
+				"sphere1": {
+					"pos": [-250, 2150]
+				},
+				"WFCDebug2": {
+					"pos": [-250, 2400]
+				},
+				"emptyObject1": {
+					"pos": [-250, 2000]
+				},
+				"quadPlane_3x3": {
+					"pos": [-1750, 1100]
+				},
+				"WFCTileEmptyObject1": {
+					"pos": [350, 850]
+				},
+				"merge1": {
+					"pos": [50, 1000]
+				},
+				"emptyObject2": {
+					"pos": [350, 700]
+				},
+				"WFCDebug3": {
+					"pos": [-300, 2550]
+				},
+				"plane1": {
+					"pos": [-1400, 2050]
+				},
+				"transform1": {
+					"pos": [-1400, 2250]
+				},
+				"WFCBuilder1": {
+					"pos": [-500, 2800]
+				},
+				"quadPlane_4x3": {
+					"pos": [-1550, 1100]
+				},
+				"quadPlane_4x4": {
+					"pos": [-1300, 1100]
+				},
+				"quadPlane_5x5": {
+					"pos": [-1100, 1100]
+				},
+				"attribCreate1": {
+					"pos": [-900, 2200]
+				},
+				"attribCreate4": {
+					"pos": [-900, 2300]
+				},
+				"WFCDebug4": {
+					"pos": [300, 1350]
+				},
+				"merge6": {
+					"pos": [-250, 800]
+				},
+				"quadPlane_2x1": {
+					"pos": [-2150, 1100]
+				},
+				"fileGLTF7": {
+					"pos": [-1350, -200]
+				},
+				"WFCTileErrorObject2": {
+					"pos": [0, 2150]
+				},
+				"WFCTileUnresolvedObject2": {
+					"pos": [0, 2300]
+				},
+				"WFCTileEmptyObject2": {
+					"pos": [0, 2450]
+				},
+				"merge7": {
+					"pos": [-500, 3000]
+				},
+				"BVH1": {
+					"pos": [-500, 3250]
+				},
+				"BVHVisualizer1": {
+					"pos": [-550, 3400]
+				},
+				"transform2": {
+					"pos": [-500, 3150]
+				},
+				"MAT": {
+					"pos": [-1600, 650],
+					"nodes": {
+						"meshStandard1": {
+							"pos": [-300, -50]
+						}
+					}
+				}
+			}
+		},
+		"env": {
+			"pos": [50, -400],
+			"nodes": {
+				"material1": {
+					"pos": [0, 300]
+				},
+				"box1": {
+					"pos": [0, 100]
+				},
+				"sphere1": {
+					"pos": [300, 100]
+				},
+				"material2": {
+					"pos": [300, 350]
+				},
+				"merge1": {
+					"pos": [100, 550]
+				},
+				"transform1": {
+					"pos": [300, 200]
+				},
+				"MAT": {
+					"pos": [-200, 300],
+					"nodes": {
+						"sky1": {
+							"pos": [0, 400]
+						},
+						"meshStandardBuilder1": {
+							"pos": [0, 200],
+							"nodes": {
+								"globals1": {
+									"pos": [-450, 0]
+								},
+								"output1": {
+									"pos": [400, 0]
+								},
+								"vec3ToFloat1": {
+									"pos": [-200, 200]
+								},
+								"floatToVec2_1": {
+									"pos": [-100, 200]
+								},
+								"checkers1": {
+									"pos": [50, 200]
+								},
+								"mix1": {
+									"pos": [250, 0]
+								},
+								"constant1": {
+									"pos": [50, -150]
+								},
+								"constant2": {
+									"pos": [0, 0]
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"type": "copNetwork",
+	"nodes": {
+		"envMap": {
+			"type": "envMap",
+			"inputs": ["imageEnv"]
+		},
+		"imageEnv": {
+			"type": "imageEXR",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/textures/piz_compressed.exr"
+			}
+		}
+	}
+}

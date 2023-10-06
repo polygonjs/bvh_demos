@@ -1,0 +1,35 @@
+// insert defines
+// insert members
+// insert after constructor
+const CustomPointBuilderEvaluator = function () {
+	// insert body
+
+	// /geo1/pointBuilder1/globals1
+	v_POLY_globals1_position.copy(pointContainer.position);
+
+	// /geo1/pointBuilder1/length1
+	const v_POLY_length1_val = lengthVector(VAR__length1_v.copy(v_POLY_globals1_position));
+
+	// /geo1/pointBuilder1/multAdd1
+	const v_POLY_multAdd1_val = mathFloat_4(multAdd, v_POLY_length1_val, 0.0, 4.0, 6.8);
+
+	// /geo1/pointBuilder1/sin1
+	const v_POLY_sin1_sin = mathFloat_1(Math.sin, v_POLY_multAdd1_val);
+
+	// /geo1/pointBuilder1/multAdd2
+	const v_POLY_multAdd2_val = mathFloat_4(multAdd, v_POLY_sin1_sin, 0.0, 0.21, 0.0);
+
+	// /geo1/pointBuilder1/floatToVec3_1
+	const v_POLY_floatToVec3_1_vec3 = floatToVec3(0.0, v_POLY_multAdd2_val, 0.0, VAR__floatToVec3_1_);
+
+	// /geo1/pointBuilder1/add1
+	const v_POLY_add1_sum = addVector(
+		VAR__add1_add0.copy(v_POLY_globals1_position),
+		VAR__add1_add1.copy(v_POLY_floatToVec3_1_vec3),
+		VAR__add1_add2.set(0, 0, 0)
+	);
+
+	// /geo1/pointBuilder1/output1
+	pointContainer.position.copy(v_POLY_add1_sum);
+};
+return CustomPointBuilderEvaluator;

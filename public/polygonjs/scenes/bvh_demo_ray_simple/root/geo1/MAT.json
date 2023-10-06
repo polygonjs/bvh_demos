@@ -1,0 +1,22 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"meshStandard_STATUE": {
+			"type": "meshStandard",
+			"params": {
+				"useEnvMap": true,
+				"envMap": "../../../COP/envMap"
+			}
+		},
+		"meshStandard_PLANE": {
+			"type": "meshStandard",
+			"params": {
+				"useMap": true,
+				"map": "../../../COP/image1",
+				"useEnvMap": true,
+				"envMap": "../../../COP/envMap",
+				"doubleSided": true
+			}
+		}
+	}
+}

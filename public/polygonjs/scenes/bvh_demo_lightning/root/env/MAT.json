@@ -1,0 +1,11 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"sky1": {
+			"type": "sky",
+			"params": {
+				"azimuth": 0.07
+			}
+		}
+	}
+}

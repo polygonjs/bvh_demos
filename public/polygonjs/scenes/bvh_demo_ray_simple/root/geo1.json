@@ -1,0 +1,194 @@
+{
+	"type": "geo",
+	"nodes": {
+		"fileGLTF1": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "models/zenobia_in_chains.glb?timestamp=1696599605947"
+			}
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"group": "*",
+				"material": "../MAT/meshStandard_STATUE"
+			},
+			"inputs": ["hierarchy1"]
+		},
+		"plane1": {
+			"type": "plane",
+			"params": {
+				"size": [0.17, 0.17],
+				"useSegmentsCount": true,
+				"stepSize": 0.12094,
+				"segments": [20, 20],
+				"direction": [0, 0, -1]
+			}
+		},
+		"ray1": {
+			"type": "ray",
+			"inputs": ["material2", "BVH1"]
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": ["peak1", "BVH1"],
+			"flags": {
+				"display": true
+			},
+			"cloned_state_overriden": true
+		},
+		"BVH1": {
+			"type": "BVH",
+			"inputs": ["material1"]
+		},
+		"BVHVisualizer1": {
+			"type": "BVHVisualizer",
+			"params": {
+				"depth": 8,
+				"opacity": 0.12
+			},
+			"inputs": ["BVH1"]
+		},
+		"hierarchy1": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF1"]
+		},
+		"material2": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard_PLANE"
+			},
+			"inputs": ["polarTransform1"]
+		},
+		"polarTransform1": {
+			"type": "polarTransform",
+			"params": {
+				"applyOn": 0,
+				"center": [-0.07819027175048886, 0.5999327272272477, -0.06677609935794265],
+				"longitude": -194.4,
+				"depth": 0.6
+			},
+			"inputs": ["plane1"]
+		},
+		"peak1": {
+			"type": "peak",
+			"params": {
+				"amount": 0.007
+			},
+			"inputs": ["ray1"]
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

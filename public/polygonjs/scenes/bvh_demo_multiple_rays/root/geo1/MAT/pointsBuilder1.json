@@ -1,0 +1,1147 @@
+{
+	"type": "pointsBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"disk1": {
+			"type": "disk",
+			"params": {
+				"position": {
+					"overriden_options": {}
+				},
+				"center": {
+					"raw_input": [0.5, 0.5],
+					"overriden_options": {}
+				},
+				"radius": {
+					"raw_input": 0.2,
+					"overriden_options": {}
+				},
+				"feather": {
+					"raw_input": 0.24,
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "position",
+					"node": "globals1",
+					"output": "gl_PointCoord"
+				}
+			]
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"float": 0.03
+			},
+			"maxInputsCount": 0,
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 6
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "globals1",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"attribute1": {
+			"type": "attribute",
+			"params": {
+				"name": "id"
+			},
+			"maxInputsCount": 0,
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"round1": {
+			"type": "round",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in",
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"random1": {
+			"type": "random",
+			"params": {
+				"seed": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "seed",
+					"node": "floatToVec2_1",
+					"output": "vec2"
+				}
+			]
+		},
+		"floatToVec2_1": {
+			"type": "floatToVec2",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"raw_input": 0.54,
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "x",
+					"node": "round1",
+					"output": "val"
+				}
+			]
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "multAdd5",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "preAdd",
+					"node": "multAdd1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"cos1": {
+			"type": "cos",
+			"params": {
+				"radians": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "radians",
+					"node": "multAdd2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "radians",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd3": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "cos1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"fit1": {
+			"type": "fit",
+			"params": {
+				"val": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"srcMin": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": -1
+				},
+				"srcMax": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"destMin": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.22
+				},
+				"destMax": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "val",
+					"node": "cos1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "val",
+						"type": "float"
+					},
+					{
+						"name": "srcMin",
+						"type": "float"
+					},
+					{
+						"name": "srcMax",
+						"type": "float"
+					},
+					{
+						"name": "destMin",
+						"type": "float"
+					},
+					{
+						"name": "destMax",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd4": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "fit1",
+					"output": "val"
+				},
+				null,
+				{
+					"index": 2,
+					"inputName": "mult",
+					"node": "constant1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd5": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 4.4
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "random1",
+					"output": "rand"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd6": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.95
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "disk1",
+					"output": "float"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"inputName": "color",
+					"node": "multScalar1",
+					"output": "val"
+				},
+				{
+					"index": 3,
+					"inputName": "alpha",
+					"node": "multAdd6",
+					"output": "val"
+				},
+				null,
+				{
+					"index": 5,
+					"inputName": "gl_PointSize",
+					"node": "multAdd4",
+					"output": "val"
+				}
+			]
+		},
+		"laserColor1": {
+			"type": "laserColor",
+			"polyNode": {
+				"locked": true
+			},
+			"params": {
+				"baseColor": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"connection_points": {
+				"in": [
+					{
+						"name": "baseColor",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "baseColor",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multScalar1": {
+			"type": "multScalar",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 4
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "laserColor1",
+					"output": "baseColor"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"transparent": true,
+		"alphaTest": 0.07
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/geo1/MAT/pointsBuilder1-main",
+			"type": "PointsMaterial",
+			"color": 16777215,
+			"size": 1,
+			"sizeAttenuation": true,
+			"transparent": true,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"alphaTest": 0.07,
+			"fog": false
+		},
+		"onBeforeCompileDataJSONWithoutShaders": {
+			"paramConfigs": [],
+			"timeDependent": true,
+			"resolutionDependent": false,
+			"raymarchingLightsWorldCoordsDependent": false
+		},
+		"customMaterials": {
+			"customDistanceMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/pointsBuilder1-customDistanceMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDistanceMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"alphaTest": 0.07,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0.07
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						},
+						"size": {
+							"value": 1
+						},
+						"scale": {
+							"value": 1
+						}
+					},
+					"defines": {
+						"USE_SIZEATTENUATION": 1,
+						"DEPTH_PACKING": 3200
+					},
+					"vertexShader": "\nuniform float size;\nuniform float scale;\n#include <common>\n#include <clipping_planes_pars_vertex>\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n// vHighPrecisionZW is added to match CustomMeshDepth.frag\n// which is itself taken from threejs\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n\t#ifdef USE_SIZEATTENUATION\n\t\tbool isPerspective = ( projectionMatrix[ 2 ][ 3 ] == - 1.0 );\n\t\tif ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );\n\t#endif\n\n\tvHighPrecisionZW = gl_Position.zw;\n\n}\n",
+					"fragmentShader": "\n// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\t// INSERT BODY\n\t// the new body lines should be added before the alphatest_fragment\n\t// so that alpha is set before (which is really how it would be set if the alphamap_fragment above was used by the material node parameters)\n\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), diffuseColor.a );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDepthMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/pointsBuilder1-customDepthMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDepthMaterial",
+					"side": 1,
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"alphaTest": 0.07,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0.07
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						},
+						"size": {
+							"value": 1
+						},
+						"scale": {
+							"value": 1
+						},
+						"time": {
+							"value": 22.32480000000071
+						}
+					},
+					"defines": {
+						"USE_SIZEATTENUATION": 1,
+						"DEPTH_PACKING": 3201
+					},
+					"vertexShader": "\nuniform float size;\nuniform float scale;\n#include <common>\n#include <clipping_planes_pars_vertex>\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/pointsBuilder1/fit1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n\n\n\n\n\n\n// /geo1/MAT/pointsBuilder1/globals1\nuniform float time;\n\n// /geo1/MAT/pointsBuilder1/laserColor1/attribute1\nvarying float v_POLY_attribute_id;\n\n// /geo1/MAT/pointsBuilder1/attribute1\nattribute float id;\n\n\n\n\n\n\n// vHighPrecisionZW is added to match CustomMeshDepth.frag\n// which is itself taken from threejs\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/pointsBuilder1/attribute1\n\tfloat v_POLY_attribute1_val = id;\n\t\n\t// /geo1/MAT/pointsBuilder1/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/pointsBuilder1/constant1\n\tfloat v_POLY_constant1_val = 0.03;\n\t\n\t// /geo1/MAT/pointsBuilder1/laserColor1\n\tfloat v_POLY_laserColor1_attribute1_val = id;\n\tv_POLY_attribute_id = float(id);\n\t\n\t// /geo1/MAT/pointsBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_attribute1_val)*floor(abs(v_POLY_attribute1_val)+0.5);\n\t\n\t// /geo1/MAT/pointsBuilder1/multAdd1\n\tfloat v_POLY_multAdd1_val = (6.0*(v_POLY_globals1_time + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/pointsBuilder1/floatToVec2_1\n\tvec2 v_POLY_floatToVec2_1_vec2 = vec2(v_POLY_round1_val, 0.54);\n\t\n\t// /geo1/MAT/pointsBuilder1/random1\n\tfloat v_POLY_random1_rand = rand(v_POLY_floatToVec2_1_vec2);\n\t\n\t// /geo1/MAT/pointsBuilder1/multAdd5\n\tfloat v_POLY_multAdd5_val = (4.4*(v_POLY_random1_rand + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/pointsBuilder1/multAdd2\n\tfloat v_POLY_multAdd2_val = (1.0*(v_POLY_multAdd5_val + v_POLY_multAdd1_val)) + 0.0;\n\t\n\t// /geo1/MAT/pointsBuilder1/cos1\n\tfloat v_POLY_cos1_val = cos(v_POLY_multAdd2_val);\n\t\n\t// /geo1/MAT/pointsBuilder1/fit1\n\tfloat v_POLY_fit1_val = fit(v_POLY_cos1_val, -1.0, 1.0, 0.22, 1.0);\n\t\n\t// /geo1/MAT/pointsBuilder1/multAdd4\n\tfloat v_POLY_multAdd4_val = (v_POLY_constant1_val*(v_POLY_fit1_val + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/pointsBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\tgl_PointSize = v_POLY_multAdd4_val * size * 10.0;\n\n\n\n\n\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n\t#ifdef USE_SIZEATTENUATION\n\t\tbool isPerspective = ( projectionMatrix[ 2 ][ 3 ] == - 1.0 );\n\t\tif ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );\n\t#endif\n\n\tvHighPrecisionZW = gl_Position.zw;\n\n}\n",
+					"fragmentShader": "\n// INSERT DEFINES\n\n\n\n// /geo1/MAT/pointsBuilder1/laserColor1/rgbToOklab1\n//////////////////////////////////////////////////////////////////////\n//\n// Visualizing Björn Ottosson's \"oklab\" colorspace\n//\n// shadertoy implementation by mattz\n//\n// license CC0 (public domain)\n// https://creativecommons.org/share-your-work/public-domain/cc0/\n//\n// Click and drag to set lightness (mouse x) and chroma (mouse y).\n// Hue varies linearly across the image from left to right.\n//\n// While mouse is down, plotted curves show oklab components\n// L (red), a (green), and b (blue). \n//\n// To test the inverse mapping, the plotted curves are generated\n// by mapping the (pre-clipping) linear RGB color back to oklab \n// space.\n//\n// White bars on top of the image (and black bars on the bottom of\n// the image) indicate clipping when one or more of the R, G, B \n// components are greater than 1.0 (or less than 0.0 respectively).\n//\n// The color accompanying the black/white bar shows which channels\n// are out of gamut.\n//\n// Click in the bottom left to reset the view.\n//\n// Hit the 'G' key to toggle displaying a gamut test:\n//\n//   * black pixels indicate that RGB values for some hues\n//     were clipped to 0 at the given lightness/chroma pair.\n//\n//   * white pixels indicate that RGB values for some hues\n//     were clipped to 1 at the given lightness/chroma pair\n//\n//   * gray pixels indicate that both types of clipping happened\n//\n// Hit the 'U' key to display a uniform sampling of linear sRGB \n// space, converted into oklab lightness (x position) and chroma\n// (y position) coordinates. If you mouse over a colored dot, the\n// spectrum on screen should include that exact color.\n//\n//////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////\n// sRGB color transform and inverse from \n// https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F\n\nvec3 srgb_from_linear_srgb(vec3 x) {\n\n    vec3 xlo = 12.92*x;\n    vec3 xhi = 1.055 * pow(x, vec3(0.4166666666666667)) - 0.055;\n    \n    return mix(xlo, xhi, step(vec3(0.0031308), x));\n\n}\n\nvec3 linear_srgb_from_srgb(vec3 x) {\n\n    vec3 xlo = x / 12.92;\n    vec3 xhi = pow((x + 0.055)/(1.055), vec3(2.4));\n    \n    return mix(xlo, xhi, step(vec3(0.04045), x));\n\n}\n\n//////////////////////////////////////////////////////////////////////\n// oklab transform and inverse from\n// https://bottosson.github.io/posts/oklab/\n\n\nconst mat3 fwdA = mat3(1.0, 1.0, 1.0,\n                       0.3963377774, -0.1055613458, -0.0894841775,\n                       0.2158037573, -0.0638541728, -1.2914855480);\n                       \nconst mat3 fwdB = mat3(4.0767245293, -1.2681437731, -0.0041119885,\n                       -3.3072168827, 2.6093323231, -0.7034763098,\n                       0.2307590544, -0.3411344290,  1.7068625689);\n\nconst mat3 invB = mat3(0.4121656120, 0.2118591070, 0.0883097947,\n                       0.5362752080, 0.6807189584, 0.2818474174,\n                       0.0514575653, 0.1074065790, 0.6302613616);\n                       \nconst mat3 invA = mat3(0.2104542553, 1.9779984951, 0.0259040371,\n                       0.7936177850, -2.4285922050, 0.7827717662,\n                       -0.0040720468, 0.4505937099, -0.8086757660);\n\nvec3 oklab_from_linear_srgb(vec3 c) {\n\n    vec3 lms = invB * c;\n            \n    return invA * (sign(lms)*pow(abs(lms), vec3(0.3333333333333)));\n    \n}\n\nvec3 linear_srgb_from_oklab(vec3 c) {\n\n    vec3 lms = fwdA * c;\n    \n    return fwdB * (lms * lms * lms);\n    \n}\n\n\n// https://www.shadertoy.com/view/WtccD7\nconst float max_chroma = 0.33;\nvec3 uvToOklab(vec3 uvw){\n\n    // setup oklab color\n    float theta = 2.*3.141592653589793*uvw.x;\n    \n    float L = 0.8;\n    float chroma = 0.1;\n    \n    //if (max(iMouse.x, iMouse.y) > 0.05 * iResolution.y) {\n        L = uvw.y;//iMouse.x / iResolution.x;\n        chroma = uvw.z * max_chroma;// / iResolution.y;\n    //}\n    \n    float a = chroma*cos(theta);\n    float b = chroma*sin(theta);\n    \n    vec3 lab = vec3(L, a, b);\n\treturn lab;\n\n    // convert to rgb \n    // vec3 rgb = linear_srgb_from_oklab(lab);\n\n}\n\n// /geo1/MAT/pointsBuilder1/disk1\nfloat disk_feather(float dist, float radius, float feather){\n\tif(feather <= 0.0){\n\t\tif(dist < radius){return 1.0;}else{return 0.0;}\n\t} else {\n\t\tfloat half_feather = feather * 0.5;\n\t\tif(dist < (radius - half_feather)){\n\t\t\treturn 1.0;\n\t\t} else {\n\t\t\tif(dist > (radius + half_feather)){\n\t\t\t\treturn 0.0;\n\t\t\t} else {\n\t\t\t\tfloat feather_start = (radius - half_feather);\n\t\t\t\tfloat blend = 1.0 - (dist - feather_start) / feather;\n\t\t\t\treturn blend;\n\t\t\t}\n\t\t}\n\t}\n}\n\nfloat disk2d(vec2 pos, vec2 center, float radius, float feather){\n\tfloat dist = distance(pos, center);\n\treturn disk_feather(dist, radius, feather);\n}\n\n// function could be called sphere, but is an overload of disk, and is the same\nfloat disk3d(vec3 pos, vec3 center, float radius, float feather){\n\tfloat dist = distance(pos, center);\n\treturn disk_feather(dist, radius, feather);\n}\n\n\n\n\n\n\n\n// /geo1/MAT/pointsBuilder1/globals1\nuniform float time;\n\n// /geo1/MAT/pointsBuilder1/laserColor1/attribute1\nvarying float v_POLY_attribute_id;\n\n\n\n\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\t// INSERT BODY\n\n\n\n\t// /geo1/MAT/pointsBuilder1/globals1\n\tvec2 v_POLY_globals1_gl_PointCoord = gl_PointCoord;\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /geo1/MAT/pointsBuilder1/laserColor1\n\tvec3 v_POLY_laserColor1_baseColor = vec3(0.0, 0.0, 0.0);\n\tif(true){\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/constant2\n\t\tvec3 v_POLY_laserColor1_constant2_val = vec3(0.6653872982754769, 0.5583403896257968, 0.005181516700061659);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/constant1\n\t\tvec3 v_POLY_laserColor1_constant1_val = vec3(0.7011018919268015, 0.018500220124016656, 0.005181516700061659);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/attribute1\n\t\tfloat v_POLY_laserColor1_attribute1_val = v_POLY_attribute_id;\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/rgbToOklab1\n\t\tvec3 v_POLY_laserColor1_rgbToOklab1_oklab = oklab_from_linear_srgb(v_POLY_laserColor1_constant2_val);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/rgbToOklab2\n\t\tvec3 v_POLY_laserColor1_rgbToOklab2_oklab = oklab_from_linear_srgb(v_POLY_laserColor1_constant1_val);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/round1\n\t\tfloat v_POLY_laserColor1_round1_val = sign(v_POLY_laserColor1_attribute1_val)*floor(abs(v_POLY_laserColor1_attribute1_val)+0.5);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/floatToVec2_1\n\t\tvec2 v_POLY_laserColor1_floatToVec2_1_vec2 = vec2(v_POLY_laserColor1_round1_val, 0.54);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/random1\n\t\tfloat v_POLY_laserColor1_random1_rand = rand(v_POLY_laserColor1_floatToVec2_1_vec2);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/pow1\n\t\tfloat v_POLY_laserColor1_pow1_val = pow(v_POLY_laserColor1_random1_rand, 0.27);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/mix1\n\t\tvec3 v_POLY_laserColor1_mix1_mix = mix(v_POLY_laserColor1_rgbToOklab1_oklab, v_POLY_laserColor1_rgbToOklab2_oklab, v_POLY_laserColor1_pow1_val);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/oklabToRgb1\n\t\tvec3 v_POLY_laserColor1_oklabToRgb1_rgb = linear_srgb_from_oklab(v_POLY_laserColor1_mix1_mix);\n\t\n\t\t// /geo1/MAT/pointsBuilder1/laserColor1/subnetOutput1\n\t\tv_POLY_laserColor1_baseColor = v_POLY_laserColor1_oklabToRgb1_rgb;\n\t}\n\t\n\t// /geo1/MAT/pointsBuilder1/disk1\n\tfloat v_POLY_disk1_float = disk2d(v_POLY_globals1_gl_PointCoord, vec2(0.5, 0.5), 0.2, 0.24);\n\t\n\t// /geo1/MAT/pointsBuilder1/multScalar1\n\tvec3 v_POLY_multScalar1_val = (4.0*v_POLY_laserColor1_baseColor);\n\t\n\t// /geo1/MAT/pointsBuilder1/multAdd6\n\tfloat v_POLY_multAdd6_val = (0.95*(v_POLY_disk1_float + 0.0)) + 0.0;\n\t\n\t// /geo1/MAT/pointsBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_multScalar1_val;\n\tdiffuseColor.a = v_POLY_multAdd6_val;\n\n\n\n\t// the new body lines should be added before the alphatest_fragment\n\t// so that alpha is set before (which is really how it would be set if the alphamap_fragment above was used by the material node parameters)\n\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), diffuseColor.a );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDepthDOFMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/pointsBuilder1-customDepthDOFMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDepthDOFMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"alphaTest": 0.07,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"size": {
+							"value": 1
+						},
+						"scale": {
+							"value": 1
+						},
+						"mNear": {
+							"value": 0
+						},
+						"mFar": {
+							"value": 10
+						}
+					},
+					"defines": {
+						"USE_SIZEATTENUATION": 1
+					},
+					"vertexShader": "\nuniform float size;\nuniform float scale;\n#include <common>\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\t#include <project_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n\t#ifdef USE_SIZEATTENUATION\n\t\tbool isPerspective = ( projectionMatrix[ 2 ][ 3 ] == - 1.0 );\n\t\tif ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );\n\t#endif\n\n}\n",
+					"fragmentShader": "\nuniform float mNear;\nuniform float mFar;\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\nvoid main() {\n\n\tfloat color = 1.0 - smoothstep( mNear, mFar, vViewZDepth );\n\tgl_FragColor = vec4( vec3( color ), 1.0 );\n\tvec4 diffuseColor = gl_FragColor;\n\n\t// INSERT BODY\n\n\tgl_FragColor.a = diffuseColor.a;\n}\n",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			}
+		}
+	}
+}

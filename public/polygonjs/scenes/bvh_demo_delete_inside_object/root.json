@@ -1,0 +1,7 @@
+{
+	"type": "root",
+	"nodes": {},
+	"params": {
+		"mainCameraPath": "/cameras/cameras:sopGroup/perspectiveCamera1"
+	}
+}

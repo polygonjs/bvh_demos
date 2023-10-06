@@ -1,0 +1,153 @@
+{
+	"type": "geo",
+	"nodes": {
+		"box1": {
+			"type": "box",
+			"params": {
+				"sizes": [2, 1, 2],
+				"center": [0, 0.5, 0]
+			}
+		},
+		"boxLines1": {
+			"type": "boxLines",
+			"inputs": ["material1"]
+		},
+		"fileGLTF1": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/rhino.glb"
+			}
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/rayMarchingBuilder1"
+			},
+			"inputs": ["box1"],
+			"flags": {
+				"display": true
+			}
+		},
+		"material2": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["fileGLTF1"]
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": ["material1", "boxLines1"]
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

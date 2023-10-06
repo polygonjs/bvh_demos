@@ -1,0 +1,156 @@
+{
+	"type": "meshLambertBuilder",
+	"nodes": {
+		"instanceTransform1": {
+			"type": "instanceTransform"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "position",
+					"node": "instanceTransform1",
+					"output": "position"
+				},
+				{
+					"index": 1,
+					"inputName": "normal",
+					"node": "instanceTransform1",
+					"output": "normal"
+				}
+			]
+		},
+		"globals1": {
+			"type": "globals"
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/geo1/MAT/meshLambertBuilder_INSTANCES-main",
+			"type": "MeshLambertMaterial",
+			"color": 16777215,
+			"emissive": 0,
+			"reflectivity": 1,
+			"refractionRatio": 0.98,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"fog": false
+		},
+		"onBeforeCompileDataJSONWithoutShaders": {
+			"paramConfigs": [],
+			"timeDependent": false,
+			"resolutionDependent": false,
+			"raymarchingLightsWorldCoordsDependent": false
+		},
+		"customMaterials": {
+			"customDepthMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/meshLambertBuilder_INSTANCES-customDepthMaterial",
+					"type": "MeshDepthMaterial",
+					"name": "customDepthMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"depthPacking": 3201
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [],
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDistanceMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/meshLambertBuilder_INSTANCES-customDistanceMaterial",
+					"type": "MeshDistanceMaterial",
+					"name": "customDistanceMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [],
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDepthDOFMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/meshLambertBuilder_INSTANCES-customDepthDOFMaterial",
+					"type": "MeshDepthMaterial",
+					"name": "customDepthDOFMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"depthPacking": 3200
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [],
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			}
+		}
+	}
+}

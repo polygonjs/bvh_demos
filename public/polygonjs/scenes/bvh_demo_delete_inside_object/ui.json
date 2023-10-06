@@ -1,0 +1,231 @@
+{
+	"nodes": {
+		"COP": {
+			"pos": [-200, -50],
+			"selection": ["image1"],
+			"nodes": {
+				"envMap": {
+					"pos": [50, 250]
+				},
+				"imageEnv": {
+					"pos": [50, 100]
+				},
+				"image1": {
+					"pos": [-200, 100]
+				}
+			}
+		},
+		"env": {
+			"pos": [100, -400],
+			"nodes": {
+				"sphere1": {
+					"pos": [300, 100]
+				},
+				"material2": {
+					"pos": [300, 350]
+				},
+				"transform1": {
+					"pos": [300, 200]
+				},
+				"MAT": {
+					"pos": [-200, 300],
+					"nodes": {
+						"sky1": {
+							"pos": [0, 400]
+						}
+					}
+				}
+			}
+		},
+		"cameras": {
+			"pos": [100, -100],
+			"nodes": {
+				"perspectiveCamera1": {
+					"pos": [0, -50]
+				},
+				"cameraControls1": {
+					"pos": [0, 150],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [0, 0]
+						}
+					}
+				}
+			}
+		},
+		"lights": {
+			"pos": [100, -200],
+			"nodes": {
+				"hemisphereLight1": {
+					"pos": [50, -50]
+				},
+				"merge1": {
+					"pos": [100, 300]
+				},
+				"areaLight1": {
+					"pos": [300, -200]
+				},
+				"spotLight1": {
+					"pos": [450, -200]
+				},
+				"merge2": {
+					"pos": [350, 200]
+				},
+				"polarTransform1": {
+					"pos": [300, 50]
+				},
+				"polarTransform2": {
+					"pos": [450, 50]
+				}
+			}
+		},
+		"geo1": {
+			"pos": [100, -300],
+			"nodes": {
+				"hierarchy1": {
+					"pos": [450, 350]
+				},
+				"transform1": {
+					"pos": [450, 550]
+				},
+				"objectProperties1": {
+					"pos": [450, 850]
+				},
+				"bboxScatter1": {
+					"pos": [350, 1050]
+				},
+				"delete1": {
+					"pos": [450, 1250]
+				},
+				"MAT": {
+					"pos": [-150, 1150],
+					"selection": ["meshStandardBuilder1"],
+					"nodes": {
+						"meshStandard1": {
+							"pos": [0, 0]
+						},
+						"meshStandardBuilder1": {
+							"pos": [0, -150],
+							"nodes": {
+								"globals1": {
+									"pos": [-450, 0]
+								},
+								"output1": {
+									"pos": [400, 0]
+								},
+								"vec3ToFloat1": {
+									"pos": [-200, 200]
+								},
+								"floatToVec2_1": {
+									"pos": [-100, 200]
+								},
+								"checkers1": {
+									"pos": [50, 200]
+								},
+								"mix1": {
+									"pos": [250, 0]
+								},
+								"constant1": {
+									"pos": [50, -150]
+								},
+								"constant2": {
+									"pos": [0, 0]
+								}
+							}
+						},
+						"meshLambertBuilder_INSTANCES": {
+							"pos": [0, 0],
+							"nodes": {
+								"instanceTransform1": {
+									"pos": [0, 0]
+								},
+								"output1": {
+									"pos": [200, 0]
+								},
+								"globals1": {
+									"pos": [-200, 0]
+								}
+							}
+						}
+					}
+				},
+				"material1": {
+					"pos": [450, 700]
+				},
+				"fileOBJ1": {
+					"pos": [450, 200]
+				},
+				"BVH1": {
+					"pos": [550, 1050]
+				},
+				"copy1": {
+					"pos": [400, 1700]
+				},
+				"sphere1": {
+					"pos": [100, 1350]
+				},
+				"physicsRBDAttributes1": {
+					"pos": [400, 1900]
+				},
+				"material2": {
+					"pos": [-50, 1900]
+				},
+				"physicsGround1": {
+					"pos": [-50, 1750]
+				},
+				"merge1": {
+					"pos": [150, 2150]
+				},
+				"physicsWorld1": {
+					"pos": [150, 2350],
+					"nodes": {
+						"physicsWorldReset1": {
+							"pos": [100, -100]
+						},
+						"onScenePause1": {
+							"pos": [-100, -100]
+						},
+						"physicsWorldStepSimulation1": {
+							"pos": [100, 100]
+						},
+						"onTick1": {
+							"pos": [-100, 100]
+						}
+					}
+				},
+				"physicsDebug1": {
+					"pos": [50, 2550],
+					"nodes": {
+						"physicsDebugUpdate1": {
+							"pos": [100, 100]
+						},
+						"onTick1": {
+							"pos": [-100, 100]
+						}
+					}
+				},
+				"merge2": {
+					"pos": [150, 2700]
+				},
+				"jitter1": {
+					"pos": [350, 1150]
+				},
+				"box1": {
+					"pos": [200, 1550]
+				},
+				"delete2": {
+					"pos": [450, 1400]
+				},
+				"delete3": {
+					"pos": [450, 1550]
+				},
+				"transform2": {
+					"pos": [850, 1050]
+				},
+				"merge3": {
+					"pos": [650, 2550]
+				}
+			}
+		}
+	}
+}

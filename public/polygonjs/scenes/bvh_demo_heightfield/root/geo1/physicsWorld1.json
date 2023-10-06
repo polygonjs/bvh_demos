@@ -1,0 +1,44 @@
+{
+	"type": "physicsWorld",
+	"nodes": {
+		"physicsWorldReset1": {
+			"type": "physicsWorldReset",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onScenePause1",
+					"output": "trigger"
+				}
+			]
+		},
+		"onScenePause1": {
+			"type": "onScenePause"
+		},
+		"physicsWorldStepSimulation1": {
+			"type": "physicsWorldStepSimulation",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				}
+			]
+		},
+		"onTick1": {
+			"type": "onTick"
+		}
+	},
+	"inputs": ["merge1"],
+	"flags": {
+		"display": true
+	},
+	"persisted_config": {
+		"variableNames": [],
+		"variables": [],
+		"functionNames": ["globalsTime", "globalsTimeDelta", "physicsWorldReset", "physicsWorldStepSimulation"],
+		"serializedParamConfigs": [],
+		"eventDatas": []
+	}
+}

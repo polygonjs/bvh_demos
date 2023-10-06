@@ -1,0 +1,100 @@
+{
+	"multiple_panel": {
+		"split_ratio": 0.5,
+		"split_panel0": {
+			"split_ratio": 0.5543217692883486,
+			"split_panel0": {
+				"panelTypes": ["viewer"],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"camera": "/cameras/cameras:sopGroup/perspectiveCamera_MAIN",
+					"isViewerInitLayoutData": true,
+					"linkIndex": 1,
+					"overlayedNetwork": {
+						"allowed": false,
+						"displayed": false,
+						"initLayoutData": {
+							"camera": {
+								"position": {
+									"x": 0,
+									"y": 0
+								},
+								"zoom": 1
+							},
+							"history": {},
+							"paramsDisplayed": false,
+							"linkIndex": 1
+						}
+					}
+				}
+			},
+			"split_panel1": {
+				"panelTypes": ["params"],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"active_folder": 42,
+					"linkIndex": 1
+				}
+			},
+			"split_mode": "vertical"
+		},
+		"split_panel1": {
+			"panelTypes": ["network", "params", "viewer"],
+			"currentPanelIndex": 0,
+			"panel_data": {
+				"camera": {
+					"position": {
+						"x": -21.584912344708705,
+						"y": 195.76702195154155
+					},
+					"zoom": 0.9602221069335933
+				},
+				"history": {
+					"2": {
+						"position": {
+							"x": -21.584912344708705,
+							"y": 195.76702195154155
+						},
+						"zoom": 0.9602221069335933
+					}
+				},
+				"paramsDisplayed": false,
+				"linkIndex": 1
+			}
+		},
+		"split_mode": "horizontal"
+	},
+	"currentNodes": ["/", "/", "/", "/", "/", "/", "/", "/"],
+	"navigationHistory": {
+		"nodePaths": {
+			"1": ["/", "/"],
+			"2": ["/", "/"],
+			"3": ["/", "/"],
+			"4": ["/", "/"],
+			"5": ["/", "/"],
+			"6": ["/", "/"],
+			"7": ["/", "/"],
+			"8": ["/", "/"]
+		},
+		"index": {
+			"1": 17,
+			"2": 0,
+			"3": 0,
+			"4": 0,
+			"5": 0,
+			"6": 0,
+			"7": 0,
+			"8": 0
+		}
+	},
+	"fullscreenPanelId": null,
+	"saveOptions": {
+		"createExport": false,
+		"checkRemoteAssetsUse": true,
+		"minimizeFilesCount": false,
+		"compressJs": true,
+		"createZip": false,
+		"runPostExportCommand": false
+	},
+	"paramsModal": []
+}

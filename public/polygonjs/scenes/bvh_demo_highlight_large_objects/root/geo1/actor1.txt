@@ -1,0 +1,83 @@
+// insert defines
+class CustomActorEvaluator extends ActorEvaluator {
+	// insert members
+
+	// /geo1/actor1/isDefined1
+	v_POLY_isDefined1_defined = computed(() => this.v_POLY_onObjectHover1_Intersection.value != null);
+
+	// /geo1/actor1/getIntersectionProperty1
+	v_POLY_getIntersectionProperty1_object = computed(() =>
+		getIntersectionPropertyObject(this.object3D, this.v_POLY_onObjectHover1_Intersection.value)
+	);
+
+	// /geo1/actor1/getObjectAttribute1
+	v_POLY_getObjectAttribute1_val = computed(() =>
+		getObjectAttribute(
+			this.v_POLY_getIntersectionProperty1_object.value,
+			this.v_POLY_constant1_val.value,
+			"float",
+			-1.0
+		)
+	);
+
+	// /geo1/actor1/twoWaySwitch1
+	v_POLY_twoWaySwitch1_val = computed(() =>
+		this.v_POLY_isDefined1_defined.value ? this.v_POLY_getObjectAttribute1_val.value : this.v_POLY_constant2_val.value
+	);
+
+	// /geo1/actor1/onTick1
+	v_POLY_onTick1_time = computed(() => globalsTime());
+	v_POLY_onTick1_delta = computed(() => globalsTimeDelta());
+
+	// /geo1/actor1/getMaterial2
+	v_POLY_getMaterial2_Material = computed(() => getMaterial("/geo1/MAT/meshStandardBuilder1"));
+
+	// /geo1/actor1/constant1
+	v_POLY_constant1_val = { value: "id" };
+
+	// /geo1/actor1/constant2
+	v_POLY_constant2_val = { value: -1.0 };
+
+	// /geo1/actor1/onObjectHover1
+	v_POLY_onObjectHover1_Intersection = ref(null);
+	v_POLY_onObjectHover1_hovered = ref(false);
+
+	constructor(node, object3D) {
+		super(node, object3D);
+		// insert after constructor
+	}
+	// insert body
+
+	onPointermove() {
+		this.onObjectHover1();
+	}
+	onTick() {
+		this.onTick1();
+	}
+	// /geo1/actor1/onObjectHover1
+	onObjectHover1() {
+		const newHovered = getObjectHoveredState(this.object3D, true, 0.1, 0.1, this.v_POLY_onObjectHover1_Intersection);
+		const currentHovered = this.v_POLY_onObjectHover1_hovered.value;
+		this.v_POLY_onObjectHover1_hovered.value = newHovered;
+		if (newHovered != currentHovered) {
+		}
+	}
+
+	// /geo1/actor1/onTick1
+	onTick1() {
+		this.setMaterialUniform1(0);
+	}
+
+	// /geo1/actor1/setMaterialUniform1
+	setMaterialUniform1() {
+		setMaterialUniformNumber(
+			this.v_POLY_getMaterial2_Material.value,
+			"selectedId",
+			this.v_POLY_twoWaySwitch1_val.value,
+			1.0,
+			true,
+			true
+		);
+	}
+}
+return CustomActorEvaluator;

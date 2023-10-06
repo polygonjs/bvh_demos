@@ -1,0 +1,1417 @@
+{
+	"type": "lineBasicBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "position",
+					"node": "max1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "color",
+					"node": "multScalar2",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "alpha",
+					"node": "constant3",
+					"output": "val"
+				}
+			]
+		},
+		"constant3": {
+			"type": "constant",
+			"params": {
+				"float": 0.86
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"laserColor1": {
+			"type": "laserColor",
+			"polyNode": {
+				"locked": true
+			},
+			"params": {
+				"baseColor": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"connection_points": {
+				"in": [
+					{
+						"name": "baseColor",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "baseColor",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"param1": {
+			"type": "param",
+			"params": {
+				"name": "destPos",
+				"type": 4
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"attribute1": {
+			"type": "attribute",
+			"params": {
+				"name": "idn"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"type": 4
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"mix1": {
+			"type": "mix",
+			"params": {
+				"value0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"value1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"blend": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value0",
+					"node": "constant1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "value1",
+					"node": "param1",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "blend",
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "vec3"
+					},
+					{
+						"name": "value1",
+						"type": "vec3"
+					},
+					{
+						"name": "blend",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "mix",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"noise1": {
+			"type": "noise",
+			"params": {
+				"octaves": 6,
+				"amp": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": [0.19999999999999996, 0.19999999999999996, 0.19999999999999996]
+				},
+				"position": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"freq": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"offset": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 4,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "amp",
+					"node": "multScalar1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "position",
+					"node": "floatToVec3_3",
+					"output": "vec3"
+				},
+				null,
+				{
+					"index": 3,
+					"inputName": "offset",
+					"node": "floatToVec3_2",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "amp",
+						"type": "vec3"
+					},
+					{
+						"name": "position",
+						"type": "vec3"
+					},
+					{
+						"name": "freq",
+						"type": "vec3"
+					},
+					{
+						"name": "offset",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "noise",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"smoothstep1": {
+			"type": "smoothstep",
+			"params": {
+				"edge0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"edge1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.1
+				},
+				"x": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"inputName": "x",
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "edge0",
+						"type": "float"
+					},
+					{
+						"name": "edge1",
+						"type": "float"
+					},
+					{
+						"name": "x",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"smoothstep2": {
+			"type": "smoothstep",
+			"params": {
+				"edge0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 1
+				},
+				"edge1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.83
+				},
+				"x": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"inputName": "x",
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "edge0",
+						"type": "float"
+					},
+					{
+						"name": "edge1",
+						"type": "float"
+					},
+					{
+						"name": "x",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"min1": {
+			"type": "min",
+			"params": {
+				"in0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 1
+				},
+				"in1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 1
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in0",
+					"node": "smoothstep1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "in1",
+					"node": "smoothstep2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in0",
+						"type": "float"
+					},
+					{
+						"name": "in1",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "x",
+					"node": "min1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "min1",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "z",
+					"node": "min1",
+					"output": "val"
+				}
+			]
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "mix1",
+					"output": "mix"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "noise1",
+					"output": "noise"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "vec3"
+					},
+					{
+						"name": "add1",
+						"type": "vec3"
+					},
+					{
+						"name": "add2",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multScalar1": {
+			"type": "multScalar",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.42
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "floatToVec3_1",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"globals2": {
+			"type": "globals"
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.79
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "globals2",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_2": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"raw_input": 0.21,
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "multAdd1",
+					"output": "val"
+				}
+			]
+		},
+		"max1": {
+			"type": "max",
+			"params": {
+				"in0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"in1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": [-1000, 0, -1000]
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in0",
+					"node": "add1",
+					"output": "sum"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in0",
+						"type": "vec3"
+					},
+					{
+						"name": "in1",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"vec3ToFloat1": {
+			"type": "vec3ToFloat",
+			"params": {
+				"vec": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "vec",
+					"node": "mix1",
+					"output": "mix"
+				}
+			]
+		},
+		"floatToVec3_3": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"raw_input": 0.37,
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "attribute2",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "z",
+					"node": "multAdd2",
+					"output": "val"
+				}
+			]
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "attribute1",
+					"output": "val"
+				},
+				null,
+				null,
+				{
+					"index": 3,
+					"inputName": "postAdd",
+					"node": "multAdd3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd3": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": -1
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "globals2",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"attribute2": {
+			"type": "attribute",
+			"params": {
+				"name": "id"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multScalar2": {
+			"type": "multScalar",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 6
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "laserColor1",
+					"output": "baseColor"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"transparent": true,
+		"linewidth": 2.3,
+		"destPos": {
+			"type": "vector3",
+			"default_value": [0, 0, 0],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": [-2.3, 1.4, 0],
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/geo1/MAT/lineBasicBuilder_LIGHTING-main",
+			"type": "LineBasicMaterial",
+			"color": 16777215,
+			"transparent": true,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"linewidth": 2.3
+		},
+		"onBeforeCompileDataJSONWithoutShaders": {
+			"paramConfigs": [
+				{
+					"type": "vector3",
+					"name": "destPos",
+					"defaultValue": [0, 0, 0],
+					"uniformName": "v_POLY_param_destPos"
+				}
+			],
+			"timeDependent": true,
+			"resolutionDependent": false,
+			"raymarchingLightsWorldCoordsDependent": false
+		},
+		"customMaterials": {
+			"customDistanceMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/lineBasicBuilder_LIGHTING-customDistanceMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDistanceMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						},
+						"referencePosition": {
+							"type": "v3",
+							"value": [0, 0, 0]
+						},
+						"nearDistance": {
+							"value": 1
+						},
+						"farDistance": {
+							"value": 1000
+						}
+					},
+					"defines": {
+						"USE_SIZEATTENUATION": 1,
+						"DEPTH_PACKING": 3201
+					},
+					"vertexShader": "\nuniform float scale;\nattribute float lineDistance;\n\nvarying float vLineDistance;\n\n#define DISTANCE\nvarying vec3 vWorldPosition;\n#include <common>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n// INSERT DEFINES\n\n\n// vHighPrecisionZW is added to match CustomMeshDepth.frag\n// which is itself taken from threejs\nvarying vec2 vHighPrecisionZW;\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\tvLineDistance = scale * lineDistance;\n\n\t#include <color_vertex>\n\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\t#include <fog_vertex>\n\n\n\tvHighPrecisionZW = gl_Position.zw;\n}\n",
+					"fragmentShader": "\n// INSERT DEFINES\n\n#define DISTANCE\n\nuniform vec3 referencePosition;\nuniform float nearDistance;\nuniform float farDistance;\nvarying vec3 vWorldPosition;\n\n#include <common>\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvoid main () {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\t// INSERT BODY\n\n\t#include <alphatest_fragment>\n\n\tfloat dist = length( vWorldPosition - referencePosition );\n\tdist = ( dist - nearDistance ) / ( farDistance - nearDistance );\n\tdist = saturate( dist ); // clamp to [ 0, 1 ]\n\n\tgl_FragColor = packDepthToRGBA( dist );\n\n}\n",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "vector3",
+							"name": "destPos",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_destPos"
+						}
+					],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDepthMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/lineBasicBuilder_LIGHTING-customDepthMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDepthMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						}
+					},
+					"defines": {
+						"DEPTH_PACKING": 3201
+					},
+					"vertexShader": "\nuniform float scale;\nattribute float lineDistance;\n\nvarying float vLineDistance;\n\n\n#include <common>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n// INSERT DEFINES\n\n\n// vHighPrecisionZW is added to match CustomMeshDepth.frag\n// which is itself taken from threejs\nvarying vec2 vHighPrecisionZW;\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\tvLineDistance = scale * lineDistance;\n\n\t#include <color_vertex>\n\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\t#include <fog_vertex>\n\n\n\tvHighPrecisionZW = gl_Position.zw;\n}\n",
+					"fragmentShader": "\n// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\t// INSERT BODY\n\t// the new body lines should be added before the alphatest_fragment\n\t// so that alpha is set before (which is really how it would be set if the alphamap_fragment above was used by the material node parameters)\n\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), diffuseColor.a );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "vector3",
+							"name": "destPos",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_destPos"
+						}
+					],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDepthDOFMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/lineBasicBuilder_LIGHTING-customDepthDOFMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDepthDOFMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						}
+					},
+					"defines": {
+						"DEPTH_PACKING": 3200
+					},
+					"vertexShader": "\nuniform float scale;\nattribute float lineDistance;\n\nvarying float vLineDistance;\n\n\n#include <common>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n// INSERT DEFINES\n\n\n// vHighPrecisionZW is added to match CustomMeshDepth.frag\n// which is itself taken from threejs\nvarying vec2 vHighPrecisionZW;\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\tvLineDistance = scale * lineDistance;\n\n\t#include <color_vertex>\n\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\t#include <fog_vertex>\n\n\n\tvHighPrecisionZW = gl_Position.zw;\n}\n",
+					"fragmentShader": "\n// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\t// INSERT BODY\n\t// the new body lines should be added before the alphatest_fragment\n\t// so that alpha is set before (which is really how it would be set if the alphamap_fragment above was used by the material node parameters)\n\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), diffuseColor.a );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "vector3",
+							"name": "destPos",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_destPos"
+						}
+					],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			}
+		}
+	}
+}

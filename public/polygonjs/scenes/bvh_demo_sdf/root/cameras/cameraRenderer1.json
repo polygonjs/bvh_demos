@@ -1,0 +1,20 @@
+{
+	"type": "cameraRenderer",
+	"nodes": {
+		"WebGLRenderer1": {
+			"type": "WebGLRenderer",
+			"params": {
+				"tpixelRatio": true,
+				"pixelRatio": 1
+			}
+		}
+	},
+	"params": {
+		"node": "WebGLRenderer1"
+	},
+	"inputs": ["cameraControls1"],
+	"flags": {
+		"bypass": true,
+		"display": true
+	}
+}

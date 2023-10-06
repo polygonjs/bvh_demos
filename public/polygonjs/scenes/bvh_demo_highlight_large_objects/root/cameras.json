@@ -1,0 +1,122 @@
+{
+	"type": "geo",
+	"nodes": {
+		"perspectiveCamera1": {
+			"type": "perspectiveCamera",
+			"params": {
+				"position": [-2.632015356165625, 1.8368184939906587, -3.384292966017265],
+				"rotation": [-156.2512785549096, -43.03888532615729, -163.28569113270666]
+			}
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

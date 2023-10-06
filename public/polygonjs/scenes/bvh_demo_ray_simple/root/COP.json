@@ -1,0 +1,25 @@
+{
+	"type": "copNetwork",
+	"nodes": {
+		"envMap": {
+			"type": "envMap",
+			"inputs": ["imageEnv"]
+		},
+		"imageEnv": {
+			"type": "imageEXR",
+			"params": {
+				"url": "textures/piz_compressed.exr?timestamp=1696599611463",
+				"tminFilter": true,
+				"tmagFilter": true,
+				"tanisotropy": true,
+				"useRendererMaxAnisotropy": true
+			}
+		},
+		"image1": {
+			"type": "image",
+			"params": {
+				"url": "textures/uv.jpg?timestamp=1696599607515"
+			}
+		}
+	}
+}

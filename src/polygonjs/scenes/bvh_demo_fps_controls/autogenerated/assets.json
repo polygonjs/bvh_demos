@@ -1,0 +1,14 @@
+[
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696602927018",
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696602927019",
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696602927020",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696602927018",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696602927019",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696602927020",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_cross.glb?v=2",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_slope_full_bottom.glb?v=2",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_slope_full_top.glb?v=2",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_straight.glb",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_t.glb?v=2",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_turn_90.glb?v=2"
+]

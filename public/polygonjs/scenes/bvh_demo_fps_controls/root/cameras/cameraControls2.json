@@ -1,0 +1,17 @@
+{
+	"type": "cameraControls",
+	"nodes": {
+		"firstPersonControls1": {
+			"type": "firstPersonControls",
+			"params": {
+				"colliderObject": "../../../level/BVH1",
+				"runSpeedMult": 4,
+				"startPosition": [0, 6, 3]
+			}
+		}
+	},
+	"params": {
+		"node": "firstPersonControls1"
+	},
+	"inputs": ["perspectiveCamera_FPS"]
+}

@@ -1,0 +1,14 @@
+[
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696603597774",
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696603597775",
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696603597776",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696603597774",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696603597775",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696603597776",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/eagle.glb",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/einstein.glb",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/horse_head.glb",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/jenner.glb",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/rhino.glb",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/zenobia_in_chains.glb"
+]

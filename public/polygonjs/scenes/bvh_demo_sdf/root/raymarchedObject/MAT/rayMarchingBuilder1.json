@@ -1,0 +1,2266 @@
+{
+	"type": "rayMarchingBuilder",
+	"nodes": {
+		"SDFContext1": {
+			"type": "SDFContext",
+			"params": {
+				"sdf": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"material": {
+					"type": "string",
+					"default_value": "DefaultSDFMaterial()",
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "sdf",
+					"node": "multAdd3",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "material",
+					"node": "SDFMaterial1",
+					"output": "SDFMaterial"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "sdf",
+						"type": "float"
+					},
+					{
+						"name": "material",
+						"type": "SDFMaterial"
+					}
+				],
+				"out": [
+					{
+						"name": "SDFContext",
+						"type": "SDFContext"
+					}
+				]
+			}
+		},
+		"SDFMaterial1": {
+			"type": "SDFMaterial",
+			"params": {
+				"color": {
+					"overriden_options": {}
+				},
+				"useEnvMap": true,
+				"useRefraction": true,
+				"diffuse": {
+					"raw_input": [0, 0, 0],
+					"overriden_options": {}
+				},
+				"emissive": {
+					"overriden_options": {}
+				},
+				"envMapTint": {
+					"overriden_options": {}
+				},
+				"envMapIntensity": {
+					"raw_input": 0.14,
+					"overriden_options": {}
+				},
+				"envMapRoughness": {
+					"raw_input": 1,
+					"overriden_options": {}
+				},
+				"envMapFresnel": {
+					"overriden_options": {}
+				},
+				"envMapFresnelPower": {
+					"overriden_options": {}
+				},
+				"reflectionTint": {
+					"overriden_options": {}
+				},
+				"reflectivity": {
+					"overriden_options": {}
+				},
+				"reflectionBiasMult": {
+					"overriden_options": {}
+				},
+				"refractionTint": {
+					"raw_input": [0.7764705882352941, 0.5490196078431373, 0.06274509803921569],
+					"overriden_options": {}
+				},
+				"ior": {
+					"overriden_options": {}
+				},
+				"iorOffset": {
+					"raw_input": [-0.1, 0, 0.1],
+					"overriden_options": {}
+				},
+				"transmission": {
+					"raw_input": 2,
+					"overriden_options": {}
+				},
+				"absorption": {
+					"raw_input": 4.7,
+					"overriden_options": {}
+				},
+				"refractionMaxDist": {
+					"overriden_options": {}
+				},
+				"refractionBiasMult": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "color",
+					"node": "constant1",
+					"output": "val"
+				}
+			]
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"color": [1, 1, 1],
+				"asColor": true
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "SDFContext",
+					"node": "SDFContext1",
+					"output": "SDFContext"
+				}
+			]
+		},
+		"textureSDF1": {
+			"type": "textureSDF",
+			"params": {
+				"paramName": "textureSDF1",
+				"position": {
+					"overriden_options": {}
+				},
+				"center": {
+					"overriden_options": {}
+				},
+				"boundMin": {
+					"overriden_options": {}
+				},
+				"boundMax": {
+					"overriden_options": {}
+				},
+				"boundScale": {
+					"overriden_options": {}
+				},
+				"bias": {
+					"overriden_options": {}
+				},
+				"tblur": {
+					"overriden_options": {}
+				},
+				"blurDist": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"inputName": "boundMin",
+					"node": "textureSDF1BoundMin",
+					"output": "val"
+				},
+				{
+					"index": 3,
+					"inputName": "boundMax",
+					"node": "textureSDF1BoundMax",
+					"output": "val"
+				}
+			]
+		},
+		"textureSDF1BoundMax": {
+			"type": "param",
+			"params": {
+				"name": "textureSDF1BoundMax",
+				"type": 4
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"textureSDF1BoundMin": {
+			"type": "param",
+			"params": {
+				"name": "textureSDF1BoundMin",
+				"type": 4
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multAdd3": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.001
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "textureSDF1",
+					"output": "d"
+				},
+				{
+					"index": 1,
+					"inputName": "preAdd",
+					"node": "multAdd1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"globals1": {
+			"type": "globals"
+		},
+		"vec3ToFloat1": {
+			"type": "vec3ToFloat",
+			"params": {
+				"vec": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "vec",
+					"node": "globals1",
+					"output": "position"
+				}
+			]
+		},
+		"smoothstep1": {
+			"type": "smoothstep",
+			"params": {
+				"edge0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.22
+				},
+				"edge1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"x": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "edge0",
+					"node": "null1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "edge1",
+					"node": "multAdd6",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "x",
+					"node": "vec3ToFloat1",
+					"output": "x"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "edge0",
+						"type": "float"
+					},
+					{
+						"name": "edge1",
+						"type": "float"
+					},
+					{
+						"name": "x",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.31
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "max1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd4": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.2
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.22
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "cycle1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd6": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 1
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "null1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"null1": {
+			"type": "null",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in",
+					"node": "multAdd2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"smoothstep2": {
+			"type": "smoothstep",
+			"params": {
+				"edge0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.22
+				},
+				"edge1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"x": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "edge0",
+					"node": "null2",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "edge1",
+					"node": "multAdd7",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "x",
+					"node": "vec3ToFloat1",
+					"output": "x"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "edge0",
+						"type": "float"
+					},
+					{
+						"name": "edge1",
+						"type": "float"
+					},
+					{
+						"name": "x",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd7": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": -1
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "null2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd5": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": -2
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "multAdd4",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": -1
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "multAdd4",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"null2": {
+			"type": "null",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in",
+					"node": "multAdd5",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"max1": {
+			"type": "max",
+			"params": {
+				"in0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"in1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in0",
+					"node": "smoothstep1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "in1",
+					"node": "smoothstep2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in0",
+						"type": "float"
+					},
+					{
+						"name": "in1",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"cycle1": {
+			"type": "cycle",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"min": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"max": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 12.5
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in",
+					"node": "globals1",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					},
+					{
+						"name": "min",
+						"type": "float"
+					},
+					{
+						"name": "max",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"maxSteps": 91,
+		"maxDist": 4.96,
+		"useEnvMap": true,
+		"envMap": "../../../COP/envMap",
+		"envMapRoughness": 0,
+		"textureSDF1": {
+			"type": "node_path",
+			"default_value": "",
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true,
+				"nodeSelection": {
+					"context": "cop"
+				}
+			},
+			"raw_input": "../../COP/SDFFromUrl1",
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"textureSDF1BoundMin": {
+			"type": "vector3",
+			"default_value": [0, 0, 0],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": [
+				"ch('../../COP/SDFFromUrl1/boundMinx')",
+				"ch('../../COP/SDFFromUrl1/boundMiny')",
+				"ch('../../COP/SDFFromUrl1/boundMinz')"
+			],
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"textureSDF1BoundMax": {
+			"type": "vector3",
+			"default_value": [0, 0, 0],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": [
+				"ch('../../COP/SDFFromUrl1/boundMaxx')",
+				"ch('../../COP/SDFFromUrl1/boundMaxy')",
+				"ch('../../COP/SDFFromUrl1/boundMaxz')"
+			],
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/raymarchedObject/MAT/rayMarchingBuilder1-main",
+			"type": "ShaderMaterial",
+			"side": 1,
+			"transparent": true,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"alphaTest": 0.5,
+			"forceSinglePass": true,
+			"fog": false,
+			"glslVersion": null,
+			"uniforms": {
+				"diffuse": {
+					"type": "c",
+					"value": 16777215
+				},
+				"opacity": {
+					"value": 1
+				},
+				"map": {
+					"value": null
+				},
+				"mapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"alphaMap": {
+					"value": null
+				},
+				"alphaMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"alphaTest": {
+					"value": 0
+				},
+				"envMap": {
+					"value": null
+				},
+				"flipEnvMap": {
+					"value": -1
+				},
+				"reflectivity": {
+					"value": 1
+				},
+				"ior": {
+					"value": 1.5
+				},
+				"refractionRatio": {
+					"value": 0.98
+				},
+				"aoMap": {
+					"value": null
+				},
+				"aoMapIntensity": {
+					"value": 1
+				},
+				"aoMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"lightMap": {
+					"value": null
+				},
+				"lightMapIntensity": {
+					"value": 1
+				},
+				"lightMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"emissiveMap": {
+					"value": null
+				},
+				"emissiveMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"bumpMap": {
+					"value": null
+				},
+				"bumpMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"bumpScale": {
+					"value": 1
+				},
+				"normalMap": {
+					"value": null
+				},
+				"normalMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"normalScale": {
+					"type": "v2",
+					"value": [1, 1]
+				},
+				"displacementMap": {
+					"value": null
+				},
+				"displacementMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"displacementScale": {
+					"value": 1
+				},
+				"displacementBias": {
+					"value": 0
+				},
+				"roughnessMap": {
+					"value": null
+				},
+				"roughnessMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"metalnessMap": {
+					"value": null
+				},
+				"metalnessMapTransform": {
+					"type": "m3",
+					"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+				},
+				"fogDensity": {
+					"value": 0.00025
+				},
+				"fogNear": {
+					"value": 1
+				},
+				"fogFar": {
+					"value": 2000
+				},
+				"fogColor": {
+					"type": "c",
+					"value": 16777215
+				},
+				"ambientLightColor": {
+					"value": [0, 0, 0]
+				},
+				"lightProbe": {
+					"value": [
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						},
+						{
+							"x": 0,
+							"y": 0,
+							"z": 0
+						}
+					]
+				},
+				"directionalLights": {
+					"value": []
+				},
+				"directionalLightShadows": {
+					"value": []
+				},
+				"directionalShadowMap": {
+					"value": []
+				},
+				"directionalShadowMatrix": {
+					"value": []
+				},
+				"spotLights": {
+					"value": []
+				},
+				"spotLightShadows": {
+					"value": []
+				},
+				"spotLightMap": {
+					"value": []
+				},
+				"spotShadowMap": {
+					"value": []
+				},
+				"spotLightMatrix": {
+					"value": []
+				},
+				"pointLights": {
+					"value": []
+				},
+				"pointLightShadows": {
+					"value": []
+				},
+				"pointShadowMap": {
+					"value": []
+				},
+				"pointShadowMatrix": {
+					"value": []
+				},
+				"hemisphereLights": {
+					"value": [
+						{
+							"direction": {
+								"x": 6.93889390390723e-18,
+								"y": 0.9920434930010882,
+								"z": 0.125895623411618
+							},
+							"skyColor": 16777215,
+							"groundColor": 0
+						}
+					]
+				},
+				"rectAreaLights": {
+					"value": []
+				},
+				"ltc_1": {
+					"value": null
+				},
+				"ltc_2": {
+					"value": null
+				},
+				"emissive": {
+					"type": "c",
+					"value": 0
+				},
+				"roughness": {
+					"value": 0
+				},
+				"metalness": {
+					"value": 0
+				},
+				"envMapIntensity": {
+					"value": 1
+				},
+				"MAX_STEPS": {
+					"value": 91
+				},
+				"MAX_DIST": {
+					"value": 4.96
+				},
+				"SURF_DIST": {
+					"value": 0.001
+				},
+				"NORMALS_BIAS": {
+					"value": 0.01
+				},
+				"SHADOW_BIAS": {
+					"value": 0
+				},
+				"debugMinSteps": {
+					"value": 0
+				},
+				"debugMaxSteps": {
+					"value": 128
+				},
+				"debugMinDepth": {
+					"value": 0
+				},
+				"debugMaxDepth": {
+					"value": 128
+				},
+				"shadowDistanceMin": {
+					"value": 0
+				},
+				"shadowDistanceMax": {
+					"value": 100
+				},
+				"shadowDepthMin": {
+					"value": 0
+				},
+				"shadowDepthMax": {
+					"value": 100
+				},
+				"envMapRotationY": {
+					"value": 0
+				},
+				"spotLightsRayMarching": {
+					"value": [
+						{
+							"penumbra": 0,
+							"shadowBiasAngle": 0.01,
+							"shadowBiasDistance": 0.1
+						}
+					]
+				},
+				"directionalLightsRayMarching": {
+					"value": []
+				},
+				"pointLightsRayMarching": {
+					"value": []
+				},
+				"v_POLY_textureSDF_textureSDF1": {
+					"value": null
+				},
+				"v_POLY_param_textureSDF1BoundMax": {
+					"type": "v3",
+					"value": [0.6297361850738525, 1.0500553846359253, 0.4330037832260132]
+				},
+				"v_POLY_param_textureSDF1BoundMin": {
+					"type": "v3",
+					"value": [-0.6297152042388916, -0.049940697848796844, -0.43309634923934937]
+				},
+				"time": {
+					"value": 6.666666666666667
+				}
+			},
+			"defines": {
+				"ENVMAP_TYPE_CUBE_UV": 1,
+				"CUBEUV_TEXEL_WIDTH": 0.0013020833333333333,
+				"CUBEUV_TEXEL_HEIGHT": 0.0009765625,
+				"CUBEUV_MAX_MIP": "8.0",
+				"ROTATE_ENV_MAP_Y": false
+			},
+			"vertexShader": "precision highp float;\nprecision highp int;\n\nvarying vec3 vPw;\nvarying mat4 vModelMatrix;\nvarying mat4 vInverseModelMatrix;\nvarying mat4 VViewMatrix;\n\n#include <common>\n\n// // for depth material\n// varying vec2 vHighPrecisionZW;\n\nvoid main()\t{\n\n\tvModelMatrix = modelMatrix;\n\tvInverseModelMatrix = inverse(modelMatrix);\n\tVViewMatrix = viewMatrix;\n\tvPw = (modelMatrix * vec4( position, 1.0 )).xyz;\n\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n\n\t// vHighPrecisionZW = gl_Position.zw;\n}",
+			"fragmentShader": "precision highp float;\nprecision highp int;\n\n// --- applyMaterial constants definition\nuniform int MAX_STEPS;\nuniform float MAX_DIST;\nuniform float SURF_DIST;\nuniform float NORMALS_BIAS;\nuniform float SHADOW_BIAS;\n#define ZERO 0\nuniform float debugMinSteps;\nuniform float debugMaxSteps;\nuniform float debugMinDepth;\nuniform float debugMaxDepth;\n\n#include <common>\n#include <packing>\n#include <lightmap_pars_fragment>\n#include <bsdfs>\n#include <cube_uv_reflection_fragment>\n#include <lights_pars_begin>\n#include <lights_physical_pars_fragment>\n#include <shadowmap_pars_fragment>\n#include <fog_pars_fragment>\n\n#if defined( SHADOW_DISTANCE )\n\tuniform float shadowDistanceMin;\n\tuniform float shadowDistanceMax;\n#endif \n#if defined( SHADOW_DEPTH )\n\tuniform float shadowDepthMin;\n\tuniform float shadowDepthMax;\n#endif\n\n// varying vec2 vHighPrecisionZW;\n\nvarying vec3 vPw;\nvarying mat4 vModelMatrix;\nvarying mat4 vInverseModelMatrix;\nvarying mat4 VViewMatrix;\n\n#if NUM_SPOT_LIGHTS > 0\n\tstruct SpotLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform SpotLightRayMarching spotLightsRayMarching[ NUM_SPOT_LIGHTS ];\n\t#if NUM_SPOT_LIGHT_COORDS > 0\n\n\t\tuniform mat4 spotLightMatrix[ NUM_SPOT_LIGHT_COORDS ];\n\n\t#endif\n#endif\n#if NUM_DIR_LIGHTS > 0\n\tstruct DirectionalLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform DirectionalLightRayMarching directionalLightsRayMarching[ NUM_DIR_LIGHTS ];\n\t#if NUM_DIR_LIGHT_SHADOWS > 0\n\n\t\tuniform mat4 directionalShadowMatrix[ NUM_DIR_LIGHT_SHADOWS ];\n\n\t#endif\n#endif\n#if NUM_POINT_LIGHTS > 0\n\tstruct PointLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform PointLightRayMarching pointLightsRayMarching[ NUM_POINT_LIGHTS ];\n\t#if NUM_POINT_LIGHT_SHADOWS > 0\n\n\t\tuniform mat4 pointShadowMatrix[ NUM_POINT_LIGHT_SHADOWS ];\n\n\t#endif\n#endif\n\n\nstruct SDFContext {\n\tfloat d;\n\tint stepsCount;\n\tint matId;\n\tint matId2;\n\tfloat matBlend;\n};\n\nSDFContext DefaultSDFContext(){\n\treturn SDFContext( 0., 0, 0, 0, 0. );\n}\nint DefaultSDFMaterial(){\n\treturn 0;\n}\n\n// start raymarching builder define code\n\n\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1\nfloat dot2( in vec2 v ) { return dot(v,v); }\nfloat dot2( in vec3 v ) { return dot(v,v); }\nfloat ndot( in vec2 a, in vec2 b ) { return a.x*b.x - a.y*b.y; }\n// https://iquilezles.org/articles/distfunctions/\n\n\n/*\n*\n* SDF PRIMITIVES\n*\n*/\nfloat sdSphere( vec3 p, float s )\n{\n\treturn length(p)-s;\n}\nfloat sdCutSphere( vec3 p, float r, float h )\n{\n\t// sampling independent computations (only depend on shape)\n\tfloat w = sqrt(r*r-h*h);\n\n\t// sampling dependant computations\n\tvec2 q = vec2( length(p.xz), p.y );\n\tfloat s = max( (h-r)*q.x*q.x+w*w*(h+r-2.0*q.y), h*q.x-w*q.y );\n\treturn (s<0.0) ? length(q)-r :\n\t\t\t\t(q.x<w) ? h - q.y :\n\t\t\t\t\tlength(q-vec2(w,h));\n}\nfloat sdCutHollowSphere( vec3 p, float r, float h, float t )\n{\n\t// sampling independent computations (only depend on shape)\n\tfloat w = sqrt(r*r-h*h);\n\t\n\t// sampling dependant computations\n\tvec2 q = vec2( length(p.xz), p.y );\n\treturn ((h*q.x<w*q.y) ? length(q-vec2(w,h)) : \n\t\t\t\t\t\t\tabs(length(q)-r) ) - t;\n}\n\nfloat sdBox( vec3 p, vec3 b )\n{\n\tvec3 q = abs(p) - b*0.5;\n\treturn length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);\n}\nfloat sdRoundBox( vec3 p, vec3 b, float r )\n{\n\tvec3 q = abs(p) - b*0.5;\n\treturn length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0) - r;\n}\n\n\nfloat sdBoxFrame( vec3 p, vec3 b, float e )\n{\n\t\tp = abs(p  )-b*0.5;\n\tvec3 q = abs(p+e)-e;\n\treturn min(min(\n\t\tlength(max(vec3(p.x,q.y,q.z),0.0))+min(max(p.x,max(q.y,q.z)),0.0),\n\t\tlength(max(vec3(q.x,p.y,q.z),0.0))+min(max(q.x,max(p.y,q.z)),0.0)),\n\t\tlength(max(vec3(q.x,q.y,p.z),0.0))+min(max(q.x,max(q.y,p.z)),0.0));\n}\nfloat sdCapsule( vec3 p, vec3 a, vec3 b, float r )\n{\n\tvec3 pa = p - a, ba = b - a;\n\tfloat h = clamp( dot(pa,ba)/dot(ba,ba), 0.0, 1.0 );\n\treturn length( pa - ba*h ) - r;\n}\nfloat sdVerticalCapsule( vec3 p, float h, float r )\n{\n\tp.y -= clamp( p.y, 0.0, h );\n\treturn length( p ) - r;\n}\nfloat sdCone( in vec3 p, in vec2 c, float h )\n{\n\t// c is the sin/cos of the angle, h is height\n\t// Alternatively pass q instead of (c,h),\n\t// which is the point at the base in 2D\n\tvec2 q = h*vec2(c.x/c.y,-1.0);\n\n\tvec2 w = vec2( length(p.xz), p.y );\n\tvec2 a = w - q*clamp( dot(w,q)/dot(q,q), 0.0, 1.0 );\n\tvec2 b = w - q*vec2( clamp( w.x/q.x, 0.0, 1.0 ), 1.0 );\n\tfloat k = sign( q.y );\n\tfloat d = min(dot( a, a ),dot(b, b));\n\tfloat s = max( k*(w.x*q.y-w.y*q.x),k*(w.y-q.y)  );\n\treturn sqrt(d)*sign(s);\n}\nfloat sdConeWrapped(vec3 pos, float angle, float height){\n\treturn sdCone(pos, vec2(sin(angle), cos(angle)), height);\n}\nfloat sdRoundCone( vec3 p, float r1, float r2, float h )\n{\n\tfloat b = (r1-r2)/h;\n\tfloat a = sqrt(1.0-b*b);\n\n\tvec2 q = vec2( length(p.xz), p.y );\n\tfloat k = dot(q,vec2(-b,a));\n\tif( k<0.0 ) return length(q) - r1;\n\tif( k>a*h ) return length(q-vec2(0.0,h)) - r2;\n\treturn dot(q, vec2(a,b) ) - r1;\n}\nfloat sdOctogonPrism( in vec3 p, in float r, float h )\n{\n\tconst vec3 k = vec3(-0.9238795325,  // sqrt(2+sqrt(2))/2 \n\t\t\t\t\t\t0.3826834323,   // sqrt(2-sqrt(2))/2\n\t\t\t\t\t\t0.4142135623 ); // sqrt(2)-1 \n\t// reflections\n\tp = abs(p);\n\tp.xy -= 2.0*min(dot(vec2( k.x,k.y),p.xy),0.0)*vec2( k.x,k.y);\n\tp.xy -= 2.0*min(dot(vec2(-k.x,k.y),p.xy),0.0)*vec2(-k.x,k.y);\n\t// polygon side\n\tp.xy -= vec2(clamp(p.x, -k.z*r, k.z*r), r);\n\tvec2 d = vec2( length(p.xy)*sign(p.y), p.z-h );\n\treturn min(max(d.x,d.y),0.0) + length(max(d,0.0));\n}\nfloat sdHexPrism( vec3 p, vec2 h )\n{\n\tconst vec3 k = vec3(-0.8660254, 0.5, 0.57735);\n\tp = abs(p);\n\tp.xy -= 2.0*min(dot(k.xy, p.xy), 0.0)*k.xy;\n\tvec2 d = vec2(\n\t\tlength(p.xy-vec2(clamp(p.x,-k.z*h.x,k.z*h.x), h.x))*sign(p.y-h.x),\n\t\tp.z-h.y );\n\treturn min(max(d.x,d.y),0.0) + length(max(d,0.0));\n}\nfloat sdHorseshoe( in vec3 p, in float angle, in float r, in float le, vec2 w )\n{\n\tvec2 c = vec2(cos(angle),sin(angle));\n\tp.x = abs(p.x);\n\tfloat l = length(p.xy);\n\tp.xy = mat2(-c.x, c.y, \n\t\t\tc.y, c.x)*p.xy;\n\tp.xy = vec2((p.y>0.0 || p.x>0.0)?p.x:l*sign(-c.x),\n\t\t\t\t(p.x>0.0)?p.y:l );\n\tp.xy = vec2(p.x,abs(p.y-r))-vec2(le,0.0);\n\t\n\tvec2 q = vec2(length(max(p.xy,0.0)) + min(0.0,max(p.x,p.y)),p.z);\n\tvec2 d = abs(q) - w;\n\treturn min(max(d.x,d.y),0.0) + length(max(d,0.0));\n}\nfloat sdTriPrism( vec3 p, vec2 h )\n{\n\tvec3 q = abs(p);\n\treturn max(q.z-h.y,max(q.x*0.866025+p.y*0.5,-p.y)-h.x*0.5);\n}\nfloat sdPyramid( vec3 p, float h)\n{\n\tfloat m2 = h*h + 0.25;\n\n\tp.xz = abs(p.xz);\n\tp.xz = (p.z>p.x) ? p.zx : p.xz;\n\tp.xz -= 0.5;\n\n\tvec3 q = vec3( p.z, h*p.y - 0.5*p.x, h*p.x + 0.5*p.y);\n\n\tfloat s = max(-q.x,0.0);\n\tfloat t = clamp( (q.y-0.5*p.z)/(m2+0.25), 0.0, 1.0 );\n\n\tfloat a = m2*(q.x+s)*(q.x+s) + q.y*q.y;\n\tfloat b = m2*(q.x+0.5*t)*(q.x+0.5*t) + (q.y-m2*t)*(q.y-m2*t);\n\n\tfloat d2 = min(q.y,-q.x*m2-q.y*0.5) > 0.0 ? 0.0 : min(a,b);\n\n\treturn sqrt( (d2+q.z*q.z)/m2 ) * sign(max(q.z,-p.y));\n}\n\nfloat sdPlane( vec3 p, vec3 n, float h )\n{\n\t// n must be normalized\n\treturn dot(p,n) + h;\n}\n\nfloat sdTorus( vec3 p, vec2 t )\n{\n\tvec2 q = vec2(length(p.xz)-t.x,p.y);\n\treturn length(q)-t.y;\n}\nfloat sdCappedTorus(in vec3 p, in float an, in float ra, in float rb)\n{\n\tvec2 sc = vec2(sin(an),cos(an));\n\tp.x = abs(p.x);\n\tfloat k = (sc.y*p.x>sc.x*p.z) ? dot(p.xz,sc) : length(p.xz);\n\treturn sqrt( dot(p,p) + ra*ra - 2.0*ra*k ) - rb;\n}\nfloat sdLink( vec3 p, float le, float r1, float r2 )\n{\n  vec3 q = vec3( p.x, max(abs(p.y)-le,0.0), p.z );\n  return length(vec2(length(q.xy)-r1,q.z)) - r2;\n}\n// c is the sin/cos of the desired cone angle\nfloat sdSolidAngle(vec3 pos, vec2 c, float radius)\n{\n\tvec2 p = vec2( length(pos.xz), pos.y );\n\tfloat l = length(p) - radius;\n\tfloat m = length(p - c*clamp(dot(p,c),0.0,radius) );\n\treturn max(l,m*sign(c.y*p.x-c.x*p.y));\n}\nfloat sdSolidAngleWrapped(vec3 pos, float angle, float radius){\n\treturn sdSolidAngle(pos, vec2(sin(angle), cos(angle)), radius);\n}\nfloat sdTube( vec3 p, float r )\n{\n\treturn length(p.xz)-r;\n}\nfloat sdTubeCapped( vec3 p, float h, float r )\n{\n\tvec2 d = abs(vec2(length(p.xz),p.y)) - vec2(r,h);\n\treturn min(max(d.x,d.y),0.0) + length(max(d,0.0));\n}\nfloat sdOctahedron( vec3 p, float s)\n{\n  p = abs(p);\n  float m = p.x+p.y+p.z-s;\n  vec3 q;\n       if( 3.0*p.x < m ) q = p.xyz;\n  else if( 3.0*p.y < m ) q = p.yzx;\n  else if( 3.0*p.z < m ) q = p.zxy;\n  else return m*0.57735027;\n    \n  float k = clamp(0.5*(q.z-q.y+s),0.0,s); \n  return length(vec3(q.x,q.y-s+k,q.z-k)); \n}\nfloat udTriangle( vec3 p, vec3 a, vec3 b, vec3 c, float thickness )\n{\n\tvec3 ba = b - a; vec3 pa = p - a;\n\tvec3 cb = c - b; vec3 pb = p - b;\n\tvec3 ac = a - c; vec3 pc = p - c;\n\tvec3 nor = cross( ba, ac );\n\n\treturn - thickness + sqrt(\n\t\t(sign(dot(cross(ba,nor),pa)) +\n\t\tsign(dot(cross(cb,nor),pb)) +\n\t\tsign(dot(cross(ac,nor),pc))<2.0)\n\t\t?\n\t\tmin( min(\n\t\tdot2(ba*clamp(dot(ba,pa)/dot2(ba),0.0,1.0)-pa),\n\t\tdot2(cb*clamp(dot(cb,pb)/dot2(cb),0.0,1.0)-pb) ),\n\t\tdot2(ac*clamp(dot(ac,pc)/dot2(ac),0.0,1.0)-pc) )\n\t\t:\n\t\tdot(nor,pa)*dot(nor,pa)/dot2(nor) );\n}\nfloat udQuad( vec3 p, vec3 a, vec3 b, vec3 c, vec3 d, float thickness )\n{\n\tvec3 ba = b - a; vec3 pa = p - a;\n\tvec3 cb = c - b; vec3 pb = p - b;\n\tvec3 dc = d - c; vec3 pc = p - c;\n\tvec3 ad = a - d; vec3 pd = p - d;\n\tvec3 nor = cross( ba, ad );\n\n\treturn - thickness + sqrt(\n\t\t(sign(dot(cross(ba,nor),pa)) +\n\t\tsign(dot(cross(cb,nor),pb)) +\n\t\tsign(dot(cross(dc,nor),pc)) +\n\t\tsign(dot(cross(ad,nor),pd))<3.0)\n\t\t?\n\t\tmin( min( min(\n\t\tdot2(ba*clamp(dot(ba,pa)/dot2(ba),0.0,1.0)-pa),\n\t\tdot2(cb*clamp(dot(cb,pb)/dot2(cb),0.0,1.0)-pb) ),\n\t\tdot2(dc*clamp(dot(dc,pc)/dot2(dc),0.0,1.0)-pc) ),\n\t\tdot2(ad*clamp(dot(ad,pd)/dot2(ad),0.0,1.0)-pd) )\n\t\t:\n\t\tdot(nor,pa)*dot(nor,pa)/dot2(nor) );\n}\n\n/*\n*\n* SDF OPERATIONS\n*\n*/\nfloat SDFUnion( float d1, float d2 ) { return min(d1,d2); }\nfloat SDFSubtract( float d1, float d2 ) { return max(-d1,d2); }\nfloat SDFIntersect( float d1, float d2 ) { return max(d1,d2); }\n\nfloat SDFSmoothUnion( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) - k*h*(1.0-h);\n}\n\nfloat SDFSmoothSubtract( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2+d1)/k, 0.0, 1.0 );\n\treturn mix( d2, -d1, h ) + k*h*(1.0-h);\n}\n\nfloat SDFSmoothIntersect( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) + k*h*(1.0-h);\n}\n\nvec4 SDFElongateFast( in vec3 p, in vec3 h )\n{\n\treturn vec4( p-clamp(p,-h,h), 0.0 );\n}\nvec4 SDFElongateSlow( in vec3 p, in vec3 h )\n{\n\tvec3 q = abs(p)-h;\n\treturn vec4( max(q,0.0), min(max(q.x,max(q.y,q.z)),0.0) );\n}\n\nfloat SDFOnion( in float sdf, in float thickness )\n{\n\treturn abs(sdf)-thickness;\n}\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/cycle1\nfloat cycle(float val, float val_min, float val_max){\n\tif(val >= val_min && val < val_max){\n\t\treturn val;\n\t} else {\n\t\tfloat range = val_max - val_min;\n\t\tif(val >= val_max){\n\t\t\tfloat delta = (val - val_max);\n\t\t\treturn val_min + mod(delta, range);\n\t\t} else {\n\t\t\tfloat delta = (val_min - val);\n\t\t\treturn val_max - mod(delta, range);\n\t\t}\n\t}\n}\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/SDFMaterial1\nconst int _RAYMARCHEDOBJECT_MAT_RAYMARCHINGBUILDER1_SDFMATERIAL1 = 1;\n\n\n// https://stackoverflow.com/questions/23793698/how-to-implement-slerp-in-glsl-hlsl\n// vec4 quatSlerp(vec4 p0, vec4 p1, float t)\n// {\n// \tfloat dotp = dot(normalize(p0), normalize(p1));\n// \tif ((dotp > 0.9999) || (dotp < -0.9999))\n// \t{\n// \t\tif (t<=0.5)\n// \t\t\treturn p0;\n// \t\treturn p1;\n// \t}\n// \tfloat theta = acos(dotp);\n// \tvec4 P = ((p0*sin((1.0-t)*theta) + p1*sin(t*theta)) / sin(theta));\n// \tP.w = 1.0;\n// \treturn P;\n// }\n\n// https://devcry.heiho.net/html/2017/20170521-slerp.html\n// float lerp(float a, float b, float t) {\n// \treturn (1.0 - t) * a + t * b;\n// }\n// vec4 quatSlerp(vec4 p0, vec4 p1, float t){\n// \tvec4 qb = p1;\n\n// \t// cos(a) = dot product\n// \tfloat cos_a = p0.x * qb.x + p0.y * qb.y + p0.z * qb.z + p0.w * qb.w;\n// \tif (cos_a < 0.0f) {\n// \t\tcos_a = -cos_a;\n// \t\tqb = -qb;\n// \t}\n\n// \t// close to zero, cos(a) ~= 1\n// \t// do linear interpolation\n// \tif (cos_a > 0.999) {\n// \t\treturn vec4(\n// \t\t\tlerp(p0.x, qb.x, t),\n// \t\t\tlerp(p0.y, qb.y, t),\n// \t\t\tlerp(p0.z, qb.z, t),\n// \t\t\tlerp(p0.w, qb.w, t)\n// \t\t);\n// \t}\n\n// \tfloat alpha = acos(cos_a);\n// \treturn (p0 * sin(1.0 - t) + p1 * sin(t * alpha)) / sin(alpha);\n// }\n\n// https://stackoverflow.com/questions/62943083/interpolate-between-two-quaternions-the-long-way\nvec4 quatSlerp(vec4 q1, vec4 q2, float t){\n\tfloat angle = acos(dot(q1, q2));\n\tfloat denom = sin(angle);\n\t//check if denom is zero\n\treturn (q1*sin((1.0-t)*angle)+q2*sin(t*angle))/denom;\n}\n// TO CHECK:\n// this page https://www.reddit.com/r/opengl/comments/704la7/glsl_quaternion_library/\n// has a link to a potentially nice pdf:\n// http://web.mit.edu/2.998/www/QuaternionReport1.pdf\n\n// https://github.com/mattatz/ShibuyaCrowd/blob/master/source/shaders/common/quaternion.glsl\nvec4 quatMult(vec4 q1, vec4 q2)\n{\n\treturn vec4(\n\tq1.w * q2.x + q1.x * q2.w + q1.z * q2.y - q1.y * q2.z,\n\tq1.w * q2.y + q1.y * q2.w + q1.x * q2.z - q1.z * q2.x,\n\tq1.w * q2.z + q1.z * q2.w + q1.y * q2.x - q1.x * q2.y,\n\tq1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z\n\t);\n}\n// http://glmatrix.net/docs/quat.js.html#line97\n//   let ax = a[0], ay = a[1], az = a[2], aw = a[3];\n\n//   let bx = b[0], by = b[1], bz = b[2], bw = b[3];\n\n//   out[0] = ax * bw + aw * bx + ay * bz - az * by;\n\n//   out[1] = ay * bw + aw * by + az * bx - ax * bz;\n\n//   out[2] = az * bw + aw * bz + ax * by - ay * bx;\n\n//   out[3] = aw * bw - ax * bx - ay * by - az * bz;\n\n//   return out\n\n\n\n// http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/\nmat4 rotationMatrix(vec3 axis, float angle)\n{\n\taxis = normalize(axis);\n\tfloat s = sin(angle);\n\tfloat c = cos(angle);\n\tfloat oc = 1.0 - c;\n\n \treturn mat4(oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s,  0.0, oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\n// https://www.geeks3d.com/20141201/how-to-rotate-a-vertex-by-a-quaternion-in-glsl/\nvec4 quatFromAxisAngle(vec3 axis, float angle)\n{\n\tvec4 qr;\n\tfloat half_angle = (angle * 0.5); // * 3.14159 / 180.0;\n\tfloat sin_half_angle = sin(half_angle);\n\tqr.x = axis.x * sin_half_angle;\n\tqr.y = axis.y * sin_half_angle;\n\tqr.z = axis.z * sin_half_angle;\n\tqr.w = cos(half_angle);\n\treturn qr;\n}\nvec3 rotateWithAxisAngle(vec3 position, vec3 axis, float angle)\n{\n\tvec4 q = quatFromAxisAngle(axis, angle);\n\tvec3 v = position.xyz;\n\treturn v + 2.0 * cross(q.xyz, cross(q.xyz, v) + q.w * v);\n}\n// vec3 applyQuaternionToVector( vec4 q, vec3 v ){\n// \treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n// }\nvec3 rotateWithQuat( vec3 v, vec4 q )\n{\n\t// vec4 qv = multQuat( quat, vec4(vec, 0.0) );\n\t// return multQuat( qv, vec4(-quat.x, -quat.y, -quat.z, quat.w) ).xyz;\n\treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n}\n// https://github.com/glslify/glsl-look-at/blob/gh-pages/index.glsl\n// mat3 rotation_matrix(vec3 origin, vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target - origin);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n// mat3 rotation_matrix(vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n\nfloat vectorAngle(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 c1 = cross(start, dest);\n\t// We use the dot product of the cross with the Y axis.\n\t// This is a little arbitrary, but can still give a good sense of direction\n\tvec3 y_axis = vec3(0.0, 1.0, 0.0);\n\tfloat d1 = dot(c1, y_axis);\n\tfloat angle = acos(cosTheta) * sign(d1);\n\treturn angle;\n}\n\n// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/#i-need-an-equivalent-of-glulookat-how-do-i-orient-an-object-towards-a-point-\nvec4 vectorAlign(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 axis;\n\n\t// if (cosTheta < -1 + 0.001f){\n\t// \t// special case when vectors in opposite directions:\n\t// \t// there is no ideal rotation axis\n\t// \t// So guess one; any will do as long as it's perpendicular to start\n\t// \taxis = cross(vec3(0.0f, 0.0f, 1.0f), start);\n\t// \tif (length2(axis) < 0.01 ) // bad luck, they were parallel, try again!\n\t// \t\taxis = cross(vec3(1.0f, 0.0f, 0.0f), start);\n\n\t// \taxis = normalize(axis);\n\t// \treturn gtx::quaternion::angleAxis(glm::radians(180.0f), axis);\n\t// }\n\tif(cosTheta > (1.0 - 0.0001) || cosTheta < (-1.0 + 0.0001) ){\n\t\taxis = normalize(cross(start, vec3(0.0, 1.0, 0.0)));\n\t\tif (length(axis) < 0.001 ){ // bad luck, they were parallel, try again!\n\t\t\taxis = normalize(cross(start, vec3(1.0, 0.0, 0.0)));\n\t\t}\n\t} else {\n\t\taxis = normalize(cross(start, dest));\n\t}\n\n\tfloat angle = acos(cosTheta);\n\n\treturn quatFromAxisAngle(axis, angle);\n}\nvec4 vectorAlignWithUp(vec3 start, vec3 dest, vec3 up){\n\tvec4 rot1 = vectorAlign(start, dest);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\t// vec3 right = normalize(cross(dest, up));\n\t// up = normalize(cross(right, dest));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the up of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(vec3(0.0, 1.0, 0.0), rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(up, newUp);\n\n\t// return rot1;\n\treturn rot2;\n\t// return multQuat(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n// https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToAngle/index.htm\nfloat quatToAngle(vec4 q){\n\treturn 2.0 * acos(q.w);\n}\nvec3 quatToAxis(vec4 q){\n\treturn vec3(\n\t\tq.x / sqrt(1.0-q.w*q.w),\n\t\tq.y / sqrt(1.0-q.w*q.w),\n\t\tq.z / sqrt(1.0-q.w*q.w)\n\t);\n}\n\nvec4 align(vec3 dir, vec3 up){\n\tvec3 start_dir = vec3(0.0, 0.0, 1.0);\n\tvec3 start_up = vec3(0.0, 1.0, 0.0);\n\tvec4 rot1 = vectorAlign(start_dir, dir);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\tvec3 right = normalize(cross(dir, up));\n\tif(length(right)<0.001){\n\t\tright = vec3(1.0, 0.0, 0.0);\n\t}\n\tup = normalize(cross(right, dir));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the up of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(start_up, rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(normalize(newUp), up);\n\n\t// return rot1;\n\treturn quatMult(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\nstruct EnvMapProps {\n\tvec3 tint;\n\tfloat intensity;\n\tfloat roughness;\n\tfloat fresnel;\n\tfloat fresnelPower;\n};\nuniform sampler2D envMap;\nuniform float envMapIntensity;\nuniform float roughness;\n#ifdef ROTATE_ENV_MAP_Y\n\tuniform float envMapRotationY;\n#endif\nvec3 envMapSample(vec3 rayDir, float envMapRoughness){\n\t// http://www.pocketgl.com/reflections/\n\tvec3 env = vec3(0.);\n\t// vec2 uv = vec2( atan( -rayDir.z, -rayDir.x ) * RECIPROCAL_PI2 + 0.5, rayDir.y * 0.5 + 0.5 );\n\t// vec3 env = texture2D(map, uv).rgb;\n\t#ifdef ENVMAP_TYPE_CUBE_UV\n\t\t#ifdef ROTATE_ENV_MAP_Y\n\t\t\trayDir = rotateWithAxisAngle(rayDir, vec3(0.,1.,0.), envMapRotationY);\n\t\t#endif\n\t\tenv = textureCubeUV(envMap, rayDir, envMapRoughness * roughness).rgb;\n\t#endif\n\treturn env;\n}\nvec3 envMapSampleWithFresnel(vec3 rayDir, EnvMapProps envMapProps, vec3 n, vec3 cameraPosition){\n\t// http://www.pocketgl.com/reflections/\n\tvec3 env = envMapSample(rayDir, envMapProps.roughness);\n\tfloat fresnel = pow(1.-dot(normalize(cameraPosition), n), envMapProps.fresnelPower);\n\tfloat fresnelFactor = (1.-envMapProps.fresnel) + envMapProps.fresnel*fresnel;\n\treturn env * envMapIntensity * envMapProps.tint * envMapProps.intensity * fresnelFactor;\n}\n#define RAYMARCHED_REFRACTIONS 1\n#define RAYMARCHED_REFRACTIONS_SAMPLE_ENV_MAP_ON_LAST 1\n#define RAYMARCHED_REFRACTIONS_START_OUTSIDE_MEDIUM 1\n\n\n\n\n\n\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1\nprecision highp sampler3D;\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1BoundMin\nuniform vec3 v_POLY_param_textureSDF1BoundMin;\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1BoundMax\nuniform vec3 v_POLY_param_textureSDF1BoundMax;\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/globals1\nuniform float time;\n\n// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1\nuniform sampler3D v_POLY_textureSDF_textureSDF1;\n\n\n\n\n\n\nSDFContext GetDist(vec3 p) {\n\tSDFContext sdfContext = SDFContext(0., 0, 0, 0, 0.);\n\n\t// start GetDist builder body code\n\n\n\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1BoundMin\n\tvec3 v_POLY_textureSDF1BoundMin_val = v_POLY_param_textureSDF1BoundMin;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1BoundMax\n\tvec3 v_POLY_textureSDF1BoundMax_val = v_POLY_param_textureSDF1BoundMax;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/globals1\n\tvec3 v_POLY_globals1_position = p;\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/textureSDF1\n\tvec3 v_POLY_textureSDF1_boundCenter = (v_POLY_textureSDF1BoundMax_val + v_POLY_textureSDF1BoundMin_val)*0.5;\n\tvec3 v_POLY_textureSDF1_boundSize = (v_POLY_textureSDF1BoundMax_val - v_POLY_textureSDF1BoundMin_val);\n\tvec3 v_POLY_textureSDF1_positionNormalised = ((p - v_POLY_textureSDF1BoundMin_val) / v_POLY_textureSDF1_boundSize);\n\tfloat v_POLY_textureSDF1_sdBox = sdBox(p-v_POLY_textureSDF1_boundCenter, v_POLY_textureSDF1_boundSize*vec3(1.0, 1.0, 1.0));\n\tfloat v_POLY_textureSDF1_d = v_POLY_textureSDF1_sdBox < 0.01 ? texture(v_POLY_textureSDF_textureSDF1, v_POLY_textureSDF1_positionNormalised - vec3(0.0, 0.0, 0.0)).r : v_POLY_textureSDF1_sdBox;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/cycle1\n\tfloat v_POLY_cycle1_val = cycle(v_POLY_globals1_time, 0.0, 12.5);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/vec3ToFloat1\n\tfloat v_POLY_vec3ToFloat1_x = v_POLY_globals1_position.x;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd4\n\tfloat v_POLY_multAdd4_val = (0.2*(v_POLY_cycle1_val + 0.0)) + 0.22;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd2\n\tfloat v_POLY_multAdd2_val = (1.0*(v_POLY_multAdd4_val + 0.0)) + -1.0;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd5\n\tfloat v_POLY_multAdd5_val = (1.0*(v_POLY_multAdd4_val + 0.0)) + -2.0;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/null1\n\tfloat v_POLY_null1_val = v_POLY_multAdd2_val;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/null2\n\tfloat v_POLY_null2_val = v_POLY_multAdd5_val;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd6\n\tfloat v_POLY_multAdd6_val = (1.0*(v_POLY_null1_val + 1.0)) + 0.0;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd7\n\tfloat v_POLY_multAdd7_val = (1.0*(v_POLY_null2_val + -1.0)) + 0.0;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/smoothstep1\n\tfloat v_POLY_smoothstep1_val = smoothstep(v_POLY_null1_val, v_POLY_multAdd6_val, v_POLY_vec3ToFloat1_x);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/smoothstep2\n\tfloat v_POLY_smoothstep2_val = smoothstep(v_POLY_null2_val, v_POLY_multAdd7_val, v_POLY_vec3ToFloat1_x);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/max1\n\tfloat v_POLY_max1_val = max(v_POLY_smoothstep1_val, v_POLY_smoothstep2_val);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd1\n\tfloat v_POLY_multAdd1_val = (0.31*(v_POLY_max1_val + 0.0)) + 0.0;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/multAdd3\n\tfloat v_POLY_multAdd3_val = (1.0*(v_POLY_textureSDF1_d + v_POLY_multAdd1_val)) + 0.0;\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/SDFContext1\n\tSDFContext v_POLY_SDFContext1_SDFContext = SDFContext(v_POLY_multAdd3_val, 0, _RAYMARCHEDOBJECT_MAT_RAYMARCHINGBUILDER1_SDFMATERIAL1, _RAYMARCHEDOBJECT_MAT_RAYMARCHINGBUILDER1_SDFMATERIAL1, 0.);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/output1\n\tsdfContext = v_POLY_SDFContext1_SDFContext;\n\n\n\n\t\n\n\treturn sdfContext;\n}\n\nSDFContext RayMarch(vec3 ro, vec3 rd, float side) {\n\tSDFContext dO = SDFContext(0.,0,0,0,0.);\n\n\t#pragma unroll_loop_start\n\tfor(int i=0; i<MAX_STEPS; i++) {\n\t\tvec3 p = ro + rd*dO.d;\n\t\tSDFContext sdfContext = GetDist(p);\n\t\tdO.d += sdfContext.d * side;\n\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\tdO.stepsCount += 1;\n\t\t#endif\n\t\tdO.matId = sdfContext.matId;\n\t\tdO.matId2 = sdfContext.matId2;\n\t\tdO.matBlend = sdfContext.matBlend;\n\t\tif(dO.d>MAX_DIST || abs(sdfContext.d)<SURF_DIST) break;\n\t}\n\t#pragma unroll_loop_end\n\n\treturn dO;\n}\n\nvec3 GetNormal(vec3 p) {\n\tSDFContext sdfContext = GetDist(p);\n\tvec2 e = vec2(NORMALS_BIAS, 0);\n\n\tvec3 n = sdfContext.d - vec3(\n\t\tGetDist(p-e.xyy).d,\n\t\tGetDist(p-e.yxy).d,\n\t\tGetDist(p-e.yyx).d);\n\n\treturn normalize(n);\n}\n// https://iquilezles.org/articles/rmshadows\nfloat calcSoftshadow( in vec3 ro, in vec3 rd, float mint, float maxt, float k, inout SDFContext sdfContext )\n{\n\tfloat res = 1.0;\n\tfloat ph = 1e20;\n\tfor( float t=mint; t<maxt; )\n\t{\n\t\tfloat h = GetDist(ro + rd*t).d;\n\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\tsdfContext.stepsCount += 1;\n\t\t#endif\n\t\tif( h<SURF_DIST )\n\t\t\treturn 0.0;\n\t\tfloat y = h*h/(2.0*ph);\n\t\tfloat d = sqrt(h*h-y*y);\n\t\tres = min( res, k*d/max(0.0,t-y) );\n\t\tph = h;\n\t\tt += h;\n\t}\n\treturn res;\n}\n\nvec3 GetLight(vec3 _p, vec3 _n, inout SDFContext sdfContext) {\n\tvec3 dif = vec3(0.,0.,0.);\n\tGeometricContext geometry;\n\t// geometry.position = _p;\n\t// geometry.normal = _n;\n\t// geometry.viewDir = rayDir;\n\n\t// vec4 mvPosition = vec4( p, 1.0 );\n\t// mvPosition = modelViewMatrix * mvPosition;\n\t// vec3 vViewPosition = - mvPosition.xyz;\n\tvec3 pWorld = ( vModelMatrix * vec4( _p, 1.0 )).xyz;\n\tvec3 nWorld = transformDirection(_n, vModelMatrix);\n\t// geometry.position = (VViewMatrix * vec4( _p, 1.0 )).xyz;\n\tgeometry.position = (VViewMatrix * vec4(pWorld, 1.0 )).xyz;\n\t// geometry.normal = transformDirection(_n, VViewMatrix);\n\t// geometry.normal = inverseTransformDirection(transformDirection(_n, VViewMatrix), vInverseModelMatrix);\n\tgeometry.normal = transformDirection(nWorld, VViewMatrix);\n\tgeometry.viewDir = ( isOrthographic ) ? vec3( 0, 0, 1 ) : normalize( cameraPosition - geometry.position );\n\n\t#if NUM_SPOT_LIGHTS > 0 || NUM_DIR_LIGHTS > 0 || NUM_HEMI_LIGHTS > 0 || NUM_POINT_LIGHTS > 0 || NUM_RECT_AREA_LIGHTS > 0\n\n\t\tIncidentLight directLight;\n\t\tReflectedLight reflectedLight;\n\t\tvec3 lightPos, lightDir, worldLightDir, objectSpaceLightDir, lighDif, directDiffuse;\n\t\tfloat dotNL, lightDistance;\n\t\t#if NUM_SPOT_LIGHTS > 0\n\t\t\tSpotLightRayMarching spotLightRayMarching;\n\t\t\tSpotLight spotLight;\n\t\t\tfloat spotLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_SPOT_LIGHT_SHADOWS > 0\n\t\t\t\tSpotLightShadow spotLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_SPOT_LIGHTS; i ++ ) {\n\t\t\t\tspotLightRayMarching = spotLightsRayMarching[ i ];\n\t\t\t\tspotLight = spotLights[ i ];\n\t\t\t\tgetSpotLightInfo( spotLight, geometry, directLight );\n\n\t\t\t\t// #if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_SPOT_LIGHT_SHADOWS )\n\t\t\t\t// \tspotLightShadow = spotLightShadows[ i ];\n\t\t\t\t// \tvec4 spotLightShadowCoord = spotLightMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t// \tdirectLight.color *= (directLight.visible && receiveShadow) ? getShadow(\n\t\t\t\t// \t\tspotShadowMap[ i ],\n\t\t\t\t// \t\tspotLightShadow.shadowMapSize,\n\t\t\t\t// \t\tspotLightShadow.shadowBias,\n\t\t\t\t// \t\tspotLightShadow.shadowRadius,\n\t\t\t\t// \t\tspotLightShadowCoord\n\t\t\t\t// \t) : 1.0;\n\t\t\t\t// #endif\n\n\t\t\t\tlightPos = spotLight.position;\n\t\t\t\tlightDir = normalize(lightPos-geometry.position);\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tlightDistance = distance(geometry.position,lightPos);\n\t\t\t\tspotLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < spotLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t: calcSoftshadow(\n\t\t\t\t\t\t_p,\n\t\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\t\tspotLightRayMarching.shadowBiasDistance,\n\t\t\t\t\t\tdistance(geometry.position,lightPos),\n\t\t\t\t\t\t1./max(spotLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\t\tsdfContext\n\t\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * spotLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\t\t#if NUM_DIR_LIGHTS > 0\n\t\t\tDirectionalLightRayMarching directionalLightRayMarching;\n\t\t\tDirectionalLight directionalLight;\n\t\t\tfloat dirLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_DIR_LIGHT_SHADOWS > 0\n\t\t\t\tDirectionalLightShadow directionalLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_DIR_LIGHTS; i ++ ) {\n\t\t\t\tdirectionalLightRayMarching = directionalLightsRayMarching[ i ];\n\t\t\t\tdirectionalLight = directionalLights[ i ];\n\t\t\t\t\n\t\t\t\tgetDirectionalLightInfo( directionalLight, geometry, directLight );\n\n\t\t\t\t// #if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_DIR_LIGHT_SHADOWS )\n\t\t\t\t// \tdirectionalLightShadow = directionalLightShadows[ i ];\n\t\t\t\t// \tvec4 dirLightShadowCoord = directionalShadowMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t// \tdirectLight.color *= (directLight.visible && receiveShadow) ? getShadow(\n\t\t\t\t// \t\tdirectionalShadowMap[ i ],\n\t\t\t\t// \t\tdirectionalLightShadow.shadowMapSize,\n\t\t\t\t// \t\tdirectionalLightShadow.shadowBias,\n\t\t\t\t// \t\tdirectionalLightShadow.shadowRadius,\n\t\t\t\t// \t\tdirLightShadowCoord\n\t\t\t\t// \t) : 1.0;\n\t\t\t\t// #endif\n\n\t\t\t\tlightDir = directionalLight.direction;\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tdirLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < directionalLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t:\n\t\t\t\t\tcalcSoftshadow(\n\t\t\t\t\t\t_p,\n\t\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\t\tdirectionalLightRayMarching.shadowBiasDistance,\n\t\t\t\t\t\tMAX_DIST,//distance(geometry.position,lightPos),\n\t\t\t\t\t\t1./max(directionalLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\t\tsdfContext\n\t\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\t// lighDif = directLight.color * dotNL * dirLightSdfShadow;\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * dirLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\n\t\t#if ( NUM_HEMI_LIGHTS > 0 )\n\n\t\t\t#pragma unroll_loop_start\n\t\t\tHemisphereLight hemiLight;\n\t\t\tfor ( int i = 0; i < NUM_HEMI_LIGHTS; i ++ ) {\n\t\t\t\themiLight = hemisphereLights[ i ];\n\t\t\t\tdif += getHemisphereLightIrradiance( hemiLight, geometry.normal ) * BRDF_Lambert( vec3(1.) );\n\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\n\t\t#endif\n\n\t\t#if NUM_POINT_LIGHTS > 0\n\t\t\tPointLightRayMarching pointLightRayMarching;\n\t\t\tPointLight pointLight;\n\t\t\tfloat pointLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_POINT_LIGHT_SHADOWS > 0\n\t\t\t\tPointLightShadow pointLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_POINT_LIGHTS; i ++ ) {\n\t\t\t\tpointLightRayMarching = pointLightsRayMarching[ i ];\n\t\t\t\tpointLight = pointLights[ i ];\n\t\t\t\tgetPointLightInfo( pointLight, geometry, directLight );\n\n\n\t\t\t\t#if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_POINT_LIGHT_SHADOWS )\n\t\t\t\t\tpointLightShadow = pointLightShadows[ i ];\n\t\t\t\t\tvec4 pointLightShadowCoord = pointShadowMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t\tdirectLight.color *= (directLight.visible && receiveShadow) ? getPointShadow(\n\t\t\t\t\t\tpointShadowMap[ i ],\n\t\t\t\t\t\tpointLightShadow.shadowMapSize,\n\t\t\t\t\t\tpointLightShadow.shadowBias,\n\t\t\t\t\t\tpointLightShadow.shadowRadius,\n\t\t\t\t\t\tpointLightShadowCoord,\n\t\t\t\t\t\tpointLightShadow.shadowCameraNear,\n\t\t\t\t\t\tpointLightShadow.shadowCameraFar\n\t\t\t\t\t) : 1.0;\n\t\t\t\t#endif\n\n\t\t\t\tlightPos = pointLight.position;\n\t\t\t\tlightDir = normalize(lightPos-geometry.position);\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tpointLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < pointLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t:\n\t\t\t\t\tcalcSoftshadow(\n\t\t\t\t\t_p,\n\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\tpointLightRayMarching.shadowBiasDistance,\n\t\t\t\t\tdistance(geometry.position,lightPos),\n\t\t\t\t\t1./max(pointLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\tsdfContext\n\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * pointLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\n\t\t#if ( NUM_RECT_AREA_LIGHTS > 0 ) && defined( RE_Direct_RectArea )\n\n\t\t\tRectAreaLight rectAreaLight;\n\t\t\t// AreaLightRayMarching areaLightRayMarching;\n\t\t\tPhysicalMaterial material;\n\t\t\tmaterial.roughness = 1.;\n\t\t\tmaterial.specularColor = vec3(1.);\n\t\t\tmaterial.diffuseColor = vec3(1.);\n\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_RECT_AREA_LIGHTS; i ++ ) {\n\t\t\t\t// areaLightRayMarching = areaLightsRayMarching[ i ];\n\t\t\t\trectAreaLight = rectAreaLights[ i ];\n\t\t\t\t// rectAreaLight.position = areaLightRayMarching.worldPos;\n\n\t\t\t\tRE_Direct_RectArea( rectAreaLight, geometry, material, reflectedLight );\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t\tdif += reflectedLight.directDiffuse;\n\n\t\t#endif\n\t#endif\n\n\tvec3 irradiance = getAmbientLightIrradiance( ambientLightColor );\n\n\tirradiance += getLightProbeIrradiance( lightProbe, geometry.normal );\n\tdif += irradiance;\n\treturn dif;\n}\n\n\n\n\nvec3 applyMaterialWithoutRefraction(vec3 p, vec3 n, vec3 rayDir, int mat, inout SDFContext sdfContext){\n\n\tvec3 col = vec3(1.);\n\t// start applyMaterial builder body code\n\n\n\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/SDFMaterial1\n\tif(mat == _RAYMARCHEDOBJECT_MAT_RAYMARCHINGBUILDER1_SDFMATERIAL1){\n\t\tcol = vec3(0., 0., 0.);\n\t\tvec3 diffuse = v_POLY_constant1_val * vec3(0.0, 0.0, 0.0) * GetLight(p, n, sdfContext);\n\t\tcol += diffuse;\n\t\tcol += vec3(0.0, 0.0, 0.0);\n\t\tvec3 rayDir = normalize(reflect(rayDir, n));\n\t\tEnvMapProps envMapProps;\n\t\tenvMapProps.tint = vec3(1.0, 1.0, 1.0);\n\t\tenvMapProps.intensity = 0.14;\n\t\tenvMapProps.roughness = 1.0;\n\t\tenvMapProps.fresnel = 0.0;\n\t\tenvMapProps.fresnelPower = 5.0;\n\t\tcol += envMapSampleWithFresnel(rayDir, envMapProps, n, cameraPosition);\n\t\n\t;\n\t}\n\n\n\n\t\n\treturn col;\n}\n\nvec3 applyMaterialWithoutReflection(vec3 p, vec3 n, vec3 rayDir, int mat, inout SDFContext sdfContext){\n\n\tvec3 col = vec3(1.);\n\t// start applyMaterial builder body code\n\n\n\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/SDFMaterial1\n\tif(mat == _RAYMARCHEDOBJECT_MAT_RAYMARCHINGBUILDER1_SDFMATERIAL1){\n\t\tcol = vec3(0., 0., 0.);\n\t\tvec3 diffuse = v_POLY_constant1_val * vec3(0.0, 0.0, 0.0) * GetLight(p, n, sdfContext);\n\t\tcol += diffuse;\n\t\tcol += vec3(0.0, 0.0, 0.0);\n\t\tvec3 rayDir = normalize(reflect(rayDir, n));\n\t\tEnvMapProps envMapProps;\n\t\tenvMapProps.tint = vec3(1.0, 1.0, 1.0);\n\t\tenvMapProps.intensity = 0.14;\n\t\tenvMapProps.roughness = 1.0;\n\t\tenvMapProps.fresnel = 0.0;\n\t\tenvMapProps.fresnelPower = 5.0;\n\t\tcol += envMapSampleWithFresnel(rayDir, envMapProps, n, cameraPosition);\n\t\n\t;\n\t}\n\n\n\n\t\n\treturn col;\n}\n#ifdef RAYMARCHED_REFLECTIONS\nvec3 GetReflection(vec3 p, vec3 n, vec3 rayDir, float biasMult, float roughness, int reflectionDepth, inout SDFContext sdfContextMain){\n\tbool hitReflection = true;\n\tvec3 reflectedColor = vec3(0.);\n\t#pragma unroll_loop_start\n\tfor(int i=0; i < reflectionDepth; i++) {\n\t\tif(hitReflection){\n\t\t\trayDir = reflect(rayDir, n);\n\t\t\tp += n*SURF_DIST*biasMult;\n\t\t\tSDFContext sdfContext = RayMarch(p, rayDir, 1.);\n\t\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\t\tsdfContextMain.stepsCount += sdfContext.stepsCount;\n\t\t\t#endif\n\t\t\tif( sdfContext.d >= MAX_DIST){\n\t\t\t\thitReflection = false;\n\t\t\t\treflectedColor = envMapSample(rayDir, roughness);\n\t\t\t}\n\t\t\tif(hitReflection){\n\t\t\t\tp += rayDir * sdfContext.d;\n\t\t\t\tn = GetNormal(p);\n\t\t\t\tvec3 matCol = applyMaterialWithoutReflection(p, n, rayDir, sdfContext.matId, sdfContextMain);\n\t\t\t\treflectedColor += matCol;\n\t\t\t}\n\t\t}\n\t}\n\t#pragma unroll_loop_end\n\treturn reflectedColor;\n}\n#endif\n\n#ifdef RAYMARCHED_REFRACTIONS\n// xyz for color, w for distanceInsideMedium\nvec4 GetRefractedData(vec3 p, vec3 n, vec3 rayDir, float ior, float biasMult, float roughness, float refractionMaxDist, int refractionDepth, inout SDFContext sdfContextMain){\n\tbool hitRefraction = true;\n\tbool changeSide = true;\n\t#ifdef RAYMARCHED_REFRACTIONS_START_OUTSIDE_MEDIUM\n\tfloat side = -1.;\n\t#else\n\tfloat side =  1.;\n\t#endif\n\tfloat iorInverted = 1. / ior;\n\tvec3 refractedColor = vec3(0.);\n\tfloat distanceInsideMedium=0.;\n\tfloat totalRefractedDistance=0.;\n\n\t#pragma unroll_loop_start\n\tfor(int i=0; i < refractionDepth; i++) {\n\t\tif(hitRefraction){\n\t\t\tfloat currentIor = side<0. ? iorInverted : ior;\n\t\t\tvec3 rayDirPreRefract = rayDir;\n\t\t\trayDir = refract(rayDir, n, currentIor);\n\t\t\tchangeSide = dot(rayDir, rayDir)!=0.;\n\t\t\tif(changeSide == true) {\n\t\t\t\tp -= n*SURF_DIST*(2.+biasMult);\n\t\t\t} else {\n\t\t\t\tp += n*SURF_DIST*(   biasMult);\n\t\t\t\trayDir = reflect(rayDirPreRefract, n);\n\t\t\t}\n\t\t\tSDFContext sdfContext = RayMarch(p, rayDir, side);\n\t\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\t\tsdfContextMain.stepsCount += sdfContext.stepsCount;\n\t\t\t#endif\n\t\t\ttotalRefractedDistance += sdfContext.d;\n\t\t\tif( abs(sdfContext.d) >= MAX_DIST || totalRefractedDistance > refractionMaxDist ){\n\t\t\t\thitRefraction = false;\n\t\t\t\trefractedColor = envMapSample(rayDir, roughness);\n\t\t\t}\n\t\t\tif(hitRefraction){\n\t\t\t\tp += rayDir * sdfContext.d;\n\t\t\t\tn = GetNormal(p) * side;\n\t\t\t\tvec3 matCol = applyMaterialWithoutRefraction(p, n, rayDir, sdfContext.matId, sdfContextMain);\n\t\t\t\trefractedColor = matCol;\n\n\t\t\t\t// same as: side < 0. ? abs(sdfContext.d) : 0.;\n\t\t\t\tdistanceInsideMedium += (side-1.)*-0.5*abs(sdfContext.d);\n\t\t\t\tif( changeSide ){\n\t\t\t\t\tside *= -1.;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t#ifdef RAYMARCHED_REFRACTIONS_SAMPLE_ENV_MAP_ON_LAST\n\t\tif(i == refractionDepth-1){\n\t\t\trefractedColor = envMapSample(rayDir, roughness);\n\t\t}\n\t\t#endif\n\t}\n\t#pragma unroll_loop_end\n\treturn vec4(refractedColor, distanceInsideMedium);\n}\nfloat refractionTint(float baseValue, float tint, float distanceInsideMedium, float absorption){\n\tfloat tintNegated = baseValue-tint;\n\tfloat t = tintNegated*( distanceInsideMedium*absorption );\n\treturn max(baseValue-t, 0.);\n}\nfloat applyRefractionAbsorption(float refractedDataColor, float baseValue, float tint, float distanceInsideMedium, float absorption){\n\treturn refractedDataColor*refractionTint(baseValue, tint, distanceInsideMedium, absorption);\n}\nvec3 applyRefractionAbsorption(vec3 refractedDataColor, vec3 baseValue, vec3 tint, float distanceInsideMedium, float absorption){\n\treturn vec3(\n\t\trefractedDataColor.r * refractionTint(baseValue.r, tint.r, distanceInsideMedium, absorption),\n\t\trefractedDataColor.g * refractionTint(baseValue.g, tint.g, distanceInsideMedium, absorption),\n\t\trefractedDataColor.b * refractionTint(baseValue.b, tint.b, distanceInsideMedium, absorption)\n\t);\n}\n\n#endif\n\nvec3 applyMaterial(vec3 p, vec3 n, vec3 rayDir, int mat, inout SDFContext sdfContext){\n\n\tvec3 col = vec3(0.);\n\t// start applyMaterial builder body code\n\n\n\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /raymarchedObject/MAT/rayMarchingBuilder1/SDFMaterial1\n\tif(mat == _RAYMARCHEDOBJECT_MAT_RAYMARCHINGBUILDER1_SDFMATERIAL1){\n\t\tcol = vec3(0., 0., 0.);\n\t\tvec3 diffuse = v_POLY_constant1_val * vec3(0.0, 0.0, 0.0) * GetLight(p, n, sdfContext);\n\t\tcol += diffuse;\n\t\tcol += vec3(0.0, 0.0, 0.0);\n\t\tvec3 rayDir = normalize(reflect(rayDir, n));\n\t\tEnvMapProps envMapProps;\n\t\tenvMapProps.tint = vec3(1.0, 1.0, 1.0);\n\t\tenvMapProps.intensity = 0.14;\n\t\tenvMapProps.roughness = 1.0;\n\t\tenvMapProps.fresnel = 0.0;\n\t\tenvMapProps.fresnelPower = 5.0;\n\t\tcol += envMapSampleWithFresnel(rayDir, envMapProps, n, cameraPosition);\n\t\n\t\tvec3 refractedColor = vec3(0.);\n\t\tfloat ior = 1.45;\n\t\tfloat biasMult = 2.0;\n\t\tvec3 baseValue = v_POLY_constant1_val;\n\t\tvec3 tint = vec3(0.7764705882352941, 0.5490196078431373, 0.06274509803921569);\n\t\tfloat absorption = 4.7;\n\t\t\t\n\t\n\t\tvec4 refractedData = GetRefractedData(p, n, rayDir, ior, biasMult, 1.0, 100.0, 3, sdfContext);\n\t\trefractedColor = applyRefractionAbsorption(refractedData.rgb, baseValue, tint, refractedData.w, absorption);\n\t\t\t\t;\n\t\n\t\tcol += refractedColor * 2.0;\n\t;\n\t}\n\n\n\n\t\n\treturn col;\n}\n\n\n\n\nvec4 applyShading(vec3 rayOrigin, vec3 rayDir, inout SDFContext sdfContext){\n\tvec3 p = rayOrigin + rayDir * sdfContext.d;\n\tvec3 n = GetNormal(p);\n\t\n\tvec3 col = applyMaterial(p, n, rayDir, sdfContext.matId, sdfContext);\n\tif(sdfContext.matBlend > 0.) {\n\t\t// blend material colors if needed\n\t\tvec3 col2 = applyMaterial(p, n, rayDir, sdfContext.matId2, sdfContext);\n\t\tcol = (1. - sdfContext.matBlend)*col + sdfContext.matBlend*col2;\n\t}\n\t\t\n\t// gamma\n\t//col = pow( col, vec3(0.4545) ); // this gamma leads to a different look than standard materials\n\treturn vec4(col, 1.);\n}\n\nvoid main()\t{\n\n\tvec3 rayDir = normalize(vPw - cameraPosition);\n\trayDir = transformDirection(rayDir, vInverseModelMatrix);\n\tvec3 rayOrigin = (vInverseModelMatrix * vec4( cameraPosition, 1.0 )).xyz;\n\n\tSDFContext sdfContext = RayMarch(rayOrigin, rayDir, 1.);\n\n\t#if defined( DEBUG_DEPTH )\n\t\tfloat normalizedDepth = 1.-(sdfContext.d - debugMinDepth ) / ( debugMaxDepth - debugMinDepth );\n\t\tnormalizedDepth = saturate(normalizedDepth); // clamp to [0,1]\n\t\tgl_FragColor = vec4(normalizedDepth);\n\t\treturn;\n\t#endif\n\t#if defined( SHADOW_DEPTH )\n\t\tfloat normalizedDepth = 1.-(sdfContext.d - debugMinDepth ) / ( debugMaxDepth - debugMinDepth );\n\t\t// float fragCoordZ = sdfContext.d / vHighPrecisionZW[1];\n\t\tfloat compoundedDepth = 0.5 * (normalizedDepth) + 0.5;\n\t\tfloat alpha = sdfContext.d < MAX_DIST ? 0.:1.;\n\t\tgl_FragColor = vec4( vec3(compoundedDepth), alpha );\n\t\t// normalizedDepth = 0.5*normalizedDepth+0.5;\n\t\t// gl_FragColor = packDepthToRGBA( normalizedDepth );\n\t\t// gl_FragColor = vec4(0.);\n\t\treturn;\n\t#endif\n\t#if defined( SHADOW_DISTANCE )\n\t\tfloat normalizedDepth = (sdfContext.d - shadowDistanceMin ) / ( shadowDistanceMax - shadowDistanceMin );\n\t\tnormalizedDepth = saturate(normalizedDepth); // clamp to [0,1]\n\t\tgl_FragColor = packDepthToRGBA( normalizedDepth );\n\t\treturn;\n\t#endif\n\n\tif( sdfContext.d < MAX_DIST ){\n\t\tgl_FragColor = applyShading(rayOrigin, rayDir, sdfContext);\n\t\t#if defined( TONE_MAPPING )\n\t\t\tgl_FragColor.rgb = toneMapping( gl_FragColor.rgb );\n\t\t#endif\n\t\tgl_FragColor = linearToOutputTexel( gl_FragColor );\n\n\t\t#ifdef USE_FOG\n\t\t\tfloat vFogDepth = sdfContext.d;\n\t\t\t#ifdef FOG_EXP2\n\t\t\t\tfloat fogFactor = 1.0 - exp( - fogDensity * fogDensity * vFogDepth * vFogDepth );\n\t\t\t#else\n\t\t\t\tfloat fogFactor = smoothstep( fogNear, fogFar, vFogDepth );\n\t\t\t#endif\n\t\t\tgl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );\n\t\t#endif\n\t\t#include <premultiplied_alpha_fragment>\n\t\t#include <dithering_fragment>\n\t} else {\n\t\tgl_FragColor = vec4(0.);\n\t}\n\n\t#if defined( DEBUG_STEPS_COUNT )\n\t\tfloat normalizedStepsCount = (float(sdfContext.stepsCount) - debugMinSteps ) / ( debugMaxSteps - debugMinSteps );\n\t\tgl_FragColor = vec4(normalizedStepsCount, 1.-normalizedStepsCount, 0., 1.);\n\t\treturn;\n\t#endif\n\t\n}",
+			"lights": true,
+			"clipping": false
+		},
+		"onBeforeCompileDataJSONWithoutShaders": {
+			"paramConfigs": [
+				{
+					"type": "node_path",
+					"name": "textureSDF1",
+					"defaultValue": "",
+					"uniformName": "v_POLY_textureSDF_textureSDF1"
+				},
+				{
+					"type": "vector3",
+					"name": "textureSDF1BoundMax",
+					"defaultValue": [0, 0, 0],
+					"uniformName": "v_POLY_param_textureSDF1BoundMax"
+				},
+				{
+					"type": "vector3",
+					"name": "textureSDF1BoundMin",
+					"defaultValue": [0, 0, 0],
+					"uniformName": "v_POLY_param_textureSDF1BoundMin"
+				}
+			],
+			"timeDependent": true,
+			"resolutionDependent": false,
+			"raymarchingLightsWorldCoordsDependent": true
+		},
+		"customMaterials": {
+			"customDepthMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/raymarchedObject/MAT/rayMarchingBuilder1-customDepthMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDepthMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"alphaTest": 0.5,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0
+						},
+						"envMap": {
+							"value": null
+						},
+						"flipEnvMap": {
+							"value": -1
+						},
+						"reflectivity": {
+							"value": 1
+						},
+						"ior": {
+							"value": 1.5
+						},
+						"refractionRatio": {
+							"value": 0.98
+						},
+						"aoMap": {
+							"value": null
+						},
+						"aoMapIntensity": {
+							"value": 1
+						},
+						"aoMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"lightMap": {
+							"value": null
+						},
+						"lightMapIntensity": {
+							"value": 1
+						},
+						"lightMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"emissiveMap": {
+							"value": null
+						},
+						"emissiveMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"bumpMap": {
+							"value": null
+						},
+						"bumpMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"bumpScale": {
+							"value": 1
+						},
+						"normalMap": {
+							"value": null
+						},
+						"normalMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"normalScale": {
+							"type": "v2",
+							"value": [1, 1]
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						},
+						"roughnessMap": {
+							"value": null
+						},
+						"roughnessMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"metalnessMap": {
+							"value": null
+						},
+						"metalnessMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"fogDensity": {
+							"value": 0.00025
+						},
+						"fogNear": {
+							"value": 1
+						},
+						"fogFar": {
+							"value": 2000
+						},
+						"fogColor": {
+							"type": "c",
+							"value": 16777215
+						},
+						"ambientLightColor": {
+							"value": []
+						},
+						"lightProbe": {
+							"value": []
+						},
+						"directionalLights": {
+							"value": []
+						},
+						"directionalLightShadows": {
+							"value": []
+						},
+						"directionalShadowMap": {
+							"value": []
+						},
+						"directionalShadowMatrix": {
+							"value": []
+						},
+						"spotLights": {
+							"value": []
+						},
+						"spotLightShadows": {
+							"value": []
+						},
+						"spotLightMap": {
+							"value": []
+						},
+						"spotShadowMap": {
+							"value": []
+						},
+						"spotLightMatrix": {
+							"value": []
+						},
+						"pointLights": {
+							"value": []
+						},
+						"pointLightShadows": {
+							"value": []
+						},
+						"pointShadowMap": {
+							"value": []
+						},
+						"pointShadowMatrix": {
+							"value": []
+						},
+						"hemisphereLights": {
+							"value": []
+						},
+						"rectAreaLights": {
+							"value": []
+						},
+						"ltc_1": {
+							"value": null
+						},
+						"ltc_2": {
+							"value": null
+						},
+						"emissive": {
+							"type": "c",
+							"value": 0
+						},
+						"roughness": {
+							"value": 1
+						},
+						"metalness": {
+							"value": 0
+						},
+						"envMapIntensity": {
+							"value": 1
+						},
+						"MAX_STEPS": {
+							"value": 100
+						},
+						"MAX_DIST": {
+							"value": 100
+						},
+						"SURF_DIST": {
+							"value": 0.001
+						},
+						"NORMALS_BIAS": {
+							"value": 0.01
+						},
+						"SHADOW_BIAS": {
+							"value": 0
+						},
+						"debugMinSteps": {
+							"value": 0
+						},
+						"debugMaxSteps": {
+							"value": 128
+						},
+						"debugMinDepth": {
+							"value": 0
+						},
+						"debugMaxDepth": {
+							"value": 128
+						},
+						"shadowDistanceMin": {
+							"value": 0
+						},
+						"shadowDistanceMax": {
+							"value": 100
+						},
+						"shadowDepthMin": {
+							"value": 0
+						},
+						"shadowDepthMax": {
+							"value": 100
+						},
+						"envMapRotationY": {
+							"value": 0
+						},
+						"spotLightsRayMarching": {
+							"value": [
+								{
+									"penumbra": 0,
+									"shadowBiasAngle": 0.01,
+									"shadowBiasDistance": 0.1
+								}
+							]
+						},
+						"directionalLightsRayMarching": {
+							"value": []
+						},
+						"pointLightsRayMarching": {
+							"value": []
+						}
+					},
+					"defines": {
+						"SHADOW_DEPTH": 1,
+						"DEPTH_PACKING": 3200
+					},
+					"vertexShader": "precision highp float;\nprecision highp int;\n\nvarying vec3 vPw;\nvarying mat4 vModelMatrix;\nvarying mat4 vInverseModelMatrix;\nvarying mat4 VViewMatrix;\n\n#include <common>\n\n// // for depth material\n// varying vec2 vHighPrecisionZW;\n\nvoid main()\t{\n\n\tvModelMatrix = modelMatrix;\n\tvInverseModelMatrix = inverse(modelMatrix);\n\tVViewMatrix = viewMatrix;\n\tvPw = (modelMatrix * vec4( position, 1.0 )).xyz;\n\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n\n\t// vHighPrecisionZW = gl_Position.zw;\n}",
+					"fragmentShader": "precision highp float;\nprecision highp int;\n\n// --- applyMaterial constants definition\nuniform int MAX_STEPS;\nuniform float MAX_DIST;\nuniform float SURF_DIST;\nuniform float NORMALS_BIAS;\nuniform float SHADOW_BIAS;\n#define ZERO 0\nuniform float debugMinSteps;\nuniform float debugMaxSteps;\nuniform float debugMinDepth;\nuniform float debugMaxDepth;\n\n#include <common>\n#include <packing>\n#include <lightmap_pars_fragment>\n#include <bsdfs>\n#include <cube_uv_reflection_fragment>\n#include <lights_pars_begin>\n#include <lights_physical_pars_fragment>\n#include <shadowmap_pars_fragment>\n#include <fog_pars_fragment>\n\n#if defined( SHADOW_DISTANCE )\n\tuniform float shadowDistanceMin;\n\tuniform float shadowDistanceMax;\n#endif \n#if defined( SHADOW_DEPTH )\n\tuniform float shadowDepthMin;\n\tuniform float shadowDepthMax;\n#endif\n\n// varying vec2 vHighPrecisionZW;\n\nvarying vec3 vPw;\nvarying mat4 vModelMatrix;\nvarying mat4 vInverseModelMatrix;\nvarying mat4 VViewMatrix;\n\n#if NUM_SPOT_LIGHTS > 0\n\tstruct SpotLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform SpotLightRayMarching spotLightsRayMarching[ NUM_SPOT_LIGHTS ];\n\t#if NUM_SPOT_LIGHT_COORDS > 0\n\n\t\tuniform mat4 spotLightMatrix[ NUM_SPOT_LIGHT_COORDS ];\n\n\t#endif\n#endif\n#if NUM_DIR_LIGHTS > 0\n\tstruct DirectionalLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform DirectionalLightRayMarching directionalLightsRayMarching[ NUM_DIR_LIGHTS ];\n\t#if NUM_DIR_LIGHT_SHADOWS > 0\n\n\t\tuniform mat4 directionalShadowMatrix[ NUM_DIR_LIGHT_SHADOWS ];\n\n\t#endif\n#endif\n#if NUM_POINT_LIGHTS > 0\n\tstruct PointLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform PointLightRayMarching pointLightsRayMarching[ NUM_POINT_LIGHTS ];\n\t#if NUM_POINT_LIGHT_SHADOWS > 0\n\n\t\tuniform mat4 pointShadowMatrix[ NUM_POINT_LIGHT_SHADOWS ];\n\n\t#endif\n#endif\n\n\nstruct SDFContext {\n\tfloat d;\n\tint stepsCount;\n\tint matId;\n\tint matId2;\n\tfloat matBlend;\n};\n\nSDFContext DefaultSDFContext(){\n\treturn SDFContext( 0., 0, 0, 0, 0. );\n}\nint DefaultSDFMaterial(){\n\treturn 0;\n}\n\n// start raymarching builder define code\n\n\nSDFContext GetDist(vec3 p) {\n\tSDFContext sdfContext = SDFContext(0., 0, 0, 0, 0.);\n\n\t// start GetDist builder body code\n\t\n\n\treturn sdfContext;\n}\n\nSDFContext RayMarch(vec3 ro, vec3 rd, float side) {\n\tSDFContext dO = SDFContext(0.,0,0,0,0.);\n\n\t#pragma unroll_loop_start\n\tfor(int i=0; i<MAX_STEPS; i++) {\n\t\tvec3 p = ro + rd*dO.d;\n\t\tSDFContext sdfContext = GetDist(p);\n\t\tdO.d += sdfContext.d * side;\n\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\tdO.stepsCount += 1;\n\t\t#endif\n\t\tdO.matId = sdfContext.matId;\n\t\tdO.matId2 = sdfContext.matId2;\n\t\tdO.matBlend = sdfContext.matBlend;\n\t\tif(dO.d>MAX_DIST || abs(sdfContext.d)<SURF_DIST) break;\n\t}\n\t#pragma unroll_loop_end\n\n\treturn dO;\n}\n\nvec3 GetNormal(vec3 p) {\n\tSDFContext sdfContext = GetDist(p);\n\tvec2 e = vec2(NORMALS_BIAS, 0);\n\n\tvec3 n = sdfContext.d - vec3(\n\t\tGetDist(p-e.xyy).d,\n\t\tGetDist(p-e.yxy).d,\n\t\tGetDist(p-e.yyx).d);\n\n\treturn normalize(n);\n}\n// https://iquilezles.org/articles/rmshadows\nfloat calcSoftshadow( in vec3 ro, in vec3 rd, float mint, float maxt, float k, inout SDFContext sdfContext )\n{\n\tfloat res = 1.0;\n\tfloat ph = 1e20;\n\tfor( float t=mint; t<maxt; )\n\t{\n\t\tfloat h = GetDist(ro + rd*t).d;\n\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\tsdfContext.stepsCount += 1;\n\t\t#endif\n\t\tif( h<SURF_DIST )\n\t\t\treturn 0.0;\n\t\tfloat y = h*h/(2.0*ph);\n\t\tfloat d = sqrt(h*h-y*y);\n\t\tres = min( res, k*d/max(0.0,t-y) );\n\t\tph = h;\n\t\tt += h;\n\t}\n\treturn res;\n}\n\nvec3 GetLight(vec3 _p, vec3 _n, inout SDFContext sdfContext) {\n\tvec3 dif = vec3(0.,0.,0.);\n\tGeometricContext geometry;\n\t// geometry.position = _p;\n\t// geometry.normal = _n;\n\t// geometry.viewDir = rayDir;\n\n\t// vec4 mvPosition = vec4( p, 1.0 );\n\t// mvPosition = modelViewMatrix * mvPosition;\n\t// vec3 vViewPosition = - mvPosition.xyz;\n\tvec3 pWorld = ( vModelMatrix * vec4( _p, 1.0 )).xyz;\n\tvec3 nWorld = transformDirection(_n, vModelMatrix);\n\t// geometry.position = (VViewMatrix * vec4( _p, 1.0 )).xyz;\n\tgeometry.position = (VViewMatrix * vec4(pWorld, 1.0 )).xyz;\n\t// geometry.normal = transformDirection(_n, VViewMatrix);\n\t// geometry.normal = inverseTransformDirection(transformDirection(_n, VViewMatrix), vInverseModelMatrix);\n\tgeometry.normal = transformDirection(nWorld, VViewMatrix);\n\tgeometry.viewDir = ( isOrthographic ) ? vec3( 0, 0, 1 ) : normalize( cameraPosition - geometry.position );\n\n\t#if NUM_SPOT_LIGHTS > 0 || NUM_DIR_LIGHTS > 0 || NUM_HEMI_LIGHTS > 0 || NUM_POINT_LIGHTS > 0 || NUM_RECT_AREA_LIGHTS > 0\n\n\t\tIncidentLight directLight;\n\t\tReflectedLight reflectedLight;\n\t\tvec3 lightPos, lightDir, worldLightDir, objectSpaceLightDir, lighDif, directDiffuse;\n\t\tfloat dotNL, lightDistance;\n\t\t#if NUM_SPOT_LIGHTS > 0\n\t\t\tSpotLightRayMarching spotLightRayMarching;\n\t\t\tSpotLight spotLight;\n\t\t\tfloat spotLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_SPOT_LIGHT_SHADOWS > 0\n\t\t\t\tSpotLightShadow spotLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_SPOT_LIGHTS; i ++ ) {\n\t\t\t\tspotLightRayMarching = spotLightsRayMarching[ i ];\n\t\t\t\tspotLight = spotLights[ i ];\n\t\t\t\tgetSpotLightInfo( spotLight, geometry, directLight );\n\n\t\t\t\t// #if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_SPOT_LIGHT_SHADOWS )\n\t\t\t\t// \tspotLightShadow = spotLightShadows[ i ];\n\t\t\t\t// \tvec4 spotLightShadowCoord = spotLightMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t// \tdirectLight.color *= (directLight.visible && receiveShadow) ? getShadow(\n\t\t\t\t// \t\tspotShadowMap[ i ],\n\t\t\t\t// \t\tspotLightShadow.shadowMapSize,\n\t\t\t\t// \t\tspotLightShadow.shadowBias,\n\t\t\t\t// \t\tspotLightShadow.shadowRadius,\n\t\t\t\t// \t\tspotLightShadowCoord\n\t\t\t\t// \t) : 1.0;\n\t\t\t\t// #endif\n\n\t\t\t\tlightPos = spotLight.position;\n\t\t\t\tlightDir = normalize(lightPos-geometry.position);\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tlightDistance = distance(geometry.position,lightPos);\n\t\t\t\tspotLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < spotLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t: calcSoftshadow(\n\t\t\t\t\t\t_p,\n\t\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\t\tspotLightRayMarching.shadowBiasDistance,\n\t\t\t\t\t\tdistance(geometry.position,lightPos),\n\t\t\t\t\t\t1./max(spotLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\t\tsdfContext\n\t\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * spotLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\t\t#if NUM_DIR_LIGHTS > 0\n\t\t\tDirectionalLightRayMarching directionalLightRayMarching;\n\t\t\tDirectionalLight directionalLight;\n\t\t\tfloat dirLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_DIR_LIGHT_SHADOWS > 0\n\t\t\t\tDirectionalLightShadow directionalLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_DIR_LIGHTS; i ++ ) {\n\t\t\t\tdirectionalLightRayMarching = directionalLightsRayMarching[ i ];\n\t\t\t\tdirectionalLight = directionalLights[ i ];\n\t\t\t\t\n\t\t\t\tgetDirectionalLightInfo( directionalLight, geometry, directLight );\n\n\t\t\t\t// #if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_DIR_LIGHT_SHADOWS )\n\t\t\t\t// \tdirectionalLightShadow = directionalLightShadows[ i ];\n\t\t\t\t// \tvec4 dirLightShadowCoord = directionalShadowMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t// \tdirectLight.color *= (directLight.visible && receiveShadow) ? getShadow(\n\t\t\t\t// \t\tdirectionalShadowMap[ i ],\n\t\t\t\t// \t\tdirectionalLightShadow.shadowMapSize,\n\t\t\t\t// \t\tdirectionalLightShadow.shadowBias,\n\t\t\t\t// \t\tdirectionalLightShadow.shadowRadius,\n\t\t\t\t// \t\tdirLightShadowCoord\n\t\t\t\t// \t) : 1.0;\n\t\t\t\t// #endif\n\n\t\t\t\tlightDir = directionalLight.direction;\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tdirLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < directionalLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t:\n\t\t\t\t\tcalcSoftshadow(\n\t\t\t\t\t\t_p,\n\t\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\t\tdirectionalLightRayMarching.shadowBiasDistance,\n\t\t\t\t\t\tMAX_DIST,//distance(geometry.position,lightPos),\n\t\t\t\t\t\t1./max(directionalLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\t\tsdfContext\n\t\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\t// lighDif = directLight.color * dotNL * dirLightSdfShadow;\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * dirLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\n\t\t#if ( NUM_HEMI_LIGHTS > 0 )\n\n\t\t\t#pragma unroll_loop_start\n\t\t\tHemisphereLight hemiLight;\n\t\t\tfor ( int i = 0; i < NUM_HEMI_LIGHTS; i ++ ) {\n\t\t\t\themiLight = hemisphereLights[ i ];\n\t\t\t\tdif += getHemisphereLightIrradiance( hemiLight, geometry.normal ) * BRDF_Lambert( vec3(1.) );\n\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\n\t\t#endif\n\n\t\t#if NUM_POINT_LIGHTS > 0\n\t\t\tPointLightRayMarching pointLightRayMarching;\n\t\t\tPointLight pointLight;\n\t\t\tfloat pointLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_POINT_LIGHT_SHADOWS > 0\n\t\t\t\tPointLightShadow pointLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_POINT_LIGHTS; i ++ ) {\n\t\t\t\tpointLightRayMarching = pointLightsRayMarching[ i ];\n\t\t\t\tpointLight = pointLights[ i ];\n\t\t\t\tgetPointLightInfo( pointLight, geometry, directLight );\n\n\n\t\t\t\t#if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_POINT_LIGHT_SHADOWS )\n\t\t\t\t\tpointLightShadow = pointLightShadows[ i ];\n\t\t\t\t\tvec4 pointLightShadowCoord = pointShadowMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t\tdirectLight.color *= (directLight.visible && receiveShadow) ? getPointShadow(\n\t\t\t\t\t\tpointShadowMap[ i ],\n\t\t\t\t\t\tpointLightShadow.shadowMapSize,\n\t\t\t\t\t\tpointLightShadow.shadowBias,\n\t\t\t\t\t\tpointLightShadow.shadowRadius,\n\t\t\t\t\t\tpointLightShadowCoord,\n\t\t\t\t\t\tpointLightShadow.shadowCameraNear,\n\t\t\t\t\t\tpointLightShadow.shadowCameraFar\n\t\t\t\t\t) : 1.0;\n\t\t\t\t#endif\n\n\t\t\t\tlightPos = pointLight.position;\n\t\t\t\tlightDir = normalize(lightPos-geometry.position);\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tpointLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < pointLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t:\n\t\t\t\t\tcalcSoftshadow(\n\t\t\t\t\t_p,\n\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\tpointLightRayMarching.shadowBiasDistance,\n\t\t\t\t\tdistance(geometry.position,lightPos),\n\t\t\t\t\t1./max(pointLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\tsdfContext\n\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * pointLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\n\t\t#if ( NUM_RECT_AREA_LIGHTS > 0 ) && defined( RE_Direct_RectArea )\n\n\t\t\tRectAreaLight rectAreaLight;\n\t\t\t// AreaLightRayMarching areaLightRayMarching;\n\t\t\tPhysicalMaterial material;\n\t\t\tmaterial.roughness = 1.;\n\t\t\tmaterial.specularColor = vec3(1.);\n\t\t\tmaterial.diffuseColor = vec3(1.);\n\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_RECT_AREA_LIGHTS; i ++ ) {\n\t\t\t\t// areaLightRayMarching = areaLightsRayMarching[ i ];\n\t\t\t\trectAreaLight = rectAreaLights[ i ];\n\t\t\t\t// rectAreaLight.position = areaLightRayMarching.worldPos;\n\n\t\t\t\tRE_Direct_RectArea( rectAreaLight, geometry, material, reflectedLight );\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t\tdif += reflectedLight.directDiffuse;\n\n\t\t#endif\n\t#endif\n\n\tvec3 irradiance = getAmbientLightIrradiance( ambientLightColor );\n\n\tirradiance += getLightProbeIrradiance( lightProbe, geometry.normal );\n\tdif += irradiance;\n\treturn dif;\n}\n\n\n\n// --- applyMaterial function definition\n\n\n\nvec4 applyShading(vec3 rayOrigin, vec3 rayDir, inout SDFContext sdfContext){\n\tvec3 p = rayOrigin + rayDir * sdfContext.d;\n\tvec3 n = GetNormal(p);\n\t\n\tvec3 col = applyMaterial(p, n, rayDir, sdfContext.matId, sdfContext);\n\tif(sdfContext.matBlend > 0.) {\n\t\t// blend material colors if needed\n\t\tvec3 col2 = applyMaterial(p, n, rayDir, sdfContext.matId2, sdfContext);\n\t\tcol = (1. - sdfContext.matBlend)*col + sdfContext.matBlend*col2;\n\t}\n\t\t\n\t// gamma\n\t//col = pow( col, vec3(0.4545) ); // this gamma leads to a different look than standard materials\n\treturn vec4(col, 1.);\n}\n\nvoid main()\t{\n\n\tvec3 rayDir = normalize(vPw - cameraPosition);\n\trayDir = transformDirection(rayDir, vInverseModelMatrix);\n\tvec3 rayOrigin = (vInverseModelMatrix * vec4( cameraPosition, 1.0 )).xyz;\n\n\tSDFContext sdfContext = RayMarch(rayOrigin, rayDir, 1.);\n\n\t#if defined( DEBUG_DEPTH )\n\t\tfloat normalizedDepth = 1.-(sdfContext.d - debugMinDepth ) / ( debugMaxDepth - debugMinDepth );\n\t\tnormalizedDepth = saturate(normalizedDepth); // clamp to [0,1]\n\t\tgl_FragColor = vec4(normalizedDepth);\n\t\treturn;\n\t#endif\n\t#if defined( SHADOW_DEPTH )\n\t\tfloat normalizedDepth = 1.-(sdfContext.d - debugMinDepth ) / ( debugMaxDepth - debugMinDepth );\n\t\t// float fragCoordZ = sdfContext.d / vHighPrecisionZW[1];\n\t\tfloat compoundedDepth = 0.5 * (normalizedDepth) + 0.5;\n\t\tfloat alpha = sdfContext.d < MAX_DIST ? 0.:1.;\n\t\tgl_FragColor = vec4( vec3(compoundedDepth), alpha );\n\t\t// normalizedDepth = 0.5*normalizedDepth+0.5;\n\t\t// gl_FragColor = packDepthToRGBA( normalizedDepth );\n\t\t// gl_FragColor = vec4(0.);\n\t\treturn;\n\t#endif\n\t#if defined( SHADOW_DISTANCE )\n\t\tfloat normalizedDepth = (sdfContext.d - shadowDistanceMin ) / ( shadowDistanceMax - shadowDistanceMin );\n\t\tnormalizedDepth = saturate(normalizedDepth); // clamp to [0,1]\n\t\tgl_FragColor = packDepthToRGBA( normalizedDepth );\n\t\treturn;\n\t#endif\n\n\tif( sdfContext.d < MAX_DIST ){\n\t\tgl_FragColor = applyShading(rayOrigin, rayDir, sdfContext);\n\t\t#if defined( TONE_MAPPING )\n\t\t\tgl_FragColor.rgb = toneMapping( gl_FragColor.rgb );\n\t\t#endif\n\t\tgl_FragColor = linearToOutputTexel( gl_FragColor );\n\n\t\t#ifdef USE_FOG\n\t\t\tfloat vFogDepth = sdfContext.d;\n\t\t\t#ifdef FOG_EXP2\n\t\t\t\tfloat fogFactor = 1.0 - exp( - fogDensity * fogDensity * vFogDepth * vFogDepth );\n\t\t\t#else\n\t\t\t\tfloat fogFactor = smoothstep( fogNear, fogFar, vFogDepth );\n\t\t\t#endif\n\t\t\tgl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );\n\t\t#endif\n\t\t#include <premultiplied_alpha_fragment>\n\t\t#include <dithering_fragment>\n\t} else {\n\t\tgl_FragColor = vec4(0.);\n\t}\n\n\t#if defined( DEBUG_STEPS_COUNT )\n\t\tfloat normalizedStepsCount = (float(sdfContext.stepsCount) - debugMinSteps ) / ( debugMaxSteps - debugMinSteps );\n\t\tgl_FragColor = vec4(normalizedStepsCount, 1.-normalizedStepsCount, 0., 1.);\n\t\treturn;\n\t#endif\n\t\n}",
+					"lights": false,
+					"clipping": false,
+					"depthPacking": 3200
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "node_path",
+							"name": "textureSDF1",
+							"defaultValue": "",
+							"uniformName": "v_POLY_textureSDF_textureSDF1"
+						},
+						{
+							"type": "vector3",
+							"name": "textureSDF1BoundMax",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_textureSDF1BoundMax"
+						},
+						{
+							"type": "vector3",
+							"name": "textureSDF1BoundMin",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_textureSDF1BoundMin"
+						}
+					],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": true
+				}
+			},
+			"customDistanceMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/raymarchedObject/MAT/rayMarchingBuilder1-customDistanceMaterial",
+					"type": "ShaderMaterial",
+					"name": "customDistanceMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"alphaTest": 0.5,
+					"forceSinglePass": true,
+					"fog": false,
+					"glslVersion": null,
+					"uniforms": {
+						"diffuse": {
+							"type": "c",
+							"value": 16777215
+						},
+						"opacity": {
+							"value": 1
+						},
+						"map": {
+							"value": null
+						},
+						"mapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaMap": {
+							"value": null
+						},
+						"alphaMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"alphaTest": {
+							"value": 0
+						},
+						"envMap": {
+							"value": null
+						},
+						"flipEnvMap": {
+							"value": -1
+						},
+						"reflectivity": {
+							"value": 1
+						},
+						"ior": {
+							"value": 1.5
+						},
+						"refractionRatio": {
+							"value": 0.98
+						},
+						"aoMap": {
+							"value": null
+						},
+						"aoMapIntensity": {
+							"value": 1
+						},
+						"aoMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"lightMap": {
+							"value": null
+						},
+						"lightMapIntensity": {
+							"value": 1
+						},
+						"lightMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"emissiveMap": {
+							"value": null
+						},
+						"emissiveMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"bumpMap": {
+							"value": null
+						},
+						"bumpMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"bumpScale": {
+							"value": 1
+						},
+						"normalMap": {
+							"value": null
+						},
+						"normalMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"normalScale": {
+							"type": "v2",
+							"value": [1, 1]
+						},
+						"displacementMap": {
+							"value": null
+						},
+						"displacementMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"displacementScale": {
+							"value": 1
+						},
+						"displacementBias": {
+							"value": 0
+						},
+						"roughnessMap": {
+							"value": null
+						},
+						"roughnessMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"metalnessMap": {
+							"value": null
+						},
+						"metalnessMapTransform": {
+							"type": "m3",
+							"value": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+						},
+						"fogDensity": {
+							"value": 0.00025
+						},
+						"fogNear": {
+							"value": 1
+						},
+						"fogFar": {
+							"value": 2000
+						},
+						"fogColor": {
+							"type": "c",
+							"value": 16777215
+						},
+						"ambientLightColor": {
+							"value": []
+						},
+						"lightProbe": {
+							"value": []
+						},
+						"directionalLights": {
+							"value": []
+						},
+						"directionalLightShadows": {
+							"value": []
+						},
+						"directionalShadowMap": {
+							"value": []
+						},
+						"directionalShadowMatrix": {
+							"value": []
+						},
+						"spotLights": {
+							"value": []
+						},
+						"spotLightShadows": {
+							"value": []
+						},
+						"spotLightMap": {
+							"value": []
+						},
+						"spotShadowMap": {
+							"value": []
+						},
+						"spotLightMatrix": {
+							"value": []
+						},
+						"pointLights": {
+							"value": []
+						},
+						"pointLightShadows": {
+							"value": []
+						},
+						"pointShadowMap": {
+							"value": []
+						},
+						"pointShadowMatrix": {
+							"value": []
+						},
+						"hemisphereLights": {
+							"value": []
+						},
+						"rectAreaLights": {
+							"value": []
+						},
+						"ltc_1": {
+							"value": null
+						},
+						"ltc_2": {
+							"value": null
+						},
+						"emissive": {
+							"type": "c",
+							"value": 0
+						},
+						"roughness": {
+							"value": 1
+						},
+						"metalness": {
+							"value": 0
+						},
+						"envMapIntensity": {
+							"value": 1
+						},
+						"MAX_STEPS": {
+							"value": 100
+						},
+						"MAX_DIST": {
+							"value": 100
+						},
+						"SURF_DIST": {
+							"value": 0.001
+						},
+						"NORMALS_BIAS": {
+							"value": 0.01
+						},
+						"SHADOW_BIAS": {
+							"value": 0
+						},
+						"debugMinSteps": {
+							"value": 0
+						},
+						"debugMaxSteps": {
+							"value": 128
+						},
+						"debugMinDepth": {
+							"value": 0
+						},
+						"debugMaxDepth": {
+							"value": 128
+						},
+						"shadowDistanceMin": {
+							"value": 0
+						},
+						"shadowDistanceMax": {
+							"value": 100
+						},
+						"shadowDepthMin": {
+							"value": 0
+						},
+						"shadowDepthMax": {
+							"value": 100
+						},
+						"envMapRotationY": {
+							"value": 0
+						},
+						"spotLightsRayMarching": {
+							"value": [
+								{
+									"penumbra": 0,
+									"shadowBiasAngle": 0.01,
+									"shadowBiasDistance": 0.1
+								}
+							]
+						},
+						"directionalLightsRayMarching": {
+							"value": []
+						},
+						"pointLightsRayMarching": {
+							"value": []
+						}
+					},
+					"defines": {
+						"SHADOW_DISTANCE": 1
+					},
+					"vertexShader": "precision highp float;\nprecision highp int;\n\nvarying vec3 vPw;\nvarying mat4 vModelMatrix;\nvarying mat4 vInverseModelMatrix;\nvarying mat4 VViewMatrix;\n\n#include <common>\n\n// // for depth material\n// varying vec2 vHighPrecisionZW;\n\nvoid main()\t{\n\n\tvModelMatrix = modelMatrix;\n\tvInverseModelMatrix = inverse(modelMatrix);\n\tVViewMatrix = viewMatrix;\n\tvPw = (modelMatrix * vec4( position, 1.0 )).xyz;\n\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n\n\t// vHighPrecisionZW = gl_Position.zw;\n}",
+					"fragmentShader": "precision highp float;\nprecision highp int;\n\n// --- applyMaterial constants definition\nuniform int MAX_STEPS;\nuniform float MAX_DIST;\nuniform float SURF_DIST;\nuniform float NORMALS_BIAS;\nuniform float SHADOW_BIAS;\n#define ZERO 0\nuniform float debugMinSteps;\nuniform float debugMaxSteps;\nuniform float debugMinDepth;\nuniform float debugMaxDepth;\n\n#include <common>\n#include <packing>\n#include <lightmap_pars_fragment>\n#include <bsdfs>\n#include <cube_uv_reflection_fragment>\n#include <lights_pars_begin>\n#include <lights_physical_pars_fragment>\n#include <shadowmap_pars_fragment>\n#include <fog_pars_fragment>\n\n#if defined( SHADOW_DISTANCE )\n\tuniform float shadowDistanceMin;\n\tuniform float shadowDistanceMax;\n#endif \n#if defined( SHADOW_DEPTH )\n\tuniform float shadowDepthMin;\n\tuniform float shadowDepthMax;\n#endif\n\n// varying vec2 vHighPrecisionZW;\n\nvarying vec3 vPw;\nvarying mat4 vModelMatrix;\nvarying mat4 vInverseModelMatrix;\nvarying mat4 VViewMatrix;\n\n#if NUM_SPOT_LIGHTS > 0\n\tstruct SpotLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform SpotLightRayMarching spotLightsRayMarching[ NUM_SPOT_LIGHTS ];\n\t#if NUM_SPOT_LIGHT_COORDS > 0\n\n\t\tuniform mat4 spotLightMatrix[ NUM_SPOT_LIGHT_COORDS ];\n\n\t#endif\n#endif\n#if NUM_DIR_LIGHTS > 0\n\tstruct DirectionalLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform DirectionalLightRayMarching directionalLightsRayMarching[ NUM_DIR_LIGHTS ];\n\t#if NUM_DIR_LIGHT_SHADOWS > 0\n\n\t\tuniform mat4 directionalShadowMatrix[ NUM_DIR_LIGHT_SHADOWS ];\n\n\t#endif\n#endif\n#if NUM_POINT_LIGHTS > 0\n\tstruct PointLightRayMarching {\n\t\tfloat penumbra;\n\t\tfloat shadowBiasAngle;\n\t\tfloat shadowBiasDistance;\n\t};\n\tuniform PointLightRayMarching pointLightsRayMarching[ NUM_POINT_LIGHTS ];\n\t#if NUM_POINT_LIGHT_SHADOWS > 0\n\n\t\tuniform mat4 pointShadowMatrix[ NUM_POINT_LIGHT_SHADOWS ];\n\n\t#endif\n#endif\n\n\nstruct SDFContext {\n\tfloat d;\n\tint stepsCount;\n\tint matId;\n\tint matId2;\n\tfloat matBlend;\n};\n\nSDFContext DefaultSDFContext(){\n\treturn SDFContext( 0., 0, 0, 0, 0. );\n}\nint DefaultSDFMaterial(){\n\treturn 0;\n}\n\n// start raymarching builder define code\n\n\nSDFContext GetDist(vec3 p) {\n\tSDFContext sdfContext = SDFContext(0., 0, 0, 0, 0.);\n\n\t// start GetDist builder body code\n\t\n\n\treturn sdfContext;\n}\n\nSDFContext RayMarch(vec3 ro, vec3 rd, float side) {\n\tSDFContext dO = SDFContext(0.,0,0,0,0.);\n\n\t#pragma unroll_loop_start\n\tfor(int i=0; i<MAX_STEPS; i++) {\n\t\tvec3 p = ro + rd*dO.d;\n\t\tSDFContext sdfContext = GetDist(p);\n\t\tdO.d += sdfContext.d * side;\n\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\tdO.stepsCount += 1;\n\t\t#endif\n\t\tdO.matId = sdfContext.matId;\n\t\tdO.matId2 = sdfContext.matId2;\n\t\tdO.matBlend = sdfContext.matBlend;\n\t\tif(dO.d>MAX_DIST || abs(sdfContext.d)<SURF_DIST) break;\n\t}\n\t#pragma unroll_loop_end\n\n\treturn dO;\n}\n\nvec3 GetNormal(vec3 p) {\n\tSDFContext sdfContext = GetDist(p);\n\tvec2 e = vec2(NORMALS_BIAS, 0);\n\n\tvec3 n = sdfContext.d - vec3(\n\t\tGetDist(p-e.xyy).d,\n\t\tGetDist(p-e.yxy).d,\n\t\tGetDist(p-e.yyx).d);\n\n\treturn normalize(n);\n}\n// https://iquilezles.org/articles/rmshadows\nfloat calcSoftshadow( in vec3 ro, in vec3 rd, float mint, float maxt, float k, inout SDFContext sdfContext )\n{\n\tfloat res = 1.0;\n\tfloat ph = 1e20;\n\tfor( float t=mint; t<maxt; )\n\t{\n\t\tfloat h = GetDist(ro + rd*t).d;\n\t\t#if defined( DEBUG_STEPS_COUNT )\n\t\t\tsdfContext.stepsCount += 1;\n\t\t#endif\n\t\tif( h<SURF_DIST )\n\t\t\treturn 0.0;\n\t\tfloat y = h*h/(2.0*ph);\n\t\tfloat d = sqrt(h*h-y*y);\n\t\tres = min( res, k*d/max(0.0,t-y) );\n\t\tph = h;\n\t\tt += h;\n\t}\n\treturn res;\n}\n\nvec3 GetLight(vec3 _p, vec3 _n, inout SDFContext sdfContext) {\n\tvec3 dif = vec3(0.,0.,0.);\n\tGeometricContext geometry;\n\t// geometry.position = _p;\n\t// geometry.normal = _n;\n\t// geometry.viewDir = rayDir;\n\n\t// vec4 mvPosition = vec4( p, 1.0 );\n\t// mvPosition = modelViewMatrix * mvPosition;\n\t// vec3 vViewPosition = - mvPosition.xyz;\n\tvec3 pWorld = ( vModelMatrix * vec4( _p, 1.0 )).xyz;\n\tvec3 nWorld = transformDirection(_n, vModelMatrix);\n\t// geometry.position = (VViewMatrix * vec4( _p, 1.0 )).xyz;\n\tgeometry.position = (VViewMatrix * vec4(pWorld, 1.0 )).xyz;\n\t// geometry.normal = transformDirection(_n, VViewMatrix);\n\t// geometry.normal = inverseTransformDirection(transformDirection(_n, VViewMatrix), vInverseModelMatrix);\n\tgeometry.normal = transformDirection(nWorld, VViewMatrix);\n\tgeometry.viewDir = ( isOrthographic ) ? vec3( 0, 0, 1 ) : normalize( cameraPosition - geometry.position );\n\n\t#if NUM_SPOT_LIGHTS > 0 || NUM_DIR_LIGHTS > 0 || NUM_HEMI_LIGHTS > 0 || NUM_POINT_LIGHTS > 0 || NUM_RECT_AREA_LIGHTS > 0\n\n\t\tIncidentLight directLight;\n\t\tReflectedLight reflectedLight;\n\t\tvec3 lightPos, lightDir, worldLightDir, objectSpaceLightDir, lighDif, directDiffuse;\n\t\tfloat dotNL, lightDistance;\n\t\t#if NUM_SPOT_LIGHTS > 0\n\t\t\tSpotLightRayMarching spotLightRayMarching;\n\t\t\tSpotLight spotLight;\n\t\t\tfloat spotLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_SPOT_LIGHT_SHADOWS > 0\n\t\t\t\tSpotLightShadow spotLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_SPOT_LIGHTS; i ++ ) {\n\t\t\t\tspotLightRayMarching = spotLightsRayMarching[ i ];\n\t\t\t\tspotLight = spotLights[ i ];\n\t\t\t\tgetSpotLightInfo( spotLight, geometry, directLight );\n\n\t\t\t\t// #if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_SPOT_LIGHT_SHADOWS )\n\t\t\t\t// \tspotLightShadow = spotLightShadows[ i ];\n\t\t\t\t// \tvec4 spotLightShadowCoord = spotLightMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t// \tdirectLight.color *= (directLight.visible && receiveShadow) ? getShadow(\n\t\t\t\t// \t\tspotShadowMap[ i ],\n\t\t\t\t// \t\tspotLightShadow.shadowMapSize,\n\t\t\t\t// \t\tspotLightShadow.shadowBias,\n\t\t\t\t// \t\tspotLightShadow.shadowRadius,\n\t\t\t\t// \t\tspotLightShadowCoord\n\t\t\t\t// \t) : 1.0;\n\t\t\t\t// #endif\n\n\t\t\t\tlightPos = spotLight.position;\n\t\t\t\tlightDir = normalize(lightPos-geometry.position);\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tlightDistance = distance(geometry.position,lightPos);\n\t\t\t\tspotLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < spotLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t: calcSoftshadow(\n\t\t\t\t\t\t_p,\n\t\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\t\tspotLightRayMarching.shadowBiasDistance,\n\t\t\t\t\t\tdistance(geometry.position,lightPos),\n\t\t\t\t\t\t1./max(spotLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\t\tsdfContext\n\t\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * spotLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\t\t#if NUM_DIR_LIGHTS > 0\n\t\t\tDirectionalLightRayMarching directionalLightRayMarching;\n\t\t\tDirectionalLight directionalLight;\n\t\t\tfloat dirLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_DIR_LIGHT_SHADOWS > 0\n\t\t\t\tDirectionalLightShadow directionalLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_DIR_LIGHTS; i ++ ) {\n\t\t\t\tdirectionalLightRayMarching = directionalLightsRayMarching[ i ];\n\t\t\t\tdirectionalLight = directionalLights[ i ];\n\t\t\t\t\n\t\t\t\tgetDirectionalLightInfo( directionalLight, geometry, directLight );\n\n\t\t\t\t// #if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_DIR_LIGHT_SHADOWS )\n\t\t\t\t// \tdirectionalLightShadow = directionalLightShadows[ i ];\n\t\t\t\t// \tvec4 dirLightShadowCoord = directionalShadowMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t// \tdirectLight.color *= (directLight.visible && receiveShadow) ? getShadow(\n\t\t\t\t// \t\tdirectionalShadowMap[ i ],\n\t\t\t\t// \t\tdirectionalLightShadow.shadowMapSize,\n\t\t\t\t// \t\tdirectionalLightShadow.shadowBias,\n\t\t\t\t// \t\tdirectionalLightShadow.shadowRadius,\n\t\t\t\t// \t\tdirLightShadowCoord\n\t\t\t\t// \t) : 1.0;\n\t\t\t\t// #endif\n\n\t\t\t\tlightDir = directionalLight.direction;\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tdirLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < directionalLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t:\n\t\t\t\t\tcalcSoftshadow(\n\t\t\t\t\t\t_p,\n\t\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\t\tdirectionalLightRayMarching.shadowBiasDistance,\n\t\t\t\t\t\tMAX_DIST,//distance(geometry.position,lightPos),\n\t\t\t\t\t\t1./max(directionalLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\t\tsdfContext\n\t\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\t// lighDif = directLight.color * dotNL * dirLightSdfShadow;\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * dirLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\n\t\t#if ( NUM_HEMI_LIGHTS > 0 )\n\n\t\t\t#pragma unroll_loop_start\n\t\t\tHemisphereLight hemiLight;\n\t\t\tfor ( int i = 0; i < NUM_HEMI_LIGHTS; i ++ ) {\n\t\t\t\themiLight = hemisphereLights[ i ];\n\t\t\t\tdif += getHemisphereLightIrradiance( hemiLight, geometry.normal ) * BRDF_Lambert( vec3(1.) );\n\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\n\t\t#endif\n\n\t\t#if NUM_POINT_LIGHTS > 0\n\t\t\tPointLightRayMarching pointLightRayMarching;\n\t\t\tPointLight pointLight;\n\t\t\tfloat pointLightSdfShadow;\n\t\t\t#if defined( USE_SHADOWMAP ) && NUM_POINT_LIGHT_SHADOWS > 0\n\t\t\t\tPointLightShadow pointLightShadow;\n\t\t\t#endif\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_POINT_LIGHTS; i ++ ) {\n\t\t\t\tpointLightRayMarching = pointLightsRayMarching[ i ];\n\t\t\t\tpointLight = pointLights[ i ];\n\t\t\t\tgetPointLightInfo( pointLight, geometry, directLight );\n\n\n\t\t\t\t#if defined( USE_SHADOWMAP ) && ( UNROLLED_LOOP_INDEX < NUM_POINT_LIGHT_SHADOWS )\n\t\t\t\t\tpointLightShadow = pointLightShadows[ i ];\n\t\t\t\t\tvec4 pointLightShadowCoord = pointShadowMatrix[ i ] * vec4(pWorld+SHADOW_BIAS*nWorld, 1.0);\n\t\t\t\t\tdirectLight.color *= (directLight.visible && receiveShadow) ? getPointShadow(\n\t\t\t\t\t\tpointShadowMap[ i ],\n\t\t\t\t\t\tpointLightShadow.shadowMapSize,\n\t\t\t\t\t\tpointLightShadow.shadowBias,\n\t\t\t\t\t\tpointLightShadow.shadowRadius,\n\t\t\t\t\t\tpointLightShadowCoord,\n\t\t\t\t\t\tpointLightShadow.shadowCameraNear,\n\t\t\t\t\t\tpointLightShadow.shadowCameraFar\n\t\t\t\t\t) : 1.0;\n\t\t\t\t#endif\n\n\t\t\t\tlightPos = pointLight.position;\n\t\t\t\tlightDir = normalize(lightPos-geometry.position);\n\t\t\t\tworldLightDir = inverseTransformDirection(lightDir, VViewMatrix);\n\t\t\t\tobjectSpaceLightDir = inverseTransformDirection(worldLightDir, vModelMatrix);\n\t\t\t\tpointLightSdfShadow =\n\t\t\t\t\tdot( _n, objectSpaceLightDir ) < pointLightRayMarching.shadowBiasAngle\n\t\t\t\t\t? 1.\n\t\t\t\t\t:\n\t\t\t\t\tcalcSoftshadow(\n\t\t\t\t\t_p,\n\t\t\t\t\tobjectSpaceLightDir,\n\t\t\t\t\tpointLightRayMarching.shadowBiasDistance,\n\t\t\t\t\tdistance(geometry.position,lightPos),\n\t\t\t\t\t1./max(pointLightRayMarching.penumbra*0.2,0.001),\n\t\t\t\t\tsdfContext\n\t\t\t\t);\n\t\t\t\tdotNL = saturate( dot( geometry.normal, directLight.direction ) );\n\t\t\t\tdirectDiffuse = dotNL * directLight.color * BRDF_Lambert( vec3(1.) );\n\t\t\t\tdif += directDiffuse * pointLightSdfShadow;\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t#endif\n\n\t\t#if ( NUM_RECT_AREA_LIGHTS > 0 ) && defined( RE_Direct_RectArea )\n\n\t\t\tRectAreaLight rectAreaLight;\n\t\t\t// AreaLightRayMarching areaLightRayMarching;\n\t\t\tPhysicalMaterial material;\n\t\t\tmaterial.roughness = 1.;\n\t\t\tmaterial.specularColor = vec3(1.);\n\t\t\tmaterial.diffuseColor = vec3(1.);\n\n\t\t\t#pragma unroll_loop_start\n\t\t\tfor ( int i = 0; i < NUM_RECT_AREA_LIGHTS; i ++ ) {\n\t\t\t\t// areaLightRayMarching = areaLightsRayMarching[ i ];\n\t\t\t\trectAreaLight = rectAreaLights[ i ];\n\t\t\t\t// rectAreaLight.position = areaLightRayMarching.worldPos;\n\n\t\t\t\tRE_Direct_RectArea( rectAreaLight, geometry, material, reflectedLight );\n\t\t\t}\n\t\t\t#pragma unroll_loop_end\n\t\t\tdif += reflectedLight.directDiffuse;\n\n\t\t#endif\n\t#endif\n\n\tvec3 irradiance = getAmbientLightIrradiance( ambientLightColor );\n\n\tirradiance += getLightProbeIrradiance( lightProbe, geometry.normal );\n\tdif += irradiance;\n\treturn dif;\n}\n\n\n\n// --- applyMaterial function definition\n\n\n\nvec4 applyShading(vec3 rayOrigin, vec3 rayDir, inout SDFContext sdfContext){\n\tvec3 p = rayOrigin + rayDir * sdfContext.d;\n\tvec3 n = GetNormal(p);\n\t\n\tvec3 col = applyMaterial(p, n, rayDir, sdfContext.matId, sdfContext);\n\tif(sdfContext.matBlend > 0.) {\n\t\t// blend material colors if needed\n\t\tvec3 col2 = applyMaterial(p, n, rayDir, sdfContext.matId2, sdfContext);\n\t\tcol = (1. - sdfContext.matBlend)*col + sdfContext.matBlend*col2;\n\t}\n\t\t\n\t// gamma\n\t//col = pow( col, vec3(0.4545) ); // this gamma leads to a different look than standard materials\n\treturn vec4(col, 1.);\n}\n\nvoid main()\t{\n\n\tvec3 rayDir = normalize(vPw - cameraPosition);\n\trayDir = transformDirection(rayDir, vInverseModelMatrix);\n\tvec3 rayOrigin = (vInverseModelMatrix * vec4( cameraPosition, 1.0 )).xyz;\n\n\tSDFContext sdfContext = RayMarch(rayOrigin, rayDir, 1.);\n\n\t#if defined( DEBUG_DEPTH )\n\t\tfloat normalizedDepth = 1.-(sdfContext.d - debugMinDepth ) / ( debugMaxDepth - debugMinDepth );\n\t\tnormalizedDepth = saturate(normalizedDepth); // clamp to [0,1]\n\t\tgl_FragColor = vec4(normalizedDepth);\n\t\treturn;\n\t#endif\n\t#if defined( SHADOW_DEPTH )\n\t\tfloat normalizedDepth = 1.-(sdfContext.d - debugMinDepth ) / ( debugMaxDepth - debugMinDepth );\n\t\t// float fragCoordZ = sdfContext.d / vHighPrecisionZW[1];\n\t\tfloat compoundedDepth = 0.5 * (normalizedDepth) + 0.5;\n\t\tfloat alpha = sdfContext.d < MAX_DIST ? 0.:1.;\n\t\tgl_FragColor = vec4( vec3(compoundedDepth), alpha );\n\t\t// normalizedDepth = 0.5*normalizedDepth+0.5;\n\t\t// gl_FragColor = packDepthToRGBA( normalizedDepth );\n\t\t// gl_FragColor = vec4(0.);\n\t\treturn;\n\t#endif\n\t#if defined( SHADOW_DISTANCE )\n\t\tfloat normalizedDepth = (sdfContext.d - shadowDistanceMin ) / ( shadowDistanceMax - shadowDistanceMin );\n\t\tnormalizedDepth = saturate(normalizedDepth); // clamp to [0,1]\n\t\tgl_FragColor = packDepthToRGBA( normalizedDepth );\n\t\treturn;\n\t#endif\n\n\tif( sdfContext.d < MAX_DIST ){\n\t\tgl_FragColor = applyShading(rayOrigin, rayDir, sdfContext);\n\t\t#if defined( TONE_MAPPING )\n\t\t\tgl_FragColor.rgb = toneMapping( gl_FragColor.rgb );\n\t\t#endif\n\t\tgl_FragColor = linearToOutputTexel( gl_FragColor );\n\n\t\t#ifdef USE_FOG\n\t\t\tfloat vFogDepth = sdfContext.d;\n\t\t\t#ifdef FOG_EXP2\n\t\t\t\tfloat fogFactor = 1.0 - exp( - fogDensity * fogDensity * vFogDepth * vFogDepth );\n\t\t\t#else\n\t\t\t\tfloat fogFactor = smoothstep( fogNear, fogFar, vFogDepth );\n\t\t\t#endif\n\t\t\tgl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );\n\t\t#endif\n\t\t#include <premultiplied_alpha_fragment>\n\t\t#include <dithering_fragment>\n\t} else {\n\t\tgl_FragColor = vec4(0.);\n\t}\n\n\t#if defined( DEBUG_STEPS_COUNT )\n\t\tfloat normalizedStepsCount = (float(sdfContext.stepsCount) - debugMinSteps ) / ( debugMaxSteps - debugMinSteps );\n\t\tgl_FragColor = vec4(normalizedStepsCount, 1.-normalizedStepsCount, 0., 1.);\n\t\treturn;\n\t#endif\n\t\n}",
+					"lights": false,
+					"clipping": false
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "node_path",
+							"name": "textureSDF1",
+							"defaultValue": "",
+							"uniformName": "v_POLY_textureSDF_textureSDF1"
+						},
+						{
+							"type": "vector3",
+							"name": "textureSDF1BoundMax",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_textureSDF1BoundMax"
+						},
+						{
+							"type": "vector3",
+							"name": "textureSDF1BoundMin",
+							"defaultValue": [0, 0, 0],
+							"uniformName": "v_POLY_param_textureSDF1BoundMin"
+						}
+					],
+					"timeDependent": true,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": true
+				}
+			}
+		}
+	}
+}

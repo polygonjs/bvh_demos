@@ -1,0 +1,41 @@
+// insert defines
+class CustomActorEvaluator extends ActorEvaluator {
+	// insert members
+
+	// /geo1/physicsWorld1/onTick1
+	v_POLY_onTick1_time = computed(() => globalsTime());
+	v_POLY_onTick1_delta = computed(() => globalsTimeDelta());
+
+	constructor(node, object3D) {
+		super(node, object3D);
+		// insert after constructor
+	}
+	// insert body
+
+	onScenePause() {
+		this.onScenePause1();
+	}
+	onTick() {
+		this.onTick1();
+	}
+	// /geo1/physicsWorld1/onScenePause1
+	onScenePause1() {
+		this.physicsWorldReset1(0);
+	}
+
+	// /geo1/physicsWorld1/onTick1
+	onTick1() {
+		this.physicsWorldStepSimulation1(0);
+	}
+
+	// /geo1/physicsWorld1/physicsWorldReset1
+	physicsWorldReset1() {
+		physicsWorldReset(this.object3D);
+	}
+
+	// /geo1/physicsWorld1/physicsWorldStepSimulation1
+	physicsWorldStepSimulation1() {
+		physicsWorldStepSimulation(this.object3D);
+	}
+}
+return CustomActorEvaluator;

@@ -1,0 +1,8 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"meshStandard_RHINO": {
+			"type": "meshStandard"
+		}
+	}
+}

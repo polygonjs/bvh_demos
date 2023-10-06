@@ -1,0 +1,377 @@
+{
+	"type": "actor",
+	"nodes": {
+		"onObjectHover1": {
+			"type": "onObjectHover",
+			"maxInputsCount": 2
+		},
+		"getIntersectionProperty1": {
+			"type": "getIntersectionProperty",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Intersection",
+					"node": "onObjectHover1",
+					"output": "Intersection"
+				}
+			]
+		},
+		"getObjectAttribute1": {
+			"type": "getObjectAttribute",
+			"params": {
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": "id"
+				},
+				"defaultFloat": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": -1
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Object3D",
+					"node": "getIntersectionProperty1",
+					"output": "object"
+				},
+				{
+					"index": 1,
+					"inputName": "attribName",
+					"node": "constant1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "defaultFloat",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"setMaterialUniform1": {
+			"type": "setMaterialUniform",
+			"params": {
+				"float": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"uniformName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": "selectedId"
+				},
+				"lerp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 5,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				},
+				{
+					"index": 1,
+					"inputName": "Material",
+					"node": "getMaterial2",
+					"output": "Material"
+				},
+				{
+					"index": 2,
+					"inputName": "float",
+					"node": "twoWaySwitch1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Material",
+						"type": "Material",
+						"isArray": false
+					},
+					{
+						"name": "float",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "uniformName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "lerp",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Material",
+						"type": "Material",
+						"isArray": false
+					},
+					{
+						"name": "float",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "uniformName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "lerp",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"string": "id"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "string",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"isDefined1": {
+			"type": "isDefined",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "onObjectHover1",
+					"output": "Intersection"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "Intersection",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "defined",
+						"type": "boolean",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"getMaterial2": {
+			"type": "getMaterial",
+			"params": {
+				"node": "../../MAT/meshStandardBuilder1"
+			}
+		},
+		"twoWaySwitch1": {
+			"type": "twoWaySwitch",
+			"params": {
+				"condition": {
+					"type": "boolean",
+					"default_value": false,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ifTrue": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ifFalse": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "condition",
+					"node": "isDefined1",
+					"output": "defined"
+				},
+				{
+					"index": 1,
+					"inputName": "ifTrue",
+					"node": "getObjectAttribute1",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "ifFalse",
+					"node": "constant2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "condition",
+						"type": "boolean",
+						"isArray": false
+					},
+					{
+						"name": "ifTrue",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "ifFalse",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant2": {
+			"type": "constant",
+			"params": {
+				"float": -1
+			},
+			"maxInputsCount": 0,
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"onTick1": {
+			"type": "onTick"
+		}
+	},
+	"inputs": ["hierarchy9"],
+	"flags": {
+		"display": true
+	},
+	"persisted_config": {
+		"variableNames": [],
+		"variables": [],
+		"functionNames": [
+			"getObjectHoveredState",
+			"getIntersectionPropertyObject",
+			"getObjectAttribute",
+			"globalsTime",
+			"globalsTimeDelta",
+			"getMaterial",
+			"setMaterialUniformNumber"
+		],
+		"serializedParamConfigs": [],
+		"eventDatas": [
+			{
+				"type": "pointermove",
+				"emitter": "canvas",
+				"jsType": "onObjectHover"
+			}
+		]
+	}
+}

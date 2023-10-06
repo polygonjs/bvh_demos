@@ -1,0 +1,28 @@
+{
+	"type": "copNetwork",
+	"nodes": {
+		"SDFExporter1": {
+			"type": "SDFExporter",
+			"inputs": ["SDFFromObject1"]
+		},
+		"SDFFromObject1": {
+			"type": "SDFFromObject",
+			"params": {
+				"geometry": "../../material2",
+				"voxelSize": 0.0400096,
+				"resolution": [34, 30, 24],
+				"boundMin": [-0.6587794462839762, -0.07686367730023519, -0.4619663417339325],
+				"boundMax": [0.6588004271189372, 1.0769783535881567, 0.4618737757205963]
+			}
+		},
+		"SDFFromUrl1": {
+			"type": "SDFFromUrl",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/sdf/rhino.mid.bin",
+				"resolution": [52, 44, 36],
+				"boundMin": [-0.6297152042388916, -0.049940697848796844, -0.43309634923934937],
+				"boundMax": [0.6297361850738525, 1.0500553846359253, 0.4330037832260132]
+			}
+		}
+	}
+}

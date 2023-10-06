@@ -1,0 +1,751 @@
+{
+	"type": "geo",
+	"nodes": {
+		"fileGLTF1": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_straight.glb"
+			}
+		},
+		"hierarchy2": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF1"]
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["hierarchy2"]
+		},
+		"objectProperties1": {
+			"type": "objectProperties",
+			"params": {
+				"tname": true,
+				"name": "tile_straight"
+			},
+			"inputs": ["material1"]
+		},
+		"fileGLTF2": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_cross.glb?v=2"
+			}
+		},
+		"hierarchy3": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF2"]
+		},
+		"material2": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["hierarchy3"]
+		},
+		"objectProperties2": {
+			"type": "objectProperties",
+			"params": {
+				"tname": true,
+				"name": "tile_cross"
+			},
+			"inputs": ["material2"]
+		},
+		"fileGLTF3": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_t.glb?v=2"
+			}
+		},
+		"hierarchy4": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF3"]
+		},
+		"material3": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["hierarchy4"]
+		},
+		"objectProperties3": {
+			"type": "objectProperties",
+			"params": {
+				"tname": true,
+				"name": "tile_t"
+			},
+			"inputs": ["material3"]
+		},
+		"fileGLTF4": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_slope_full_top.glb?v=2"
+			}
+		},
+		"hierarchy5": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF4"]
+		},
+		"material4": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["hierarchy5"]
+		},
+		"objectProperties4": {
+			"type": "objectProperties",
+			"params": {
+				"tname": true,
+				"name": "tile_slope_full_top"
+			},
+			"inputs": ["material4"]
+		},
+		"fileGLTF5": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_slope_full_bottom.glb?v=2"
+			}
+		},
+		"hierarchy6": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF5"]
+		},
+		"material5": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["hierarchy6"]
+		},
+		"objectProperties5": {
+			"type": "objectProperties",
+			"params": {
+				"tname": true,
+				"name": "tile_slope_full_bottom"
+			},
+			"inputs": ["material5"]
+		},
+		"merge2": {
+			"type": "merge",
+			"params": {
+				"inputsCount": 6
+			},
+			"maxInputsCount": 6,
+			"inputs": [
+				"WFCTileSideName8",
+				"WFCTileSideName14",
+				"WFCTileSideName12",
+				"WFCTileSideName9",
+				"WFCTileSideName10",
+				"WFCTileSideName11"
+			]
+		},
+		"WFCTileSideName1": {
+			"type": "WFCTileSideName",
+			"params": {
+				"west": true,
+				"east": true,
+				"sideName": "default"
+			},
+			"inputs": ["objectProperties1"]
+		},
+		"WFCTileSideName2": {
+			"type": "WFCTileSideName",
+			"params": {
+				"south": true,
+				"north": true,
+				"west": true,
+				"east": true,
+				"sideName": "default"
+			},
+			"inputs": ["objectProperties2"]
+		},
+		"WFCTileSideName3": {
+			"type": "WFCTileSideName",
+			"params": {
+				"south": true,
+				"west": true,
+				"east": true,
+				"sideName": "default"
+			},
+			"inputs": ["objectProperties3"]
+		},
+		"WFCTileSideName4": {
+			"type": "WFCTileSideName",
+			"params": {
+				"west": true,
+				"sideName": "default"
+			},
+			"inputs": ["objectProperties4"]
+		},
+		"WFCTileSideName5": {
+			"type": "WFCTileSideName",
+			"params": {
+				"sameNameForSelectedSides": false,
+				"bottom": true,
+				"bottomName": "slope_full",
+				"sideName": "default"
+			},
+			"inputs": ["WFCTileSideName4"]
+		},
+		"WFCTileSideName6": {
+			"type": "WFCTileSideName",
+			"params": {
+				"top": true,
+				"sideName": "slope_full"
+			},
+			"inputs": ["WFCTileSideName7"]
+		},
+		"WFCTileSideName7": {
+			"type": "WFCTileSideName",
+			"params": {
+				"east": true,
+				"sideName": "default"
+			},
+			"inputs": ["objectProperties5"]
+		},
+		"WFCTileSideName8": {
+			"type": "WFCTileSideName",
+			"params": {
+				"south": true,
+				"north": true,
+				"bottom": true,
+				"top": true,
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileSideName1"]
+		},
+		"WFCTileSideName9": {
+			"type": "WFCTileSideName",
+			"params": {
+				"north": true,
+				"bottom": true,
+				"top": true,
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileSideName3"]
+		},
+		"WFCTileSideName10": {
+			"type": "WFCTileSideName",
+			"params": {
+				"south": true,
+				"north": true,
+				"east": true,
+				"top": true,
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileSideName5"]
+		},
+		"WFCTileSideName11": {
+			"type": "WFCTileSideName",
+			"params": {
+				"south": true,
+				"north": true,
+				"west": true,
+				"bottom": true,
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileSideName6"]
+		},
+		"WFCTileSideName12": {
+			"type": "WFCTileSideName",
+			"params": {
+				"bottom": true,
+				"top": true,
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileSideName2"]
+		},
+		"fileGLTF6": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_turn_90.glb?v=2"
+			}
+		},
+		"hierarchy7": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF6"]
+		},
+		"material6": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["hierarchy7"]
+		},
+		"objectProperties6": {
+			"type": "objectProperties",
+			"params": {
+				"tname": true,
+				"name": "tile_turn_90"
+			},
+			"inputs": ["material6"]
+		},
+		"WFCTileSideName13": {
+			"type": "WFCTileSideName",
+			"params": {
+				"south": true,
+				"west": true,
+				"sideName": "default"
+			},
+			"inputs": ["objectProperties6"]
+		},
+		"WFCTileSideName14": {
+			"type": "WFCTileSideName",
+			"params": {
+				"north": true,
+				"east": true,
+				"bottom": true,
+				"top": true,
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileSideName13"]
+		},
+		"WFCTileProperties1": {
+			"type": "WFCTileProperties",
+			"params": {
+				"id": "`@objname`"
+			},
+			"inputs": ["merge2"]
+		},
+		"attribCreate2": {
+			"type": "attribCreate",
+			"params": {
+				"class": 3,
+				"name": "floorIndex",
+				"value1": "@objnum"
+			},
+			"inputs": ["copy2"]
+		},
+		"attribCreate3": {
+			"type": "attribCreate",
+			"params": {
+				"class": 2,
+				"name": "quadId",
+				"value1": "@primnum"
+			},
+			"inputs": ["quadPlane_10x10"]
+		},
+		"copy2": {
+			"type": "copy",
+			"params": {
+				"count": 4,
+				"t": [0, 1, 0]
+			},
+			"inputs": ["attribCreate3"]
+		},
+		"attribPromote1": {
+			"type": "attribPromote",
+			"params": {
+				"classFrom": 3,
+				"classTo": 2,
+				"name": "floorIndex"
+			},
+			"inputs": ["attribCreate2"]
+		},
+		"merge4": {
+			"type": "merge",
+			"params": {
+				"compact": true
+			},
+			"inputs": ["attribPromote1"]
+		},
+		"hexagons1": {
+			"type": "hexagons",
+			"params": {
+				"size": [10, 10],
+				"hexagonRadius": 1
+			}
+		},
+		"quadrangulate1": {
+			"type": "quadrangulate",
+			"params": {
+				"regular": false
+			},
+			"inputs": ["hexagons1"]
+		},
+		"quadSmooth1": {
+			"type": "quadSmooth",
+			"inputs": ["quadrangulate1"]
+		},
+		"quadTriangulate1": {
+			"type": "quadTriangulate",
+			"params": {
+				"triangles": false,
+				"wireframe": true
+			},
+			"inputs": ["merge4"]
+		},
+		"WFCSolver1": {
+			"type": "WFCSolver",
+			"params": {
+				"quadSeed": -6
+			},
+			"inputs": ["attribCreate4", "WFCTileUnresolvedObject1"]
+		},
+		"merge3": {
+			"type": "merge",
+			"inputs": ["quadTriangulate1", "WFCBuilder1"]
+		},
+		"merge5": {
+			"type": "merge",
+			"params": {
+				"compact": true,
+				"preserveMaterials": false
+			},
+			"inputs": ["WFCSolver1"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"objectProperties7": {
+			"type": "objectProperties",
+			"params": {
+				"tcastShadow": true,
+				"treceiveShadow": true
+			},
+			"inputs": ["merge5"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"quadPlane_10x10": {
+			"type": "quadPlane",
+			"params": {
+				"size": [10, 10]
+			}
+		},
+		"quadPlane_2x2": {
+			"type": "quadPlane",
+			"params": {
+				"size": [2, 2]
+			}
+		},
+		"WFCRuleTileWeight1": {
+			"type": "WFCRuleTileWeight",
+			"params": {
+				"tileId": "tile_t",
+				"weight": 0
+			},
+			"inputs": ["WFCRuleConnectionToGridBorder1"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"WFCRuleConnectionFromSideName1": {
+			"type": "WFCRuleConnectionFromSideName",
+			"inputs": ["merge1"]
+		},
+		"WFCRuleConnectionToGridBorder1": {
+			"type": "WFCRuleConnectionToGridBorder",
+			"params": {
+				"sideName": "empty"
+			},
+			"inputs": ["WFCRuleConnectionFromSideName1"]
+		},
+		"WFCTileUnresolvedObject1": {
+			"type": "WFCTileUnresolvedObject",
+			"inputs": ["WFCTileErrorObject1", "emptyObject1"]
+		},
+		"WFCTileErrorObject1": {
+			"type": "WFCTileErrorObject",
+			"inputs": ["WFCRuleTileWeight1", "emptyObject1"]
+		},
+		"sphere1": {
+			"type": "sphere",
+			"params": {
+				"radius": 0.42
+			}
+		},
+		"WFCDebug2": {
+			"type": "WFCDebug",
+			"params": {
+				"srcTileId": "tile_turn_90",
+				"destTileId": "__EMPTY_TILE__",
+				"sideName": "empty"
+			},
+			"inputs": ["WFCTileUnresolvedObject1"]
+		},
+		"emptyObject1": {
+			"type": "emptyObject"
+		},
+		"quadPlane_3x3": {
+			"type": "quadPlane",
+			"params": {
+				"size": [3, 3]
+			}
+		},
+		"WFCTileEmptyObject1": {
+			"type": "WFCTileEmptyObject",
+			"inputs": ["emptyObject2"]
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": ["WFCTileProperties1", "WFCTileEmptyObject1"]
+		},
+		"emptyObject2": {
+			"type": "emptyObject"
+		},
+		"WFCDebug3": {
+			"type": "WFCDebug",
+			"params": {
+				"srcTileId": "tile_slope_full_top",
+				"destTileId": "tile_slope_full_bottom"
+			},
+			"inputs": ["WFCTileUnresolvedObject1"]
+		},
+		"plane1": {
+			"type": "plane"
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"t": [-0.45548341151592053, 0.5342256927412665, 0]
+			},
+			"inputs": ["plane1"]
+		},
+		"WFCBuilder1": {
+			"type": "WFCBuilder",
+			"inputs": ["WFCSolver1", "WFCTileUnresolvedObject1"]
+		},
+		"quadPlane_4x3": {
+			"type": "quadPlane",
+			"params": {
+				"size": [4, 3]
+			}
+		},
+		"quadPlane_4x4": {
+			"type": "quadPlane",
+			"params": {
+				"size": [4, 4]
+			}
+		},
+		"quadPlane_5x5": {
+			"type": "quadPlane",
+			"params": {
+				"size": [4, 4]
+			}
+		},
+		"attribCreate1": {
+			"type": "attribCreate",
+			"params": {
+				"class": 2,
+				"type": 1,
+				"name": "tileId"
+			},
+			"inputs": ["merge4"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"attribCreate4": {
+			"type": "attribCreate",
+			"params": {
+				"group": "21",
+				"class": 2,
+				"type": 1,
+				"name": "tileId",
+				"string": "tile_slope_full_top"
+			},
+			"inputs": ["attribCreate1"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"WFCDebug4": {
+			"type": "WFCDebug",
+			"params": {
+				"srcTileId": "tile_slope_full_*",
+				"destTileId": "tile_slope_full_*",
+				"sideName": "slope_full"
+			},
+			"inputs": ["WFCRuleConnectionFromSideName1"]
+		},
+		"merge6": {
+			"type": "merge",
+			"params": {
+				"inputsCount": 6
+			},
+			"maxInputsCount": 6,
+			"inputs": [null, null, null, null, "WFCTileSideName10", "WFCTileSideName11"]
+		},
+		"quadPlane_2x1": {
+			"type": "quadPlane",
+			"params": {
+				"size": [2, 1]
+			}
+		},
+		"fileGLTF7": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/tiles/basic/tile_straight.glb"
+			}
+		},
+		"WFCTileErrorObject2": {
+			"type": "WFCTileErrorObject"
+		},
+		"WFCTileUnresolvedObject2": {
+			"type": "WFCTileUnresolvedObject"
+		},
+		"WFCTileEmptyObject2": {
+			"type": "WFCTileEmptyObject"
+		},
+		"merge7": {
+			"type": "merge",
+			"params": {
+				"compact": true
+			},
+			"inputs": ["WFCBuilder1"]
+		},
+		"BVH1": {
+			"type": "BVH",
+			"inputs": ["transform2"],
+			"flags": {
+				"display": true
+			}
+		},
+		"BVHVisualizer1": {
+			"type": "BVHVisualizer",
+			"params": {
+				"depth": 27
+			},
+			"inputs": ["BVH1"]
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"scale": 2
+			},
+			"inputs": ["merge7"]
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

@@ -1,0 +1,5 @@
+[
+	"./three/js/libs/draco/gltf/draco_decoder.wasm?t=1696602122196",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js?t=1696602122196",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/rhino.glb"
+]

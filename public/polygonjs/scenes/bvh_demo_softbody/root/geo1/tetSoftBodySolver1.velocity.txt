@@ -1,0 +1,27 @@
+// insert defines
+// insert members
+
+// /geo1/tetSoftBodySolver1/constant_GRAVITY
+v_POLY_constant_GRAVITY_val = VAR__constant_GRAVITY_vector3.set(0, -9.8, 0);
+
+// insert after constructor
+const SoftBodyVelocity = function () {
+	// insert body
+
+	// /geo1/tetSoftBodySolver1/globals1
+	v_POLY_globals1_velocity.copy(velocity);
+	const v_POLY_globals1_delta = delta;
+
+	// /geo1/tetSoftBodySolver1/computeVelocity1
+	const v_POLY_computeVelocity1_velocity = computeVelocity(
+		VAR__computeVelocity1_velocity.copy(v_POLY_globals1_velocity),
+		VAR__computeVelocity1_forces.copy(v_POLY_constant_GRAVITY_val),
+		v_POLY_globals1_delta,
+		1.0,
+		VAR__computeVelocity1__2
+	);
+
+	// /geo1/tetSoftBodySolver1/output1
+	return v_POLY_computeVelocity1_velocity;
+};
+return SoftBodyVelocity;

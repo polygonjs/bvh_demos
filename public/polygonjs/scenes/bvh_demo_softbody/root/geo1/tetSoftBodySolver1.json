@@ -1,0 +1,131 @@
+{
+	"type": "tetSoftBodySolver",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "velocity",
+					"node": "computeVelocity1",
+					"output": "velocity"
+				},
+				{
+					"index": 1,
+					"inputName": "collisionSDF",
+					"node": "SDFPlane1",
+					"output": "float"
+				}
+			]
+		},
+		"computeVelocity1": {
+			"type": "computeVelocity",
+			"params": {
+				"forces": {
+					"overriden_options": {}
+				},
+				"velocity": {
+					"overriden_options": {}
+				},
+				"delta": {
+					"overriden_options": {}
+				},
+				"drag": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "forces",
+					"node": "constant_GRAVITY",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "velocity",
+					"node": "globals1",
+					"output": "velocity"
+				},
+				{
+					"index": 2,
+					"inputName": "delta",
+					"node": "globals1",
+					"output": "delta"
+				}
+			]
+		},
+		"SDFPlane1": {
+			"type": "SDFPlane"
+		},
+		"constant_GRAVITY": {
+			"type": "constant",
+			"params": {
+				"type": 6,
+				"vector3": [0, -9.8, 0]
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		}
+	},
+	"inputs": ["transform5"],
+	"persisted_config": {
+		"variableNames": [
+			"VAR__constant_GRAVITY_vector3",
+			"v_POLY_globals1_velocity",
+			"VAR__computeVelocity1_velocity",
+			"VAR__computeVelocity1_forces",
+			"VAR__computeVelocity1__2",
+			"_geo1_tetSoftBodySolver1_SDFPlane1_position",
+			"VAR__SDFPlane1_center",
+			"VAR__SDFPlane1_normal"
+		],
+		"variables": [
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			}
+		],
+		"functionNames": ["computeVelocity", "SDFPlane"],
+		"serializedParamConfigs": []
+	}
+}

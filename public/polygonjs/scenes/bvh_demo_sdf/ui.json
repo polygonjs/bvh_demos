@@ -1,0 +1,179 @@
+{
+	"nodes": {
+		"COP": {
+			"pos": [-250, 0],
+			"comment": "This node contains the environment map",
+			"nodes": {
+				"envMap": {
+					"pos": [50, 200]
+				},
+				"imageEnv": {
+					"pos": [50, 100]
+				}
+			}
+		},
+		"cameras": {
+			"pos": [100, -250],
+			"comment": "This contains the camera setup.\\nIf the performance of this scene was slow, you could try and enter this node, and un-bypass the cameraRenderer. This will set the pixelRatio from 2 (the default) to 1. Note that you will have to save the scene and reload it when you do so.",
+			"nodes": {
+				"cameraControls1": {
+					"pos": [-350, -150],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [0, 0]
+						}
+					}
+				},
+				"cameraRenderer1": {
+					"pos": [-350, 100],
+					"comment": "If the performance of this scene was slow, you could try and un-bypass this node. This will set the pixelRatio from 2 (the default) to 1. Note that you will have to save the scene and reload it when you do so.",
+					"nodes": {
+						"WebGLRenderer1": {
+							"pos": [0, 0]
+						}
+					}
+				},
+				"perspectiveCamera_MAIN": {
+					"pos": [-350, -250]
+				}
+			}
+		},
+		"lights": {
+			"pos": [100, 100],
+			"comment": "This contains the light. It is not used when you load the scene, but would be if you were to change the raymarchingBuilder material node",
+			"nodes": {
+				"hemisphereLight1": {
+					"pos": [50, 0]
+				}
+			}
+		},
+		"raymarchedObject": {
+			"pos": [100, -500],
+			"comment": "This contains the raymarched object, which is the core of this scene.\\nEnter this node to see how it is set up.",
+			"selection": ["material1"],
+			"nodes": {
+				"COP": {
+					"pos": [-350, 400],
+					"comment": "In this node, we both create and load the 3D textures used as SDF in the material",
+					"nodes": {
+						"SDFExporter1": {
+							"pos": [-150, -50],
+							"comment": "This node saves the input SDF to disk. Note that it is much more practical to use it from the local app ( https://polygonjs.com/docs/install ) as it will save it right in your textures folder of your current project."
+						},
+						"SDFFromObject1": {
+							"pos": [-150, -400],
+							"comment": "This node creates a 3D texture representing the SDF of an object. \\nNote that it can take a very long time to create an SDF with a small step size. It is therefore recommended to do it and use the SDFExporter and reload it with the SDFFromUrl"
+						},
+						"SDFFromUrl1": {
+							"pos": [-150, 250],
+							"comment": "This loads the SDF from a file or url, that was saved from the SDFExporter node. \\nTry and use the presets on the params panel to change the url it loads from"
+						}
+					}
+				},
+				"MAT": {
+					"pos": [-350, 200],
+					"comment": "This node contains the RayMarching material node. Dive into it to see how it is set up",
+					"nodes": {
+						"meshStandard1": {
+							"pos": [0, 0]
+						},
+						"rayMarchingBuilder1": {
+							"pos": [0, 250],
+							"comment": "This is the raymarching material node. There are parameters on itself that controls it, as well as nodes inside.\\n\\nIf you want to change the texture used as SDF, go to its \"advanced\" tab, scroll down, and edit the \"textureSDF1\" parameter.\\n Note that if you change this parameter to point to another node, you need to make sure that the textureSDF1BoundMin and textureSDF1BoundMax are updated accordingly. Instead of editing their expressions manually, you can right click on this node and click on \"mat/rayMarchingBuilder\"->\"Update Texture SDF Bounds\"",
+							"nodes": {
+								"SDFContext1": {
+									"pos": [100, 0]
+								},
+								"SDFMaterial1": {
+									"pos": [-100, 200]
+								},
+								"constant1": {
+									"pos": [-300, 200]
+								},
+								"output1": {
+									"pos": [300, 0]
+								},
+								"textureSDF1": {
+									"pos": [-600, -650],
+									"comment": "This node is the one that imports the 3D texture that creates the SDF representing the model.\\nIt creates a spare parameter on the raymarching node (the parent of this node), which is used to select the texture node to import."
+								},
+								"textureSDF1BoundMax": {
+									"pos": [-900, -450]
+								},
+								"textureSDF1BoundMin": {
+									"pos": [-900, -650]
+								},
+								"multAdd3": {
+									"pos": [-150, -450]
+								},
+								"globals1": {
+									"pos": [-1750, -150]
+								},
+								"vec3ToFloat1": {
+									"pos": [-1000, 250]
+								},
+								"smoothstep1": {
+									"pos": [-600, -150]
+								},
+								"multAdd1": {
+									"pos": [-200, -150]
+								},
+								"multAdd4": {
+									"pos": [-1300, -150]
+								},
+								"multAdd6": {
+									"pos": [-850, -150]
+								},
+								"null1": {
+									"pos": [-1000, -250]
+								},
+								"smoothstep2": {
+									"pos": [-600, 0]
+								},
+								"multAdd7": {
+									"pos": [-850, 50]
+								},
+								"multAdd5": {
+									"pos": [-1150, 0]
+								},
+								"multAdd2": {
+									"pos": [-1150, -250]
+								},
+								"null2": {
+									"pos": [-1000, 0]
+								},
+								"max1": {
+									"pos": [-450, -50]
+								},
+								"cycle1": {
+									"pos": [-1550, 0]
+								}
+							}
+						}
+					}
+				},
+				"box1": {
+					"pos": [-50, 50]
+				},
+				"boxLines1": {
+					"pos": [150, 350],
+					"comment": "using a boxLine node is useful when doing the lookdev of a raymarching material, as it allows to display the bounds of the box we are using. Alternatively , If you were to render on a sphere or other object, you could apply a wireframe material to it."
+				},
+				"fileGLTF1": {
+					"pos": [-50, -400]
+				},
+				"material1": {
+					"pos": [-50, 200],
+					"comment": "This applies the raymarching builder to the material"
+				},
+				"material2": {
+					"pos": [-50, -250],
+					"comment": "This imports the rhino geometry, which was used to create the 3D texture representing its SDF (signed distance function, which is what allows to create its shape in the raymarching material) "
+				},
+				"merge1": {
+					"pos": [-50, 650]
+				}
+			}
+		}
+	}
+}

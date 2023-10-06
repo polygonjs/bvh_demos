@@ -1,0 +1,11 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"meshStandard_RBD": {
+			"type": "meshStandard",
+			"params": {
+				"color": [0.2704977910022518, 0.7912979403281553, 0.2788942634659966]
+			}
+		}
+	}
+}

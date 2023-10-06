@@ -1,0 +1,410 @@
+{
+	"type": "pointBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "position",
+					"node": "add1",
+					"output": "sum"
+				}
+			]
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "globals1",
+					"output": "position"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "floatToVec3_1",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add2",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"length1": {
+			"type": "length",
+			"params": {
+				"v": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "v",
+					"node": "globals1",
+					"output": "position"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "v",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"sin1": {
+			"type": "sin",
+			"params": {
+				"angle": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "angle",
+					"node": "multAdd1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "angle",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sin",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 4
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 6.8
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "length1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.21
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "sin1",
+					"output": "sin"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "multAdd2",
+					"output": "val"
+				}
+			]
+		}
+	},
+	"inputs": ["plane1"],
+	"persisted_config": {
+		"variableNames": [
+			"v_POLY_globals1_position",
+			"VAR__length1_v",
+			"VAR__floatToVec3_1_",
+			"VAR__add1_add0",
+			"VAR__add1_add1",
+			"VAR__add1_add2"
+		],
+		"variables": [
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			}
+		],
+		"functionNames": ["lengthVector", "multAdd", "mathFloat_4", "mathFloat_1", "floatToVec3", "addVector"],
+		"serializedParamConfigs": [],
+		"attributesData": {
+			"read": [],
+			"write": []
+		}
+	}
+}

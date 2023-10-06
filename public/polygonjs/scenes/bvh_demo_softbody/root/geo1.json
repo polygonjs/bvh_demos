@@ -1,0 +1,189 @@
+{
+	"type": "geo",
+	"nodes": {
+		"fileFBX1": {
+			"type": "fileFBX",
+			"params": {
+				"url": "models/stanford-bunny.fbx?timestamp=1696602548702"
+			}
+		},
+		"hierarchy1": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileFBX1"]
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"scale": "1/bbox(0,\"size\").x"
+			},
+			"inputs": ["transform4"]
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"t": [0, "-bbox(0, 'min').y", 0]
+			},
+			"inputs": ["transform1"]
+		},
+		"transform4": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1
+			},
+			"inputs": ["hierarchy1"]
+		},
+		"fuse1": {
+			"type": "fuse",
+			"params": {
+				"dist": 0.163
+			},
+			"inputs": ["transform3"]
+		},
+		"tetrahedralize1": {
+			"type": "tetrahedralize",
+			"params": {
+				"innerPointsResolution": 7
+			},
+			"inputs": ["fuse1"]
+		},
+		"tetTriangulate1": {
+			"type": "tetTriangulate",
+			"inputs": ["tetrahedralize1"]
+		},
+		"transform3": {
+			"type": "transform",
+			"params": {
+				"r": [0, -125.15074795407985, 0]
+			},
+			"inputs": ["transform2"]
+		},
+		"transform5": {
+			"type": "transform",
+			"params": {
+				"t": [0.11554552312651456, 1.2836839962201962, 0.1927976283631696],
+				"r": [0, 5.60096707457253, -26.490420507677726]
+			},
+			"inputs": ["tetrahedralize1"]
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["tetSoftBodySolver1"]
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

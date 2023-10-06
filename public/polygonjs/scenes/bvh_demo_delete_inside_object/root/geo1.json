@@ -1,0 +1,262 @@
+{
+	"type": "geo",
+	"nodes": {
+		"hierarchy1": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileOBJ1"]
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"objectMode": 1,
+				"scale": "2/bbox(0,\"size\").y"
+			},
+			"inputs": ["hierarchy1"]
+		},
+		"objectProperties1": {
+			"type": "objectProperties",
+			"params": {
+				"group": "*",
+				"tcastShadow": true
+			},
+			"inputs": ["material1"]
+		},
+		"bboxScatter1": {
+			"type": "bboxScatter",
+			"params": {
+				"stepSize": 0.075
+			},
+			"inputs": ["objectProperties1"]
+		},
+		"delete1": {
+			"type": "delete",
+			"params": {
+				"invert": true,
+				"byBoundingObject": true
+			},
+			"inputs": ["jitter1", "BVH1"]
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": ["transform1"]
+		},
+		"fileOBJ1": {
+			"type": "fileOBJ",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/renderpeople.com/rp_mei_posed_001_OBJ/rp_mei_posed_001_30k.obj"
+			}
+		},
+		"BVH1": {
+			"type": "BVH",
+			"inputs": ["objectProperties1"]
+		},
+		"copy1": {
+			"type": "copy",
+			"inputs": ["box1", "delete3"]
+		},
+		"sphere1": {
+			"type": "sphere",
+			"params": {
+				"radius": 0.025
+			}
+		},
+		"physicsRBDAttributes1": {
+			"type": "physicsRBDAttributes",
+			"params": {
+				"borderRadius": 0,
+				"friction": 1,
+				"restitution": 0.14
+			},
+			"inputs": ["copy1"]
+		},
+		"material2": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandardBuilder1"
+			},
+			"inputs": ["physicsGround1"]
+		},
+		"physicsGround1": {
+			"type": "physicsGround",
+			"params": {
+				"friction": 1,
+				"restitution": 0
+			}
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": ["material2", "physicsRBDAttributes1"]
+		},
+		"merge2": {
+			"type": "merge",
+			"inputs": ["physicsDebug1", "physicsWorld1"]
+		},
+		"jitter1": {
+			"type": "jitter",
+			"params": {
+				"amount": 0.01
+			},
+			"inputs": ["bboxScatter1"]
+		},
+		"box1": {
+			"type": "box",
+			"params": {
+				"size": 0.07
+			}
+		},
+		"delete2": {
+			"type": "delete",
+			"params": {
+				"byExpression": true,
+				"expression": "@P.y<0.1"
+			},
+			"inputs": ["delete1"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"delete3": {
+			"type": "delete",
+			"params": {
+				"invert": true,
+				"byExpression": true
+			},
+			"inputs": ["delete2"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [-1.0744882995172418, 0, 0]
+			},
+			"inputs": ["objectProperties1"]
+		},
+		"merge3": {
+			"type": "merge",
+			"inputs": ["physicsWorld1", "transform2"],
+			"flags": {
+				"display": true
+			}
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

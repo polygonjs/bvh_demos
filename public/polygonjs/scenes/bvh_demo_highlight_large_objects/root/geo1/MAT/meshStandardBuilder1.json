@@ -1,0 +1,507 @@
+{
+	"type": "meshStandardBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"inputName": "color",
+					"node": "twoWaySwitch1",
+					"output": "val"
+				}
+			]
+		},
+		"attribute1": {
+			"type": "attribute",
+			"params": {
+				"name": "id"
+			},
+			"maxInputsCount": 0,
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"param1": {
+			"type": "param",
+			"params": {
+				"name": "selectedId"
+			},
+			"maxInputsCount": 0,
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"round1": {
+			"type": "round",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in",
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"round2": {
+			"type": "round",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "in",
+					"node": "param1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"compare1": {
+			"type": "compare",
+			"params": {
+				"test": 0,
+				"value0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"value1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value0",
+					"node": "round1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "value1",
+					"node": "round2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "float"
+					},
+					{
+						"name": "value1",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "bool"
+					}
+				]
+			}
+		},
+		"twoWaySwitch1": {
+			"type": "twoWaySwitch",
+			"params": {
+				"condition": {
+					"type": "boolean",
+					"default_value": false,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ifTrue": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ifFalse": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "condition",
+					"node": "compare1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "ifTrue",
+					"node": "multScalar1",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"inputName": "ifFalse",
+					"node": "constant1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "condition",
+						"type": "bool"
+					},
+					{
+						"name": "ifTrue",
+						"type": "vec3"
+					},
+					{
+						"name": "ifFalse",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"color": [1, 1, 1],
+				"asColor": true
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multScalar1": {
+			"type": "multScalar",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 3
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "constant1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"selectedId": {
+			"type": "float",
+			"default_value": 0,
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": 3,
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/geo1/MAT/meshStandardBuilder1-main",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 0,
+			"envMapIntensity": 1,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"fog": false
+		},
+		"onBeforeCompileDataJSONWithoutShaders": {
+			"paramConfigs": [
+				{
+					"type": "float",
+					"name": "selectedId",
+					"defaultValue": 0,
+					"uniformName": "v_POLY_param_selectedId"
+				}
+			],
+			"timeDependent": false,
+			"resolutionDependent": false,
+			"raymarchingLightsWorldCoordsDependent": false
+		},
+		"customMaterials": {
+			"customDepthMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/meshStandardBuilder1-customDepthMaterial",
+					"type": "MeshDepthMaterial",
+					"name": "customDepthMaterial",
+					"side": 1,
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"forceSinglePass": true,
+					"depthPacking": 3201
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "float",
+							"name": "selectedId",
+							"defaultValue": 0,
+							"uniformName": "v_POLY_param_selectedId"
+						}
+					],
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDistanceMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/meshStandardBuilder1-customDistanceMaterial",
+					"type": "MeshDistanceMaterial",
+					"name": "customDistanceMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "float",
+							"name": "selectedId",
+							"defaultValue": 0,
+							"uniformName": "v_POLY_param_selectedId"
+						}
+					],
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			},
+			"customDepthDOFMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/geo1/MAT/meshStandardBuilder1-customDepthDOFMaterial",
+					"type": "MeshDepthMaterial",
+					"name": "customDepthDOFMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"depthPacking": 3200
+				},
+				"onBeforeCompileDataJSONWithoutShaders": {
+					"paramConfigs": [
+						{
+							"type": "float",
+							"name": "selectedId",
+							"defaultValue": 0,
+							"uniformName": "v_POLY_param_selectedId"
+						}
+					],
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"raymarchingLightsWorldCoordsDependent": false
+				}
+			}
+		}
+	}
+}

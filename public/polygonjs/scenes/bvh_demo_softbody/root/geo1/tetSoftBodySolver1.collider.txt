@@ -1,0 +1,18 @@
+// insert defines
+// insert members
+// insert after constructor
+const SoftBodyCollider = function () {
+	// insert body
+
+	// /geo1/tetSoftBodySolver1/SDFPlane1
+	const v_POLY_SDFPlane1_float = SDFPlane(
+		_geo1_tetSoftBodySolver1_SDFPlane1_position.copy(position),
+		VAR__SDFPlane1_center.set(0, 0, 0),
+		VAR__SDFPlane1_normal.set(0, 1, 0),
+		0.0
+	);
+
+	// /geo1/tetSoftBodySolver1/output1
+	return v_POLY_SDFPlane1_float;
+};
+return SoftBodyCollider;

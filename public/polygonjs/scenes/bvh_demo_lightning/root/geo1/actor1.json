@@ -1,0 +1,467 @@
+{
+	"type": "actor",
+	"nodes": {
+		"getObjectAttribute1": {
+			"type": "getObjectAttribute",
+			"params": {
+				"type": 6,
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": "getObjectAttribute1"
+				},
+				"defaultVector3": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Object3D",
+					"node": "getObject1",
+					"output": "Object3D"
+				},
+				{
+					"index": 1,
+					"inputName": "attribName",
+					"node": "constant2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "defaultVector3",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant2": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"string": "rayHit"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "string",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"getObject1": {
+			"type": "getObject",
+			"params": {
+				"getCurrentObject": false,
+				"mask": " /geo1/geo1:sopGroup/linesParent"
+			},
+			"maxInputsCount": 2
+		},
+		"setObjectPosition1": {
+			"type": "setObjectPosition",
+			"params": {
+				"position": {
+					"overriden_options": {}
+				},
+				"lerp": {
+					"overriden_options": {}
+				},
+				"updateMatrix": {
+					"overriden_options": {}
+				}
+			},
+			"maxInputsCount": 5,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				},
+				null,
+				{
+					"index": 2,
+					"inputName": "position",
+					"node": "add1",
+					"output": "sum"
+				}
+			]
+		},
+		"onTick1": {
+			"type": "onTick"
+		},
+		"noiseImproved1": {
+			"type": "noiseImproved",
+			"params": {
+				"position": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"amp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.32
+				},
+				"freq": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": [4, 4, 4]
+				},
+				"offset": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"octaves": {
+					"type": "integer",
+					"default_value": 3,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ampMult": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"freqMult": {
+					"type": "float",
+					"default_value": 2,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "position",
+					"node": "floatToVec3_1",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "position",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "amp",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "freq",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "offset",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "octaves",
+						"type": "int",
+						"isArray": false
+					},
+					{
+						"name": "ampMult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "freqMult",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "noise",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"onTick2": {
+			"type": "onTick"
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "onTick2",
+					"output": "time"
+				}
+			]
+		},
+		"floatToVec3_2": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "x",
+					"node": "noiseImproved1",
+					"output": "noise"
+				},
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "noiseImproved1",
+					"output": "noise"
+				},
+				{
+					"index": 2,
+					"inputName": "z",
+					"node": "noiseImproved1",
+					"output": "noise"
+				}
+			]
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "getObjectAttribute1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "floatToVec3_2",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add2",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		}
+	},
+	"inputs": ["pointLight1"],
+	"persisted_config": {
+		"variableNames": [
+			"VAR__getObjectAttribute1_defaultVector3",
+			"VAR__floatToVec3_1_",
+			"VAR__noiseImproved1_position",
+			"VAR__noiseImproved1_freq",
+			"VAR__noiseImproved1_offset",
+			"VAR__floatToVec3_2_",
+			"VAR__add1_add0",
+			"VAR__add1_add1",
+			"VAR__add1_add2",
+			"VAR__setObjectPosition1_position"
+		],
+		"variables": [
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			}
+		],
+		"functionNames": [
+			"getObject",
+			"globalsTime",
+			"globalsTimeDelta",
+			"getObjectAttribute",
+			"floatToVec3",
+			"noiseImprovedVector3",
+			"addVector",
+			"setObjectPosition"
+		],
+		"serializedParamConfigs": [],
+		"eventDatas": []
+	}
+}

@@ -1,0 +1,260 @@
+// insert defines
+class CustomActorEvaluator extends ActorEvaluator {
+	// insert members
+
+	// /geo1/actor_for_each_line/getObjectProperty1
+	v_POLY_getObjectProperty1_position = computed(() => getObjectProperty(this.object3D, "position"));
+
+	// /geo1/actor_for_each_line/getParent1
+	v_POLY_getParent1_Object3D = computed(() => getParent(this.object3D));
+
+	// /geo1/actor_for_each_line/getObjectAttribute2
+	v_POLY_getObjectAttribute2_val = computed(() => getObjectAttribute(this.object3D, "idn", "float", 0.0));
+
+	// /geo1/actor_for_each_line/onTick2
+	v_POLY_onTick2_time = computed(() => globalsTime());
+	v_POLY_onTick2_delta = computed(() => globalsTimeDelta());
+
+	// /geo1/actor_for_each_line/getObject1
+	v_POLY_getObject1_Object3D = computed(() => getObject(this.object3D, false, "*/rhino"));
+
+	// /geo1/actor_for_each_line/getObjectAttribute1
+	v_POLY_getObjectAttribute1_val = computed(() =>
+		getObjectAttribute(
+			this.v_POLY_getParent1_Object3D.value,
+			this.v_POLY_constant2_val.value,
+			"Vector3",
+			VAR__getObjectAttribute1_defaultVector3.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor_for_each_line/rand2
+	v_POLY_rand2_rand = computed(() => mathFloat_2(rand, this.v_POLY_getObjectAttribute2_val.value, 18.08));
+
+	// /geo1/actor_for_each_line/rand1
+	v_POLY_rand1_rand = computed(() => mathFloat_2(rand, this.v_POLY_getObjectAttribute2_val.value, 0.0));
+
+	// /geo1/actor_for_each_line/multAdd2
+	v_POLY_multAdd2_val = computed(() => mathFloat_4(multAdd, this.v_POLY_onTick2_time.value, 0.0, 4.0, 0.0));
+
+	// /geo1/actor_for_each_line/onObjectAttributeUpdate1
+	v_POLY_onObjectAttributeUpdate1_newValue = computed(() =>
+		getObjectAttributeAutoDefault(this.object3D, this.v_POLY_constant3_val.value, "Vector3")
+	);
+
+	// /geo1/actor_for_each_line/getObjectChild1
+	v_POLY_getObjectChild1_Object3D = computed(() => getObjectChild(this.object3D, this.v_POLY_constant5_val.value));
+
+	// /geo1/actor_for_each_line/getObjectChild2
+	v_POLY_getObjectChild2_Object3D = computed(() => getObjectChild(this.object3D, this.v_POLY_constant4_val.value));
+
+	// /geo1/actor_for_each_line/multAdd5
+	v_POLY_multAdd5_val = computed(() => mathFloat_4(multAdd, this.v_POLY_rand2_rand.value, 0.0, 51.0, 0.0));
+
+	// /geo1/actor_for_each_line/multAdd4
+	v_POLY_multAdd4_val = computed(() => mathFloat_4(multAdd, this.v_POLY_rand1_rand.value, 0.0, 12.0, 0.0));
+
+	// /geo1/actor_for_each_line/elementsToArray1
+	v_POLY_elementsToArray1_Vector3 = computed(() =>
+		elementsToArrayPrimitive(
+			[
+				VAR__elementsToArray1_element0.copy(this.v_POLY_onObjectAttributeUpdate1_newValue.value),
+				VAR__elementsToArray1_element1.copy(this.v_POLY_constant1_val.value),
+			],
+			VAR__elementsToArray1__2
+		)
+	);
+
+	// /geo1/actor_for_each_line/add3
+	v_POLY_add3_sum = computed(() => addNumber(this.v_POLY_multAdd5_val.value, this.v_POLY_multAdd2_val.value, 0.0));
+
+	// /geo1/actor_for_each_line/add1
+	v_POLY_add1_sum = computed(() => addNumber(this.v_POLY_multAdd4_val.value, this.v_POLY_multAdd2_val.value, 0.0));
+
+	// /geo1/actor_for_each_line/cos1
+	v_POLY_cos1_cos = computed(() => mathFloat_1(Math.cos, this.v_POLY_add3_sum.value));
+
+	// /geo1/actor_for_each_line/sin1
+	v_POLY_sin1_sin = computed(() => mathFloat_1(Math.sin, this.v_POLY_add1_sum.value));
+
+	// /geo1/actor_for_each_line/multAdd3
+	v_POLY_multAdd3_val = computed(() => mathFloat_4(multAdd, this.v_POLY_cos1_cos.value, 0.0, 0.03, 0.0));
+
+	// /geo1/actor_for_each_line/multAdd1
+	v_POLY_multAdd1_val = computed(() => mathFloat_4(multAdd, this.v_POLY_sin1_sin.value, 0.0, 0.04, 0.0));
+
+	// /geo1/actor_for_each_line/floatToVec3_1
+	v_POLY_floatToVec3_1_vec3 = computed(() =>
+		floatToVec3(this.v_POLY_multAdd3_val.value, this.v_POLY_multAdd1_val.value, 0.0, VAR__floatToVec3_1_)
+	);
+
+	// /geo1/actor_for_each_line/add2
+	v_POLY_add2_sum = computed(() =>
+		addVector(
+			VAR__add2_add0.copy(this.v_POLY_getObjectAttribute1_val.value),
+			VAR__add2_add1.copy(this.v_POLY_floatToVec3_1_vec3.value),
+			VAR__add2_add2.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor_for_each_line/subtract1
+	v_POLY_subtract1_sub = computed(() =>
+		subtractVector(
+			VAR__subtract1_sub0.copy(this.v_POLY_add2_sum.value),
+			VAR__subtract1_sub1.copy(this.v_POLY_getObjectProperty1_position.value),
+			VAR__subtract1_sub2.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor_for_each_line/multScalar1
+	v_POLY_multScalar1_val = computed(() =>
+		multScalarVector3(VAR__multScalar1_value.copy(this.v_POLY_subtract1_sub.value), 100.0, VAR__multScalar1__1)
+	);
+
+	// /geo1/actor_for_each_line/ray1
+	v_POLY_ray1_Ray = computed(() =>
+		raySet(
+			VAR__ray1_origin.copy(this.v_POLY_getObjectProperty1_position.value),
+			VAR__ray1_direction.copy(this.v_POLY_multScalar1_val.value),
+			VAR__ray1__2
+		)
+	);
+
+	// /geo1/actor_for_each_line/add4
+	v_POLY_add4_sum = computed(() =>
+		addVector(
+			VAR__add4_add0.copy(this.v_POLY_getObjectProperty1_position.value),
+			VAR__add4_add1.copy(this.v_POLY_multScalar1_val.value),
+			VAR__add4_add2.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor_for_each_line/rayIntersectObject1
+	v_POLY_rayIntersectObject1_Intersection = computed(() =>
+		rayIntersectObject3D(this.v_POLY_ray1_Ray.value, this.v_POLY_getObject1_Object3D.value, false)
+	);
+
+	// /geo1/actor_for_each_line/getIntersectionProperty1
+	v_POLY_getIntersectionProperty1_point = computed(() =>
+		getIntersectionPropertyPoint(this.v_POLY_rayIntersectObject1_Intersection.value, VAR__getIntersectionProperty1_)
+	);
+
+	// /geo1/actor_for_each_line/length1
+	v_POLY_length1_val = computed(() =>
+		lengthVector(VAR__length1_v.copy(this.v_POLY_getIntersectionProperty1_point.value))
+	);
+
+	// /geo1/actor_for_each_line/subtract3
+	v_POLY_subtract3_sub = computed(() =>
+		subtractVector(
+			VAR__subtract3_sub0.copy(this.v_POLY_getIntersectionProperty1_point.value),
+			VAR__subtract3_sub1.copy(this.v_POLY_getObjectProperty1_position.value),
+			VAR__subtract3_sub2.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor_for_each_line/compare1
+	v_POLY_compare1_val = computed(() => this.v_POLY_length1_val.value > 0.04);
+
+	// /geo1/actor_for_each_line/twoWaySwitch1
+	v_POLY_twoWaySwitch1_val = computed(() =>
+		this.v_POLY_compare1_val.value
+			? VAR__twoWaySwitch1_ifTrue.copy(this.v_POLY_subtract3_sub.value)
+			: VAR__twoWaySwitch1_ifFalse.copy(this.v_POLY_add4_sum.value)
+	);
+
+	// /geo1/actor_for_each_line/onTick1
+	v_POLY_onTick1_time = computed(() => globalsTime());
+	v_POLY_onTick1_delta = computed(() => globalsTimeDelta());
+
+	// /geo1/actor_for_each_line/constant2
+	v_POLY_constant2_val = { value: "rayHit" };
+
+	// /geo1/actor_for_each_line/constant3
+	v_POLY_constant3_val = { value: "rayHit" };
+
+	// /geo1/actor_for_each_line/constant5
+	v_POLY_constant5_val = { value: 1.0 };
+
+	// /geo1/actor_for_each_line/constant1
+	v_POLY_constant1_val = { value: VAR__constant1_vector3.set(0, 0, 0) };
+
+	// /geo1/actor_for_each_line/constant4
+	v_POLY_constant4_val = { value: 0.0 };
+
+	constructor(node, object3D) {
+		super(node, object3D);
+		// insert after constructor
+
+		// /geo1/actor_for_each_line/onObjectAttributeUpdate1
+
+		this._watchStopHandles.push(
+			watch(
+				getObjectAttributeRef(this.object3D, this.v_POLY_constant3_val.value, "Vector3"),
+				() => {
+					this.onObjectAttributeUpdate1();
+				},
+				{
+					deep: true,
+				}
+			)
+		);
+	}
+	// insert body
+
+	onTick() {
+		this.onTick1();
+	}
+	// /geo1/actor_for_each_line/onObjectAttributeUpdate1
+	onObjectAttributeUpdate1() {
+		this.setGeometryPositions1(0);
+		this.setObjectPosition1(0);
+	}
+
+	// /geo1/actor_for_each_line/onTick1
+	onTick1() {
+		this.setObjectAttribute1(0);
+		this.triggerFilter1(0);
+	}
+
+	// /geo1/actor_for_each_line/setObjectAttribute1
+	setObjectAttribute1() {
+		setObjectAttribute(
+			this.object3D,
+			this.v_POLY_constant3_val.value,
+			1.0,
+			VAR__setObjectAttribute1_val.copy(this.v_POLY_twoWaySwitch1_val.value),
+			"Vector3"
+		);
+	}
+
+	// /geo1/actor_for_each_line/triggerFilter1
+	triggerFilter1() {
+		if (this.v_POLY_compare1_val.value == false) {
+			return;
+		}
+	}
+
+	// /geo1/actor_for_each_line/setGeometryPositions1
+	setGeometryPositions1() {
+		setGeometryPositions(
+			this.v_POLY_getObjectChild1_Object3D.value,
+			this.v_POLY_elementsToArray1_Vector3.value,
+			1.0,
+			true,
+			true,
+			true
+		);
+	}
+
+	// /geo1/actor_for_each_line/setObjectPosition1
+	setObjectPosition1() {
+		setObjectPosition(
+			this.v_POLY_getObjectChild2_Object3D.value,
+			VAR__setObjectPosition1_position.copy(this.v_POLY_onObjectAttributeUpdate1_newValue.value),
+			1.0,
+			true
+		);
+	}
+}
+return CustomActorEvaluator;

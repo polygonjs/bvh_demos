@@ -1,0 +1,55 @@
+{
+	"properties": "1696602495746",
+	"root": "1696601809192",
+	"nodes": {
+		"COP": "1696602083371",
+		"env": "1696601892301",
+		"env/MAT": "1696601892301",
+		"env/MAT/meshStandardBuilder1": "1696601892301",
+		"cameras": "1696602495746",
+		"cameras/cameraControls1": "1696601892301",
+		"lights": "1696601892301",
+		"geo1": "1696602083371",
+		"geo1/actor_for_each_line": "1696601892301",
+		"geo1/actor_for_lines_parent": "1696601892301",
+		"geo1/MAT": "1696601892301",
+		"geo1/MAT/lineBasicBuilder1": "1696601892301",
+		"geo1/MAT/pointsBuilder1": "1696602495746"
+	},
+	"shaders": {
+		"/env/MAT/meshStandardBuilder1": {
+			"vertex": "1696601892301",
+			"fragment": "1696601892301",
+			"customDepthMaterial.vertex": "1696601892301",
+			"customDepthMaterial.fragment": "1696601892301",
+			"customDistanceMaterial.vertex": "1696601892301",
+			"customDistanceMaterial.fragment": "1696601892301",
+			"customDepthDOFMaterial.vertex": "1696601892301",
+			"customDepthDOFMaterial.fragment": "1696601892301"
+		},
+		"/geo1/MAT/lineBasicBuilder1": {
+			"vertex": "1696601892301",
+			"fragment": "1696601892301",
+			"customDistanceMaterial.vertex": "1696601892301",
+			"customDistanceMaterial.fragment": "1696601892301",
+			"customDepthMaterial.vertex": "1696601892301",
+			"customDepthMaterial.fragment": "1696601892301",
+			"customDepthDOFMaterial.vertex": "1696601892301",
+			"customDepthDOFMaterial.fragment": "1696601892301"
+		},
+		"/geo1/MAT/pointsBuilder1": {
+			"vertex": "1696601892301",
+			"fragment": "1696601892301",
+			"customDistanceMaterial.vertex": "1696601892301",
+			"customDistanceMaterial.fragment": "1696601892301",
+			"customDepthMaterial.vertex": "1696601892301",
+			"customDepthMaterial.fragment": "1696601892301",
+			"customDepthDOFMaterial.vertex": "1696601892301",
+			"customDepthDOFMaterial.fragment": "1696601892301"
+		}
+	},
+	"jsFunctionBodies": {
+		"/geo1/actor_for_each_line": "1696601892301",
+		"/geo1/actor_for_lines_parent": "1696601892301"
+	}
+}

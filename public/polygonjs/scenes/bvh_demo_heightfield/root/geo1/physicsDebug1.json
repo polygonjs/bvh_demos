@@ -1,0 +1,27 @@
+{
+	"type": "physicsDebug",
+	"nodes": {
+		"physicsDebugUpdate1": {
+			"type": "physicsDebugUpdate",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				}
+			]
+		},
+		"onTick1": {
+			"type": "onTick"
+		}
+	},
+	"inputs": ["physicsWorld1"],
+	"persisted_config": {
+		"variableNames": [],
+		"variables": [],
+		"functionNames": ["globalsTime", "globalsTimeDelta", "physicsDebugUpdate"],
+		"serializedParamConfigs": [],
+		"eventDatas": []
+	}
+}

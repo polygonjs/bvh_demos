@@ -1,0 +1,291 @@
+{
+	"type": "geo",
+	"nodes": {
+		"fileGLTF1": {
+			"type": "fileGLTF"
+		},
+		"hierarchy1": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF1"]
+		},
+		"fileGLTF2": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/einstein.glb"
+			}
+		},
+		"hierarchy2": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF2"]
+		},
+		"fileGLTF3": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/horse_head.glb"
+			}
+		},
+		"hierarchy3": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF3"]
+		},
+		"fileGLTF4": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/jenner.glb"
+			}
+		},
+		"hierarchy4": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF4"]
+		},
+		"fileGLTF6": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/rhino.glb"
+			}
+		},
+		"hierarchy6": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF6"]
+		},
+		"fileGLTF8": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master/models/resources/threedscans.com/zenobia_in_chains.glb"
+			}
+		},
+		"hierarchy8": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": ["fileGLTF8"]
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [1.279844353811339, 0, 0],
+				"r": [0, 90, 0]
+			},
+			"inputs": ["hierarchy1"]
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [-0.2842868890618232, 0, 1.5162616012565082],
+				"r": [0, -85.46697146290335, 0]
+			},
+			"inputs": ["hierarchy2"]
+		},
+		"transform3": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [-0.3349847580218135, 0, 0],
+				"r": [0, -2.8688983971730417, 0]
+			},
+			"inputs": ["hierarchy3"]
+		},
+		"transform4": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [0, 0, -1.1957972027469288],
+				"r": [0, 181.1473794526404, 0]
+			},
+			"inputs": ["hierarchy4"]
+		},
+		"transform6": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [1.1650067648730729, 0, 1.5948673779332867],
+				"r": [0, 24.50285110458306, 0]
+			},
+			"inputs": ["hierarchy6"]
+		},
+		"transform8": {
+			"type": "transform",
+			"params": {
+				"applyOn": 1,
+				"t": [1.2891475647860438, 0, -1.5367698422580338],
+				"r": [0, 10.175094420852004, 0]
+			},
+			"inputs": ["hierarchy8"]
+		},
+		"merge1": {
+			"type": "merge",
+			"params": {
+				"inputsCount": 6
+			},
+			"maxInputsCount": 6,
+			"inputs": ["transform1", "transform2", "transform3", "transform4", "transform6", "transform8"]
+		},
+		"objectProperties1": {
+			"type": "objectProperties",
+			"params": {
+				"tcastShadow": true
+			},
+			"inputs": ["attribPromote1"]
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandardBuilder1"
+			},
+			"inputs": ["objectProperties1"]
+		},
+		"attribId1": {
+			"type": "attribId",
+			"params": {
+				"class": 3,
+				"idn": false
+			},
+			"inputs": ["BVH1"]
+		},
+		"attribPromote1": {
+			"type": "attribPromote",
+			"params": {
+				"classFrom": 3,
+				"classTo": 0,
+				"name": "id"
+			},
+			"inputs": ["attribId1"]
+		},
+		"hierarchy9": {
+			"type": "hierarchy",
+			"inputs": ["material1"]
+		},
+		"BVH1": {
+			"type": "BVH",
+			"inputs": ["merge1"]
+		}
+	},
+	"params": {
+		"CADLinearTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADAngularTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveAbscissa": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADCurveTolerance": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayEdges": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADEdgesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADDisplayMeshes": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGFacetAngle": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGLinesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGMeshesColor": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"CSGWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADTriangles": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"QUADWireframe": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetScale": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayLines": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySharedFaces": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayPoints": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplayCenter": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		},
+		"TetDisplaySphere": {
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

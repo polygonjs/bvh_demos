@@ -1,0 +1,35 @@
+{
+	"type": "actor",
+	"nodes": {
+		"softBodySolverStepSimulation1": {
+			"type": "softBodySolverStepSimulation",
+			"params": {
+				"stepsCount": 6,
+				"edgeCompliance": 23
+			},
+			"maxInputsCount": 6,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				}
+			]
+		},
+		"onTick1": {
+			"type": "onTick"
+		}
+	},
+	"inputs": ["material1"],
+	"flags": {
+		"display": true
+	},
+	"persisted_config": {
+		"variableNames": [],
+		"variables": [],
+		"functionNames": ["globalsTime", "globalsTimeDelta", "softBodySolverStepSimulation"],
+		"serializedParamConfigs": [],
+		"eventDatas": []
+	}
+}

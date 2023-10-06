@@ -1,0 +1,2041 @@
+{
+	"type": "actor",
+	"nodes": {
+		"onTick1": {
+			"type": "onTick"
+		},
+		"getObjectProperty1": {
+			"type": "getObjectProperty"
+		},
+		"subtract1": {
+			"type": "subtract",
+			"params": {
+				"sub0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"sub1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"sub2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "sub0",
+					"node": "add2",
+					"output": "sum"
+				},
+				{
+					"index": 1,
+					"inputName": "sub1",
+					"node": "getObjectProperty1",
+					"output": "position"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "sub0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "sub1",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "sub2",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sub",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"rayIntersectObject1": {
+			"type": "rayIntersectObject",
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Ray",
+					"node": "ray1",
+					"output": "Ray"
+				},
+				{
+					"index": 1,
+					"inputName": "Object3D",
+					"node": "getObject1",
+					"output": "Object3D"
+				}
+			]
+		},
+		"getObject1": {
+			"type": "getObject",
+			"params": {
+				"getCurrentObject": false,
+				"mask": "*/rhino"
+			},
+			"maxInputsCount": 2
+		},
+		"getIntersectionProperty1": {
+			"type": "getIntersectionProperty",
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Intersection",
+					"node": "rayIntersectObject1",
+					"output": "Intersection"
+				}
+			]
+		},
+		"ray1": {
+			"type": "ray",
+			"params": {
+				"origin": {
+					"overriden_options": {}
+				},
+				"direction": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "origin",
+					"node": "getObjectProperty1",
+					"output": "position"
+				},
+				{
+					"index": 1,
+					"inputName": "direction",
+					"node": "multScalar1",
+					"output": "val"
+				}
+			]
+		},
+		"getParent1": {
+			"type": "getParent"
+		},
+		"getObjectAttribute1": {
+			"type": "getObjectAttribute",
+			"params": {
+				"type": 6,
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": "getObjectAttribute1"
+				},
+				"defaultVector3": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "Object3D",
+					"node": "getParent1",
+					"output": "Object3D"
+				},
+				{
+					"index": 1,
+					"inputName": "attribName",
+					"node": "constant2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "defaultVector3",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant2": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"string": "rayHit"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "string",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"getObjectAttribute2": {
+			"type": "getObjectAttribute",
+			"params": {
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": "idn"
+				},
+				"defaultFloat": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"connection_points": {
+				"in": [
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "defaultFloat",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"rand1": {
+			"type": "rand",
+			"params": {
+				"value0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"value1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value0",
+					"node": "getObjectAttribute2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "value1",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "rand",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"onTick2": {
+			"type": "onTick"
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "multAdd4",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "multAdd2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "add2",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"sin1": {
+			"type": "sin",
+			"params": {
+				"angle": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "angle",
+					"node": "add1",
+					"output": "sum"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "angle",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sin",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "x",
+					"node": "multAdd3",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "y",
+					"node": "multAdd1",
+					"output": "val"
+				}
+			]
+		},
+		"add2": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "getObjectAttribute1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "floatToVec3_1",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add2",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.04
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "sin1",
+					"output": "sin"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 4
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "onTick2",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"rand2": {
+			"type": "rand",
+			"params": {
+				"value0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"value1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 18.08
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value0",
+					"node": "getObjectAttribute2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "value1",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "rand",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"add3": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "multAdd5",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "multAdd2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "add2",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"cos1": {
+			"type": "cos",
+			"params": {
+				"angle": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "angle",
+					"node": "add3",
+					"output": "sum"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "angle",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "cos",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd3": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.03
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "cos1",
+					"output": "cos"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd4": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 12
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "rand1",
+					"output": "rand"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multAdd5": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 51
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "rand2",
+					"output": "rand"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "preAdd",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "postAdd",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"setObjectAttribute1": {
+			"type": "setObjectAttribute",
+			"params": {
+				"type": 6,
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": "rayHit"
+				},
+				"lerp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"val": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 5,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "triggerFilter1",
+					"output": "trigger"
+				},
+				null,
+				{
+					"index": 2,
+					"inputName": "attribName",
+					"node": "constant3",
+					"output": "val"
+				},
+				null,
+				{
+					"index": 4,
+					"inputName": "val",
+					"node": "twoWaySwitch1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "lerp",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant3": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"string": "rayHit"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "string",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"onObjectAttributeUpdate1": {
+			"type": "onObjectAttributeUpdate",
+			"params": {
+				"type": 6,
+				"attribName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"inputName": "attribName",
+					"node": "constant3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "Object3D",
+						"type": "Object3D",
+						"isArray": false
+					},
+					{
+						"name": "attribName",
+						"type": "string",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "newValue",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "previousValue",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"length1": {
+			"type": "length",
+			"params": {
+				"v": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "v",
+					"node": "getIntersectionProperty1",
+					"output": "point"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "v",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"compare1": {
+			"type": "compare",
+			"params": {
+				"test": 2,
+				"value0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"value1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 0.04
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value0",
+					"node": "length1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "value1",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "boolean",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"constant5": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"int": 1,
+				"string": "destPos"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "string",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"subtract3": {
+			"type": "subtract",
+			"params": {
+				"sub0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"sub1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"sub2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "sub0",
+					"node": "getIntersectionProperty1",
+					"output": "point"
+				},
+				{
+					"index": 1,
+					"inputName": "sub1",
+					"node": "getObjectProperty1",
+					"output": "position"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "sub0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "sub1",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "sub2",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sub",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"twoWaySwitch1": {
+			"type": "twoWaySwitch",
+			"params": {
+				"condition": {
+					"type": "boolean",
+					"default_value": false,
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ifTrue": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"ifFalse": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "condition",
+					"node": "compare1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"inputName": "ifTrue",
+					"node": "subtract3",
+					"output": "sub"
+				},
+				{
+					"index": 2,
+					"inputName": "ifFalse",
+					"node": "add4",
+					"output": "sum"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "condition",
+						"type": "boolean",
+						"isArray": false
+					},
+					{
+						"name": "ifTrue",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "ifFalse",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"multScalar1": {
+			"type": "multScalar",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [1, 1, 1],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					},
+					"raw_input": 100
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "value",
+					"node": "subtract1",
+					"output": "sub"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"add4": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"add2": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "add0",
+					"node": "getObjectProperty1",
+					"output": "position"
+				},
+				{
+					"index": 1,
+					"inputName": "add1",
+					"node": "multScalar1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add2",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"setMaterialUniform1": {
+			"type": "setMaterialUniform",
+			"params": {
+				"type": 5,
+				"Vector3": {
+					"type": "vector3",
+					"default_value": [0, 0, 0],
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"uniformName": {
+					"type": "string",
+					"default_value": "",
+					"options": {
+						"spare": true,
+						"editable": false,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				},
+				"lerp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true,
+						"computeOnDirty": true,
+						"dependentOnFoundParam": false
+					}
+				}
+			},
+			"maxInputsCount": 5,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onObjectAttributeUpdate1",
+					"output": "trigger"
+				},
+				null,
+				{
+					"index": 2,
+					"inputName": "Vector3",
+					"node": "onObjectAttributeUpdate1",
+					"output": "newValue"
+				},
+				{
+					"index": 3,
+					"inputName": "uniformName",
+					"node": "constant5",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Material",
+						"type": "Material",
+						"isArray": false
+					},
+					{
+						"name": "Vector3",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "uniformName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "lerp",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "trigger",
+						"type": "trigger",
+						"isArray": false
+					},
+					{
+						"name": "Material",
+						"type": "Material",
+						"isArray": false
+					},
+					{
+						"name": "Vector3",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "uniformName",
+						"type": "string",
+						"isArray": false
+					},
+					{
+						"name": "lerp",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"triggerFilter1": {
+			"type": "triggerFilter",
+			"params": {
+				"condition": {
+					"overriden_options": {}
+				}
+			},
+			"maxInputsCount": 2,
+			"inputs": [
+				{
+					"index": 0,
+					"inputName": "trigger",
+					"node": "onTick1",
+					"output": "trigger"
+				},
+				{
+					"index": 1,
+					"inputName": "condition",
+					"node": "compare1",
+					"output": "val"
+				}
+			]
+		}
+	},
+	"inputs": ["attribId1"],
+	"persisted_config": {
+		"variableNames": [
+			"VAR__getObjectAttribute1_defaultVector3",
+			"VAR__onObjectAttributeUpdate1_",
+			"VAR__floatToVec3_1_",
+			"VAR__add2_add0",
+			"VAR__add2_add1",
+			"VAR__add2_add2",
+			"VAR__subtract1_sub0",
+			"VAR__subtract1_sub1",
+			"VAR__subtract1_sub2",
+			"VAR__multScalar1_value",
+			"VAR__multScalar1__1",
+			"VAR__ray1_origin",
+			"VAR__ray1_direction",
+			"VAR__ray1__2",
+			"VAR__add4_add0",
+			"VAR__add4_add1",
+			"VAR__add4_add2",
+			"VAR__getIntersectionProperty1_",
+			"VAR__length1_v",
+			"VAR__subtract3_sub0",
+			"VAR__subtract3_sub1",
+			"VAR__subtract3_sub2",
+			"VAR__twoWaySwitch1_ifTrue",
+			"VAR__twoWaySwitch1_ifFalse",
+			"VAR__setObjectAttribute1_val",
+			"VAR__setMaterialUniform1_Vector3"
+		],
+		"variables": [
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Ray",
+				"data": {
+					"origin": [0, 0, 0],
+					"direction": [0, 0, -1]
+				}
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			},
+			{
+				"type": "Vector3",
+				"data": [0, 0, 0]
+			}
+		],
+		"functionNames": [
+			"getObjectProperty",
+			"getParent",
+			"getObjectAttribute",
+			"globalsTime",
+			"globalsTimeDelta",
+			"getObject",
+			"rand",
+			"mathFloat_2",
+			"multAdd",
+			"mathFloat_4",
+			"getObjectAttributeAutoDefault",
+			"addNumber",
+			"mathFloat_1",
+			"floatToVec3",
+			"addVector",
+			"subtractVector",
+			"multScalarVector3",
+			"raySet",
+			"rayIntersectObject3D",
+			"getIntersectionPropertyPoint",
+			"lengthVector",
+			"getObjectAttributeRef",
+			"setObjectAttribute",
+			"setMaterialUniformVectorColor"
+		],
+		"serializedParamConfigs": [],
+		"eventDatas": []
+	}
+}

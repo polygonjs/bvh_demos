@@ -1,0 +1,85 @@
+// insert defines
+class CustomActorEvaluator extends ActorEvaluator {
+	// insert members
+
+	// /geo1/actor1/getObject1
+	v_POLY_getObject1_Object3D = computed(() => getObject(this.object3D, false, " /geo1/geo1:sopGroup/linesParent"));
+
+	// /geo1/actor1/onTick2
+	v_POLY_onTick2_time = computed(() => globalsTime());
+	v_POLY_onTick2_delta = computed(() => globalsTimeDelta());
+
+	// /geo1/actor1/getObjectAttribute1
+	v_POLY_getObjectAttribute1_val = computed(() =>
+		getObjectAttribute(
+			this.v_POLY_getObject1_Object3D.value,
+			this.v_POLY_constant2_val.value,
+			"Vector3",
+			VAR__getObjectAttribute1_defaultVector3.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor1/floatToVec3_1
+	v_POLY_floatToVec3_1_vec3 = computed(() =>
+		floatToVec3(0.0, this.v_POLY_onTick2_time.value, 0.0, VAR__floatToVec3_1_)
+	);
+
+	// /geo1/actor1/noiseImproved1
+	v_POLY_noiseImproved1_noise = computed(() =>
+		noiseImprovedVector3(
+			VAR__noiseImproved1_position.copy(this.v_POLY_floatToVec3_1_vec3.value),
+			0.32,
+			VAR__noiseImproved1_freq.set(4, 4, 4),
+			VAR__noiseImproved1_offset.set(0, 0, 0),
+			3.0,
+			0.5,
+			2.0
+		)
+	);
+
+	// /geo1/actor1/floatToVec3_2
+	v_POLY_floatToVec3_2_vec3 = computed(() =>
+		floatToVec3(
+			this.v_POLY_noiseImproved1_noise.value,
+			this.v_POLY_noiseImproved1_noise.value,
+			this.v_POLY_noiseImproved1_noise.value,
+			VAR__floatToVec3_2_
+		)
+	);
+
+	// /geo1/actor1/add1
+	v_POLY_add1_sum = computed(() =>
+		addVector(
+			VAR__add1_add0.copy(this.v_POLY_getObjectAttribute1_val.value),
+			VAR__add1_add1.copy(this.v_POLY_floatToVec3_2_vec3.value),
+			VAR__add1_add2.set(0, 0, 0)
+		)
+	);
+
+	// /geo1/actor1/onTick1
+	v_POLY_onTick1_time = computed(() => globalsTime());
+	v_POLY_onTick1_delta = computed(() => globalsTimeDelta());
+
+	// /geo1/actor1/constant2
+	v_POLY_constant2_val = { value: "rayHit" };
+
+	constructor(node, object3D) {
+		super(node, object3D);
+		// insert after constructor
+	}
+	// insert body
+
+	onTick() {
+		this.onTick1();
+	}
+	// /geo1/actor1/onTick1
+	onTick1() {
+		this.setObjectPosition1(0);
+	}
+
+	// /geo1/actor1/setObjectPosition1
+	setObjectPosition1() {
+		setObjectPosition(this.object3D, VAR__setObjectPosition1_position.copy(this.v_POLY_add1_sum.value), 1.0, true);
+	}
+}
+return CustomActorEvaluator;
