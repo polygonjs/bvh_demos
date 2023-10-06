@@ -1,0 +1,74 @@
+// insert defines
+// insert members
+// insert after constructor
+const CustomPointBuilderEvaluator = function () {
+	// insert body
+
+	// /geo1/subnet1/pointBuilder1/globals1
+	v_POLY_globals1_position.copy(pointContainer.position);
+
+	// /geo1/subnet1/pointBuilder1/attribute2
+	v_POLY_attribute2_val = attributesDict.get("uv");
+
+	// /geo1/subnet1/pointBuilder1/param1
+	const v_POLY_param1_val = getActorNodeParamValue("t");
+
+	// /geo1/subnet1/pointBuilder1/add1
+	const v_POLY_add1_sum = addVector(VAR__add1_add0.copy(v_POLY_globals1_position), VAR__add1_add1.set(0, 0, 0));
+
+	// /geo1/subnet1/pointBuilder1/vec2ToFloat1
+	const v_POLY_vec2ToFloat1_x = VAR__vec2ToFloat1_vec2.copy(v_POLY_attribute2_val).x;
+
+	// /geo1/subnet1/pointBuilder1/multAdd1
+	const v_POLY_multAdd1_val = mathFloat_4(multAdd, v_POLY_param1_val, 0.0, -0.4, 0.5);
+
+	// /geo1/subnet1/pointBuilder1/output1
+	pointContainer.position.copy(v_POLY_add1_sum);
+
+	// /geo1/subnet1/pointBuilder1/complement1
+	const v_POLY_complement1_out = mathFloat_1(complement, v_POLY_vec2ToFloat1_x);
+
+	// /geo1/subnet1/pointBuilder1/multAdd2
+	const v_POLY_multAdd2_val = mathFloat_4(multAdd, v_POLY_multAdd1_val, 0.0, 1.0, 0.24);
+
+	// /geo1/subnet1/pointBuilder1/multAdd3
+	const v_POLY_multAdd3_val = mathFloat_4(multAdd, v_POLY_multAdd1_val, 0.0, -1.0, -1.1);
+
+	// /geo1/subnet1/pointBuilder1/null1
+	const v_POLY_null1_out = v_POLY_multAdd2_val;
+
+	// /geo1/subnet1/pointBuilder1/null2
+	const v_POLY_null2_out = v_POLY_multAdd3_val;
+
+	// /geo1/subnet1/pointBuilder1/multAdd4
+	const v_POLY_multAdd4_val = mathFloat_4(multAdd, v_POLY_null1_out, 1.0, 1.0, 0.0);
+
+	// /geo1/subnet1/pointBuilder1/multAdd6
+	const v_POLY_multAdd6_val = mathFloat_4(multAdd, v_POLY_null2_out, 1.0, 1.0, 0.0);
+
+	// /geo1/subnet1/pointBuilder1/smoothstep2
+	const v_POLY_smoothstep2_smoothstep = mathFloat_3(
+		smoothstep,
+		v_POLY_vec2ToFloat1_x,
+		v_POLY_null1_out,
+		v_POLY_multAdd4_val
+	);
+
+	// /geo1/subnet1/pointBuilder1/smoothstep3
+	const v_POLY_smoothstep3_smoothstep = mathFloat_3(
+		smoothstep,
+		v_POLY_complement1_out,
+		v_POLY_null2_out,
+		v_POLY_multAdd6_val
+	);
+
+	// /geo1/subnet1/pointBuilder1/min1
+	const v_POLY_min1_min = mathFloat_2(Math.min, v_POLY_smoothstep2_smoothstep, v_POLY_smoothstep3_smoothstep);
+
+	// /geo1/subnet1/pointBuilder1/multAdd5
+	const v_POLY_multAdd5_val = mathFloat_4(multAdd, v_POLY_min1_min, 0.0, 2.0, 0.0);
+
+	// /geo1/subnet1/pointBuilder1/attribute1
+	attributesDict.set("pscale", v_POLY_multAdd5_val);
+};
+return CustomPointBuilderEvaluator;

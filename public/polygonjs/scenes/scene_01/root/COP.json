@@ -1,0 +1,25 @@
+{
+	"type": "copNetwork",
+	"nodes": {
+		"envMap": {
+			"type": "envMap",
+			"inputs": ["imageEnv"]
+		},
+		"imageEnv": {
+			"type": "imageEXR",
+			"params": {
+				"url": "textures/neon_photostudio_1k.exr?timestamp=1696597706897",
+				"tminFilter": true,
+				"tmagFilter": true,
+				"tanisotropy": true,
+				"useRendererMaxAnisotropy": true
+			}
+		},
+		"image1": {
+			"type": "image",
+			"params": {
+				"url": "textures/uv.jpg?timestamp=1696597707681"
+			}
+		}
+	}
+}

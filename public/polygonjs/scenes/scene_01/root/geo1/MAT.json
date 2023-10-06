@@ -1,0 +1,21 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"meshStandard_GROUND": {
+			"type": "meshStandard",
+			"params": {
+				"useMap": true,
+				"map": "../../../COP/builder1"
+			}
+		},
+		"meshStandard_STATUE": {
+			"type": "meshStandard"
+		},
+		"meshStandard_SPIKES": {
+			"type": "meshStandard"
+		},
+		"meshStandard_STATUE1": {
+			"type": "meshStandard"
+		}
+	}
+}

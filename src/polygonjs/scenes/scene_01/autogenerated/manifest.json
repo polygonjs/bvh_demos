@@ -1,0 +1,24 @@
+{
+	"properties": "1696598600789",
+	"root": "1696598516906",
+	"nodes": {
+		"COP": "1696598516906",
+		"COP/builder1": "1696598516906",
+		"cameras": "1696598516906",
+		"cameras/cameraControls1": "1696598516906",
+		"cameras/cameraRenderer1": "1696598516906",
+		"lights": "1696598516906",
+		"geo1": "1696598600789",
+		"geo1/MAT": "1696598516906",
+		"geo1/subnet1": "1696598600789",
+		"geo1/subnet1/pointBuilder1": "1696598516906"
+	},
+	"shaders": {
+		"/COP/builder1": {
+			"fragment": "1696598600789"
+		}
+	},
+	"jsFunctionBodies": {
+		"/geo1/subnet1/pointBuilder1": "1696598600789"
+	}
+}

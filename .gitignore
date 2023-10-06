@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# polygonjs
+build/
+public/polygonjs/backup
+public/polygonjs/js
+public/polygonjs/build
+public/polygonjs/renders
+.polygonjs-editor.log
+# When more than one person is working on a scene,
+# it may be useful to also ignore the editor.json
+# to avoid any merge conflict
+# public/polygonjs/scenes/[a-z0-9\_]*/editor.json

@@ -1,0 +1,341 @@
+{
+	"nodes": {
+		"COP": {
+			"pos": [-150, -100],
+			"nodes": {
+				"envMap": {
+					"pos": [50, 250]
+				},
+				"imageEnv": {
+					"pos": [50, 100]
+				},
+				"image1": {
+					"pos": [-200, 100]
+				},
+				"builder1": {
+					"pos": [-200, 300],
+					"selection": ["checkers1"],
+					"nodes": {
+						"globals1": {
+							"pos": [-450, 0]
+						},
+						"output1": {
+							"pos": [200, 0]
+						},
+						"vec3ToFloat1": {
+							"pos": [-450, 400]
+						},
+						"floatToVec2_1": {
+							"pos": [-350, 400]
+						},
+						"checkers1": {
+							"pos": [-100, 200]
+						},
+						"mix1": {
+							"pos": [100, 0]
+						},
+						"constant1": {
+							"pos": [-100, -150]
+						},
+						"constant2": {
+							"pos": [-150, 0]
+						},
+						"multScalar1": {
+							"pos": [-300, 0]
+						},
+						"mult1": {
+							"pos": [-300, 150]
+						}
+					}
+				}
+			}
+		},
+		"cameras": {
+			"pos": [50, -150],
+			"nodes": {
+				"perspectiveCamera1": {
+					"pos": [0, -50]
+				},
+				"polarTransform1": {
+					"pos": [500, 350]
+				},
+				"perspectiveCamera_PBR": {
+					"pos": [350, -50]
+				},
+				"merge1": {
+					"pos": [50, 500]
+				},
+				"perspectiveCamera_DEBUG": {
+					"pos": [650, -50]
+				},
+				"merge2": {
+					"pos": [500, 250]
+				},
+				"cameraControls1": {
+					"pos": [0, 150],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [0, 0]
+						}
+					}
+				},
+				"cameraRenderer1": {
+					"pos": [350, 150],
+					"selection": ["pathTracingRenderer1"],
+					"nodes": {
+						"pathTracingRenderer1": {
+							"pos": [-150, 0]
+						}
+					}
+				}
+			}
+		},
+		"lights": {
+			"pos": [50, -250],
+			"selection": ["merge2"],
+			"nodes": {
+				"areaLight1": {
+					"pos": [300, -200]
+				},
+				"polarTransform1": {
+					"pos": [300, 50]
+				},
+				"areaLight2": {
+					"pos": [450, -250]
+				},
+				"polarTransform2": {
+					"pos": [950, 50]
+				},
+				"merge1": {
+					"pos": [950, 250]
+				},
+				"polarTransform3": {
+					"pos": [1150, 50]
+				},
+				"hemisphereLight1": {
+					"pos": [150, -50]
+				},
+				"merge2": {
+					"pos": [250, 350]
+				},
+				"transform1": {
+					"pos": [450, -50]
+				},
+				"transform2": {
+					"pos": [650, 0]
+				},
+				"areaLight3": {
+					"pos": [650, -250]
+				},
+				"merge3": {
+					"pos": [550, 250]
+				}
+			}
+		},
+		"geo1": {
+			"pos": [50, -350],
+			"selection": ["transform3"],
+			"nodes": {
+				"fileGLTF1": {
+					"pos": [-50, 1450]
+				},
+				"hierarchy1": {
+					"pos": [-50, 1650]
+				},
+				"material1": {
+					"pos": [-50, 1950]
+				},
+				"line1": {
+					"pos": [700, 1500]
+				},
+				"transform1": {
+					"pos": [700, 1700]
+				},
+				"merge1": {
+					"pos": [-150, 2450]
+				},
+				"transform2": {
+					"pos": [900, 1750]
+				},
+				"merge2": {
+					"pos": [750, 1900]
+				},
+				"plane1": {
+					"pos": [-400, 1850]
+				},
+				"material2": {
+					"pos": [-400, 2050]
+				},
+				"polywire1": {
+					"pos": [750, 2050]
+				},
+				"material3": {
+					"pos": [750, 2200]
+				},
+				"merge3": {
+					"pos": [0, 2200]
+				},
+				"material4": {
+					"pos": [200, 2050]
+				},
+				"planeHelper1": {
+					"pos": [-650, 2050]
+				},
+				"MAT": {
+					"pos": [-700, 1750],
+					"nodes": {
+						"meshStandard_GROUND": {
+							"pos": [0, -300]
+						},
+						"meshStandard_STATUE": {
+							"pos": [0, -550]
+						},
+						"meshStandard_SPIKES": {
+							"pos": [0, -750]
+						},
+						"meshStandard_STATUE1": {
+							"pos": [0, 0]
+						}
+					}
+				},
+				"subnet1": {
+					"pos": [200, 1900],
+					"nodes": {
+						"subnetInput1": {
+							"pos": [-100, -250]
+						},
+						"subnetOutput1": {
+							"pos": [-450, 1750]
+						},
+						"plane2": {
+							"pos": [-450, -800]
+						},
+						"transform1": {
+							"pos": [-450, -300]
+						},
+						"merge1": {
+							"pos": [-50, 1650]
+						},
+						"scatter1": {
+							"pos": [-450, -150]
+						},
+						"ray1": {
+							"pos": [-350, 200]
+						},
+						"BVH1": {
+							"pos": [-100, -50]
+						},
+						"copy1": {
+							"pos": [-550, 1350]
+						},
+						"cone1": {
+							"pos": [-650, 1050]
+						},
+						"jitter1": {
+							"pos": [-450, -450]
+						},
+						"delete1": {
+							"pos": [-350, 350]
+						},
+						"attribCreate1": {
+							"pos": [-350, 1050]
+						},
+						"box1": {
+							"pos": [-250, 500]
+						},
+						"delete2": {
+							"pos": [-350, 650]
+						},
+						"delete3": {
+							"pos": [-450, -600]
+						},
+						"box2": {
+							"pos": [-250, 700]
+						},
+						"delete4": {
+							"pos": [-350, 850]
+						},
+						"transform2": {
+							"pos": [-650, 1200]
+						},
+						"pointBuilder1": {
+							"pos": [-350, 1200],
+							"selection": ["multAdd2"],
+							"nodes": {
+								"globals1": {
+									"pos": [-400, 0]
+								},
+								"output1": {
+									"pos": [0, 0]
+								},
+								"add1": {
+									"pos": [-200, 0]
+								},
+								"attribute1": {
+									"pos": [450, 400]
+								},
+								"attribute2": {
+									"pos": [-550, 300]
+								},
+								"vec2ToFloat1": {
+									"pos": [-450, 300]
+								},
+								"smoothstep1": {
+									"pos": [-250, 300]
+								},
+								"param1": {
+									"pos": [-750, 500]
+								},
+								"multAdd1": {
+									"pos": [-600, 500]
+								},
+								"multAdd2": {
+									"pos": [-500, 500]
+								},
+								"null1": {
+									"pos": [-300, 500]
+								},
+								"multAdd4": {
+									"pos": [-150, 600]
+								},
+								"smoothstep2": {
+									"pos": [0, 500]
+								},
+								"multAdd5": {
+									"pos": [300, 450]
+								},
+								"multAdd3": {
+									"pos": [-450, 900]
+								},
+								"null2": {
+									"pos": [-250, 900]
+								},
+								"multAdd6": {
+									"pos": [-100, 1000]
+								},
+								"smoothstep3": {
+									"pos": [50, 900]
+								},
+								"max1": {
+									"pos": [150, 600]
+								},
+								"min1": {
+									"pos": [150, 700]
+								},
+								"complement1": {
+									"pos": [-100, 750]
+								}
+							}
+						},
+						"merge2": {
+							"pos": [-500, 1550]
+						}
+					}
+				},
+				"transform3": {
+					"pos": [0, 2300]
+				}
+			}
+		}
+	}
+}

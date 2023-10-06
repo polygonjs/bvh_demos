@@ -1,0 +1,19 @@
+{
+  "name": "bvh_demos",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "polygon": "polygonjs-editor"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "polygonjs-editor": "1.5.3-1"
+  }
+}

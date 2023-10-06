@@ -1,0 +1,144 @@
+{
+	"type": "subnet",
+	"nodes": {
+		"subnetInput1": {
+			"type": "subnetInput"
+		},
+		"subnetOutput1": {
+			"type": "subnetOutput",
+			"inputs": ["merge2"]
+		},
+		"plane2": {
+			"type": "plane",
+			"params": {
+				"size": [1, 2],
+				"useSegmentsCount": true,
+				"segments": [14, 10],
+				"asLines": 3
+			}
+		},
+		"transform1": {
+			"type": "transform",
+			"params": {
+				"t": [-0.8054395642275662, 3.6453174432140543, -0.15188368428807186],
+				"r": [0, -29.960243467002428, 0],
+				"s": [2.85238296466816, 1, 0.673786272340821]
+			},
+			"inputs": ["jitter1"]
+		},
+		"merge1": {
+			"type": "merge",
+			"inputs": ["copy1", "BVH1"],
+			"flags": {
+				"display": true
+			}
+		},
+		"scatter1": {
+			"type": "scatter",
+			"inputs": ["transform1"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"ray1": {
+			"type": "ray",
+			"params": {
+				"useNormals": false,
+				"addDistAttribute": true
+			},
+			"inputs": ["scatter1", "BVH1"]
+		},
+		"BVH1": {
+			"type": "BVH",
+			"inputs": ["subnetInput1"]
+		},
+		"copy1": {
+			"type": "copy",
+			"inputs": ["transform2", "pointBuilder1"]
+		},
+		"cone1": {
+			"type": "cone",
+			"params": {
+				"radius": 0.06,
+				"height": 0.47,
+				"center": [0, 0, "ch('height')/2"],
+				"direction": [0, 0, 1]
+			}
+		},
+		"jitter1": {
+			"type": "jitter",
+			"params": {
+				"amount": 0.02,
+				"mult": [1, 0, 1],
+				"seed": 9
+			},
+			"inputs": ["delete3"]
+		},
+		"delete1": {
+			"type": "delete",
+			"params": {
+				"byExpression": true,
+				"expression": "@dist<0"
+			},
+			"inputs": ["ray1"]
+		},
+		"attribCreate1": {
+			"type": "attribCreate",
+			"params": {
+				"name": "pscale",
+				"value1": 1
+			},
+			"inputs": ["delete4"]
+		},
+		"box1": {
+			"type": "box",
+			"params": {
+				"sizes": [8, 3.8, 5]
+			}
+		},
+		"delete2": {
+			"type": "delete",
+			"params": {
+				"byBoundingObject": 1
+			},
+			"inputs": ["delete1", "box1"]
+		},
+		"delete3": {
+			"type": "delete",
+			"params": {
+				"class": 3,
+				"invert": 1,
+				"keepPoints": 1
+			},
+			"inputs": ["plane2"]
+		},
+		"box2": {
+			"type": "box",
+			"params": {
+				"center": [-1.0417247310697633, 2.7117503330749866, -0.48547504076932846]
+			}
+		},
+		"delete4": {
+			"type": "delete",
+			"params": {
+				"byBoundingObject": true
+			},
+			"inputs": ["delete2", "box2"],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"t": [0, 0, -0.08]
+			},
+			"inputs": ["cone1"]
+		},
+		"merge2": {
+			"type": "merge",
+			"inputs": ["copy1"]
+		}
+	},
+	"inputs": ["hierarchy1"]
+}

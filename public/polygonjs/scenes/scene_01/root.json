@@ -1,0 +1,10 @@
+{
+	"type": "root",
+	"nodes": {},
+	"params": {
+		"backgroundMode": 0,
+		"mainCameraPath": "/cameras/cameras:sopGroup/perspectiveCamera1",
+		"useEnvironment": 1,
+		"environment": "COP/imageEnv"
+	}
+}

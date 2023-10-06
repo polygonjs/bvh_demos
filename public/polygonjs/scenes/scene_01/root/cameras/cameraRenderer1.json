@@ -1,0 +1,20 @@
+{
+	"type": "cameraRenderer",
+	"nodes": {
+		"pathTracingRenderer1": {
+			"type": "pathTracingRenderer",
+			"params": {
+				"maxSamplesCount": 128,
+				"resolutionScale": 1,
+				"backgroundBlur": 0.6,
+				"environmentIntensity": 0.1,
+				"f": [0, 10],
+				"samplesPerAnimationFrame": 120
+			}
+		}
+	},
+	"params": {
+		"node": "pathTracingRenderer1"
+	},
+	"inputs": ["perspectiveCamera_PBR"]
+}
