@@ -1,6 +1,6 @@
-import { loadSceneData_scene_01 } from "./loadSceneData.js";
+import { loadSceneData_bvh_demo_pathtracing } from "./loadSceneData.js";
 
-export const loadScene_scene_01 = async function (options = {}) {
+export const loadScene_bvh_demo_pathtracing = async function (options = {}) {
   const {
     onProgress,
     domElement,
@@ -24,14 +24,14 @@ export const loadScene_scene_01 = async function (options = {}) {
   const promises = [
     import("./loadSceneFromSceneData.js"),
     sceneData == null
-      ? loadSceneData_scene_01({ onProgress, sceneDataRoot })
+      ? loadSceneData_bvh_demo_pathtracing({ onProgress, sceneDataRoot })
       : (() => {
           return new Promise((resolve) => resolve());
         })(),
     ...modulePromises,
   ];
   const results = await Promise.all(promises);
-  const { Poly, loadSceneFromSceneData_scene_01 } = results[0];
+  const { Poly, loadSceneFromSceneData_bvh_demo_pathtracing } = results[0];
   if (sceneData == null) {
     sceneData = results[1];
   }
@@ -51,7 +51,7 @@ export const loadScene_scene_01 = async function (options = {}) {
     i++;
   }
 
-  const loadedData = await loadSceneFromSceneData_scene_01({
+  const loadedData = await loadSceneFromSceneData_bvh_demo_pathtracing({
     onProgress,
     sceneData,
     domElement,

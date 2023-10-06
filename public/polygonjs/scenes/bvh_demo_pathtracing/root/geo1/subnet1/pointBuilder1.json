@@ -264,7 +264,7 @@
 						"computeOnDirty": true,
 						"dependentOnFoundParam": false
 					},
-					"raw_input": -0.4
+					"raw_input": -1.6
 				},
 				"postAdd": {
 					"type": "float",

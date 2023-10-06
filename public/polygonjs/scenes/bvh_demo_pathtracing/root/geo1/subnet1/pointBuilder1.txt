@@ -20,7 +20,7 @@ const CustomPointBuilderEvaluator = function () {
 	const v_POLY_vec2ToFloat1_x = VAR__vec2ToFloat1_vec2.copy(v_POLY_attribute2_val).x;
 
 	// /geo1/subnet1/pointBuilder1/multAdd1
-	const v_POLY_multAdd1_val = mathFloat_4(multAdd, v_POLY_param1_val, 0.0, -0.4, 0.5);
+	const v_POLY_multAdd1_val = mathFloat_4(multAdd, v_POLY_param1_val, 0.0, -1.6, 0.5);
 
 	// /geo1/subnet1/pointBuilder1/output1
 	pointContainer.position.copy(v_POLY_add1_sum);

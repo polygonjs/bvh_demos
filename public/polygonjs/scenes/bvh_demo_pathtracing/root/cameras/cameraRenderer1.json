@@ -4,12 +4,14 @@
 		"pathTracingRenderer1": {
 			"type": "pathTracingRenderer",
 			"params": {
-				"maxSamplesCount": 128,
+				"maxSamplesCount": 512,
 				"resolutionScale": 1,
 				"backgroundBlur": 0.6,
 				"environmentIntensity": 0.1,
-				"f": [0, 10],
-				"samplesPerAnimationFrame": 120
+				"denoise": 0,
+				"f": [0, 80],
+				"samplesPerAnimationFrame": 512,
+				"resolution": [1024, 1024]
 			}
 		}
 	},

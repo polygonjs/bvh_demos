@@ -1,9 +1,9 @@
-import { fetchSceneAndMount_scene_01 } from "./fetchSceneAndMount.js";
+import { fetchSceneAndMount_bvh_demo_pathtracing } from "./fetchSceneAndMount.js";
 
-export async function loadSceneAndMount_scene_01(options) {
+export async function loadSceneAndMount_bvh_demo_pathtracing(options) {
   const { publicPath, onProgress } = options;
-  const domElement = options.domElement || "polygonjs-app-scene_01";
-  const loadedData = await fetchSceneAndMount_scene_01({
+  const domElement = options.domElement || "polygonjs-app-bvh_demo_pathtracing";
+  const loadedData = await fetchSceneAndMount_bvh_demo_pathtracing({
     domElement,
     autoPlay: true,
     onProgress,

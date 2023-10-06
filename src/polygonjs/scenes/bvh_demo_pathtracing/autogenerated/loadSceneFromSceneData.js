@@ -3,9 +3,9 @@ import { PolyNodeController } from "@polygonjs/polygonjs/dist/src/engine/nodes/u
 import { configureScene, configurePolygonjs } from "../PolyConfig";
 import { Poly } from "@polygonjs/polygonjs/dist/src/engine/Poly";
 import { AllExpressionsRegister } from "@polygonjs/polygonjs/dist/src/engine/poly/registers/expressions/All";
-import { requiredImports_scene_01 } from "./requiredImports";
+import { requiredImports_bvh_demo_pathtracing } from "./requiredImports";
 
-const loadSceneFromSceneData_scene_01 = async function (options) {
+const loadSceneFromSceneData_bvh_demo_pathtracing = async function (options) {
   const {
     domElement,
     sceneData,
@@ -22,13 +22,13 @@ const loadSceneFromSceneData_scene_01 = async function (options) {
 
   if (runRegister) {
     // registers nodes required for this scene
-    for (const node of requiredImports_scene_01.nodes) {
+    for (const node of requiredImports_bvh_demo_pathtracing.nodes) {
       Poly.registerNode(node, undefined, { printWarnings });
     }
-    for (const operation of requiredImports_scene_01.operations) {
+    for (const operation of requiredImports_bvh_demo_pathtracing.operations) {
       Poly.registerOperation(operation, { printWarnings });
     }
-    for (const jsFunction of requiredImports_scene_01.jsFunctions) {
+    for (const jsFunction of requiredImports_bvh_demo_pathtracing.jsFunctions) {
       Poly.registerNamedFunction(jsFunction, { printWarnings });
     }
     const polyNodesData = [];
@@ -52,7 +52,7 @@ const loadSceneFromSceneData_scene_01 = async function (options) {
   }
 
   // load the scene and create a viewer
-  const sceneName = "scene_01";
+  const sceneName = "bvh_demo_pathtracing";
   const { scene, viewer } = await ScenePlayerImporter.loadSceneData({
     domElement,
     sceneName,
@@ -70,4 +70,4 @@ const loadSceneFromSceneData_scene_01 = async function (options) {
   };
 };
 
-export { Poly, loadSceneFromSceneData_scene_01 };
+export { Poly, loadSceneFromSceneData_bvh_demo_pathtracing };

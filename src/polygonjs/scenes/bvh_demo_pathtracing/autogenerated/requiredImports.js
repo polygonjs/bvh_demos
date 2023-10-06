@@ -54,7 +54,7 @@ import { mathFloat_4 } from "@polygonjs/polygonjs/dist/src/engine/functions/math
 import { multAdd } from "@polygonjs/polygonjs/dist/src/engine/functions/multAdd";
 import { smoothstep } from "@polygonjs/polygonjs/dist/src/engine/functions/smoothstep";
 
-export const requiredImports_scene_01 = {
+export const requiredImports_bvh_demo_pathtracing = {
   nodes: [
     BuilderCopNode,
     EnvMapCopNode,

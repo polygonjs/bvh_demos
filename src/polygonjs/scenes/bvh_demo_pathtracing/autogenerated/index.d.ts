@@ -6,8 +6,8 @@ interface LoadSceneAndMountOptions {
   onProgress: (progress: number) => void;
 }
 
-type LoadSceneAndMount_scene_01 = (
+type LoadSceneAndMount_bvh_demo_pathtracing = (
   options: LoadSceneAndMountOptions
 ) => Promise<LoadedData>;
 
-export const loadSceneAndMount_scene_01: LoadSceneAndMount_scene_01;
+export const loadSceneAndMount_bvh_demo_pathtracing: LoadSceneAndMount_bvh_demo_pathtracing;

@@ -81,7 +81,6 @@
 				},
 				"cameraRenderer1": {
 					"pos": [350, 150],
-					"selection": ["pathTracingRenderer1"],
 					"nodes": {
 						"pathTracingRenderer1": {
 							"pos": [-150, 0]
@@ -180,6 +179,9 @@
 				"planeHelper1": {
 					"pos": [-650, 2050]
 				},
+				"transform3": {
+					"pos": [0, 2300]
+				},
 				"MAT": {
 					"pos": [-700, 1750],
 					"nodes": {
@@ -257,9 +259,11 @@
 						"transform2": {
 							"pos": [-650, 1200]
 						},
+						"merge2": {
+							"pos": [-500, 1550]
+						},
 						"pointBuilder1": {
 							"pos": [-350, 1200],
-							"selection": ["multAdd2"],
 							"nodes": {
 								"globals1": {
 									"pos": [-400, 0]
@@ -325,14 +329,8 @@
 									"pos": [-100, 750]
 								}
 							}
-						},
-						"merge2": {
-							"pos": [-500, 1550]
 						}
 					}
-				},
-				"transform3": {
-					"pos": [0, 2300]
 				}
 			}
 		}

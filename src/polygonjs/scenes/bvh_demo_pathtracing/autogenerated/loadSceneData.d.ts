@@ -7,8 +7,8 @@ interface LoadManifestOptions {
   sceneDataRoot?: string;
 }
 
-type LoadSceneData_scene_01 = (
+type LoadSceneData_bvh_demo_pathtracing = (
   options?: LoadManifestOptions
 ) => Promise<SceneJsonExporterData>;
 
-export const loadSceneData_scene_01: LoadSceneData_scene_01;
+export const loadSceneData_bvh_demo_pathtracing: LoadSceneData_bvh_demo_pathtracing;

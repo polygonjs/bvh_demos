@@ -1,7 +1,7 @@
 import { LoadSceneOptions, LoadedData } from "./loadScene";
 
-type FetchSceneAndMount_scene_01 = (
+type FetchSceneAndMount_bvh_demo_pathtracing = (
   options?: LoadSceneOptions
 ) => Promise<LoadedData>;
 
-export const fetchSceneAndMount_scene_01: FetchSceneAndMount_scene_01;
+export const fetchSceneAndMount_bvh_demo_pathtracing: FetchSceneAndMount_bvh_demo_pathtracing;

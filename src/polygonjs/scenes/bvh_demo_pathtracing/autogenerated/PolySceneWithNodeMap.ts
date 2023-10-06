@@ -46,7 +46,7 @@ import { PathTracingRendererRopNode } from "@polygonjs/polygonjs/dist/src/engine
 // mat
 import { MeshStandardMatNode } from "@polygonjs/polygonjs/dist/src/engine/nodes/mat/MeshStandard";
 
-export class PolySceneWithNodeMap_scene_01 extends PolyScene {
+export class PolySceneWithNodeMap_bvh_demo_pathtracing extends PolyScene {
   node(path: "/COP"): CopNetworkObjNode;
   node(path: "/COP/envMap"): EnvMapCopNode;
   node(path: "/COP/imageEnv"): ImageEXRCopNode;
@@ -96,6 +96,7 @@ export class PolySceneWithNodeMap_scene_01 extends PolyScene {
   node(path: "/geo1/merge3"): MergeSopNode;
   node(path: "/geo1/material4"): MaterialSopNode;
   node(path: "/geo1/planeHelper1"): PlaneHelperSopNode;
+  node(path: "/geo1/transform3"): TransformSopNode;
   node(path: "/geo1/MAT"): MaterialsNetworkSopNode;
   node(path: "/geo1/MAT/meshStandard_GROUND"): MeshStandardMatNode;
   node(path: "/geo1/MAT/meshStandard_STATUE"): MeshStandardMatNode;
@@ -121,9 +122,8 @@ export class PolySceneWithNodeMap_scene_01 extends PolyScene {
   node(path: "/geo1/subnet1/box2"): BoxSopNode;
   node(path: "/geo1/subnet1/delete4"): DeleteSopNode;
   node(path: "/geo1/subnet1/transform2"): TransformSopNode;
-  node(path: "/geo1/subnet1/pointBuilder1"): PointBuilderSopNode;
   node(path: "/geo1/subnet1/merge2"): MergeSopNode;
-  node(path: "/geo1/transform3"): TransformSopNode;
+  node(path: "/geo1/subnet1/pointBuilder1"): PointBuilderSopNode;
   node(
     path: string
   ): any /* we need any for now as otherwise an error occurs when adding plugins to the overloaded methods */ {
@@ -131,7 +131,7 @@ export class PolySceneWithNodeMap_scene_01 extends PolyScene {
   }
 }
 
-export interface PolySceneProps_scene_01 {
+export interface PolySceneProps_bvh_demo_pathtracing {
   "COP-envMap--useCameraRenderer"?: ParamValueSerializedTypeMap["boolean"];
   "COP-imageEnv--url"?: ParamValueSerializedTypeMap["string"];
   "COP-imageEnv--reload"?: ParamValueSerializedTypeMap["button"];
@@ -1034,6 +1034,41 @@ export interface PolySceneProps_scene_01 {
   "geo1-planeHelper1--colorGridr"?: ParamValueSerializedTypeMap["float"];
   "geo1-planeHelper1--colorGridg"?: ParamValueSerializedTypeMap["float"];
   "geo1-planeHelper1--colorGridb"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--applyOn"?: ParamValueSerializedTypeMap["integer"];
+  "geo1-transform3--group"?: ParamValueSerializedTypeMap["string"];
+  "geo1-transform3--objectMode"?: ParamValueSerializedTypeMap["integer"];
+  "geo1-transform3--objectTransformSpace"?: ParamValueSerializedTypeMap["integer"];
+  "geo1-transform3--pointGroup"?: ParamValueSerializedTypeMap["string"];
+  "geo1-transform3--rotationOrder"?: ParamValueSerializedTypeMap["integer"];
+  "geo1-transform3--t"?: ParamValueSerializedTypeMap["vector3"];
+  "geo1-transform3--t-tx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--t-ty"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--t-tz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--tx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--ty"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--tz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--r"?: ParamValueSerializedTypeMap["vector3"];
+  "geo1-transform3--r-rx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--r-ry"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--r-rz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--rx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--ry"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--rz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--s"?: ParamValueSerializedTypeMap["vector3"];
+  "geo1-transform3--s-sx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--s-sy"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--s-sz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--sx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--sy"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--sz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--scale"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--pivot"?: ParamValueSerializedTypeMap["vector3"];
+  "geo1-transform3--pivot-pivotx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--pivot-pivoty"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--pivot-pivotz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--pivotx"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--pivoty"?: ParamValueSerializedTypeMap["float"];
+  "geo1-transform3--pivotz"?: ParamValueSerializedTypeMap["float"];
   "geo1-MAT-meshStandard_GROUND--default"?: ParamValueSerializedTypeMap["folder"];
   "geo1-MAT-meshStandard_GROUND--color"?: ParamValueSerializedTypeMap["color"];
   "geo1-MAT-meshStandard_GROUND--color-colorr"?: ParamValueSerializedTypeMap["float"];
@@ -1817,45 +1852,10 @@ export interface PolySceneProps_scene_01 {
   "geo1-subnet1-transform2--pivotx"?: ParamValueSerializedTypeMap["float"];
   "geo1-subnet1-transform2--pivoty"?: ParamValueSerializedTypeMap["float"];
   "geo1-subnet1-transform2--pivotz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-subnet1-pointBuilder1--group"?: ParamValueSerializedTypeMap["string"];
-  "geo1-subnet1-pointBuilder1--updateNormals"?: ParamValueSerializedTypeMap["boolean"];
-  "geo1-subnet1-pointBuilder1--t"?: ParamValueSerializedTypeMap["float"];
   "geo1-subnet1-merge2--compact"?: ParamValueSerializedTypeMap["boolean"];
   "geo1-subnet1-merge2--preserveMaterials"?: ParamValueSerializedTypeMap["boolean"];
   "geo1-subnet1-merge2--inputsCount"?: ParamValueSerializedTypeMap["integer"];
-  "geo1-transform3--applyOn"?: ParamValueSerializedTypeMap["integer"];
-  "geo1-transform3--group"?: ParamValueSerializedTypeMap["string"];
-  "geo1-transform3--objectMode"?: ParamValueSerializedTypeMap["integer"];
-  "geo1-transform3--objectTransformSpace"?: ParamValueSerializedTypeMap["integer"];
-  "geo1-transform3--pointGroup"?: ParamValueSerializedTypeMap["string"];
-  "geo1-transform3--rotationOrder"?: ParamValueSerializedTypeMap["integer"];
-  "geo1-transform3--t"?: ParamValueSerializedTypeMap["vector3"];
-  "geo1-transform3--t-tx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--t-ty"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--t-tz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--tx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--ty"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--tz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--r"?: ParamValueSerializedTypeMap["vector3"];
-  "geo1-transform3--r-rx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--r-ry"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--r-rz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--rx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--ry"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--rz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--s"?: ParamValueSerializedTypeMap["vector3"];
-  "geo1-transform3--s-sx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--s-sy"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--s-sz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--sx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--sy"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--sz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--scale"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--pivot"?: ParamValueSerializedTypeMap["vector3"];
-  "geo1-transform3--pivot-pivotx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--pivot-pivoty"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--pivot-pivotz"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--pivotx"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--pivoty"?: ParamValueSerializedTypeMap["float"];
-  "geo1-transform3--pivotz"?: ParamValueSerializedTypeMap["float"];
+  "geo1-subnet1-pointBuilder1--group"?: ParamValueSerializedTypeMap["string"];
+  "geo1-subnet1-pointBuilder1--updateNormals"?: ParamValueSerializedTypeMap["boolean"];
+  "geo1-subnet1-pointBuilder1--t"?: ParamValueSerializedTypeMap["float"];
 }
